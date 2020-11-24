@@ -1,5 +1,5 @@
 # know
-Help user create word sequence with a knowledge base.
+Help user to create word sequence with a knowledge base.
 
 Interface: a web page with a virtual keyboard, that show what letters can be digited.
 
