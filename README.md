@@ -7,5 +7,5 @@ Acesse neste link o software [know](know.html) em desenvolvimento.
 
 ou
 
-https://tarcisomesquita.github.io/know/
+https://tarcisomesquita.github.io/know/know.html
 
