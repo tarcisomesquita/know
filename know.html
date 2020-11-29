@@ -6,14 +6,28 @@
 </head>
 <body>
 
+<script>
+//document.body.addEventListener('keydown', function (e) {
+//  alert(e.keyCode);
+//});
+
+</script>
 <p>Explore o que o teclado pode escrever para criar textos e para obter informações.</p>
-</ hr>
+<hr>
+
+<div contenteditable="true" style="line-height:30px">Seu texto aqui.</div>
+
+<hr>
+
+<!--
 <div contenteditable="true" style="line-height:30px" onkeyup="window.alert('OK')">
 <p> Write <span style="border: 1px solid #0000FF">your own</span> name ashere<br/><span style="border: 1px solid #00FF00">asf jsf ajkl</span> sfdjlçasdlfk asdfla</p>
 </div>
+-->
 
+<!--
 <style>
-  h1 {
+h1 {
   text-align: center;
   font-size: 1.8em;
   font-family: monospace;
@@ -144,55 +158,103 @@
     padding-top: 0.2em;
 }
 
+</style>
+-->
+
+<style>
+.keyboard {
+    background: #0000FF;
+    text-align: center;
+    font-size: 14px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-weight: bold;
+}
+
+.keyboard__row {
+    display: inline-block;
+    height: 3em;
+    margin: 0.2em;
+}
+
+/* child selector > selects all elements (*) that are the children of element (class keyboard) */
+.keyboard__row > * {
+    position: relative;
+    background: #FF3333;
+    text-align: center;
+    color: #eeeeee;
+    border-radius: 0.3em;
+    margin: 0.2em;
+    padding: 0.2em;
+    width: 3.3em;
+    height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid #4444FF;
+    border-bottom-color: #55FF55;
+    box-shadow: 0 0.2em 0 0.05em #222222;
+}
+
+.keyboard__row > div[data-pressed],
+.keyboard__row > div:active {
+    position: relative;
+    top: 0.2em;
+    background: #2a2a2a;
+    color: #aaaaaa;
+    box-shadow: 0 0 0 0.05em #000000;
+}
+
 .keyboard > .keyboard__row {
     text-align: center;
 }
-</style> 
+
+.tecla {
+  float: left;
+  width: 23px;
+  height: 23px;
+  border: 1px solid #4444FF;
+  margin: 3px;
+  padding: 5px;
+  
+  
+
+}
+</style>
+
+<div style="margin:auto; padding: 3px; background: #000000;  width: 580px; height: 224px;">
+  <div class="tecla" data-key="192">'</div>
+  <div class="tecla" data-key="49">1</div>
+  <div class="tecla" data-key="50">2</div>
+  <div class="tecla" data-key="50">3</div>
+  <div class="tecla" data-key="50">4</div>
+  <div class="tecla" data-key="50">5</div>
+  <div class="tecla" data-key="50">6</div>
+  <div class="tecla" data-key="50">7</div>
+  <div class="tecla" data-key="50">8</div>
+  <div class="tecla" data-key="50">9</div>
+  <div class="tecla" data-key="50">0</div>
+  <div class="tecla" data-key="50">-</div>
+  <div class="tecla" data-key="50">=</div>
+  <div class="tecla" data-key="50">del</div>
+  <div class="tecla" data-key="9">tab</div>
+  <div class="tecla" data-char="Q">Q</div>
+  <div class="tecla" data-char="W">W</div>
+  <div class="tecla" data-char="E">E</div>
+  <div class="tecla" data-char="R">R</div>
+  <div class="tecla" data-char="T">T</div>
+  <div class="tecla" data-char="Y">Y</div>
+  <div class="tecla" data-char="U">U</div>
+  <div class="tecla" data-char="I">I</div>
+  <div class="tecla" data-char="O">O</div>
+  <div class="tecla" data-char="P">P</div>
+  <div class="tecla" data-char="P">'</div>
+  <div class="tecla" data-char="P">[</div>
+  <div class="tecla" data-char="P">enter</div>
+</div>
+
+
+<hr>
+
 <div class="keyboard">
-  <div class="keyboard__row keyboard__row--h1">
-    <div data-key="27" class="key--word">
-      <span>esc</span>
-    </div>
-    <div data-key="112" class="key--fn">
-      <span>F1</span>
-    </div>
-    <div data-key="113" class="key--fn">
-      <span>F2</span>
-    </div>
-    <div data-key="114" class="key--fn">
-      <span>F3</span>
-    </div>
-    <div data-key="115" class="key--fn">
-      <span>F4</span>
-    </div>
-    <div data-key="116" class="key--fn">
-      <span>F5</span>
-    </div>
-    <div data-key="117" class="key--fn">
-      <span>F6</span>
-    </div>
-    <div data-key="118" class="key--fn">
-      <span>F7</span>
-    </div>
-    <div data-key="119" class="key--fn">
-      <span>F8</span>
-    </div>
-    <div data-key="120" class="key--fn">
-      <span>F9</span>
-    </div>
-    <div data-key="121" class="key--fn">
-      <span>F10</span>
-    </div>
-    <div data-key="122" class="key--fn">
-      <span>F11</span>
-    </div>
-    <div data-key="123" class="key--fn">
-      <span>F12</span>
-    </div>
-    <div data-key="n/a" class="key--word">
-      <span>pwr</span>
-    </div>
-  </div>
   <div class="keyboard__row">
     <div class="key--double" data-key="192">
       <div>~</div>
@@ -250,6 +312,7 @@
       <span>delete</span>
     </div>
   </div>
+  
   <div class="keyboard__row">
     <div class="key--bottom-left key--word key--w4" data-key="9">
       <span>tab</span>
@@ -277,6 +340,7 @@
       <div>\</div>
     </div>
   </div>
+  
   <div class="keyboard__row">
     <div class="key--bottom-left key--word key--w5" data-key="20">
       <span>caps lock</span>
@@ -302,6 +366,7 @@
       <span>return</span>
     </div>
   </div>
+  
   <div class="keyboard__row">
     <div class="key--bottom-left key--word key--w6" data-key="16">
       <span>shift</span>
@@ -329,110 +394,90 @@
       <span>shift</span>
     </div>
   </div>
-  <div class="keyboard__row keyboard__row--h3">
-    <div class="key--bottom-left key--word">
-      <span>fn</span>
-    </div>
-    <div class="key--bottom-left key--word key--w1" data-key="17">
-      <span>control</span>
-    </div>
-    <div class="key--bottom-left key--word key--w1" data-key="18">
-      <span>option</span>
-    </div>
-    <div class="key--bottom-right key--word key--w3" data-key="91">
-      <span>command</span>
-    </div>
+  
+  <div class="keyboard__row">
     <div class="key--double key--right key--space" data-key="32" data-char=" ">
       &nbsp;
-    </div>
-    <div class="key--bottom-left key--word key--w3" data-key="93-R">
-      <span>command</span>
-    </div>
-    <div class="key--bottom-left key--word key--w1" data-key="18-R">
-      <span>option</span>
-    </div>
-    <div data-key="37" class="key--arrow">
-      <span>&#9664;</span>
-    </div>
-    <div class="key--double key--arrow--tall" data-key="38">
-      <div>&#9650;</div>
-      <div>&#9660;</div>
-    </div>
-    <div data-key="39" class="key--arrow">
-      <span>&#9654;</span>
     </div>
   </div>
 </div>
 
+<!--
 <script>
-        function getKey (e) {
-            var location = e.location;
-            var selector;
-            if (location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT) {
-                selector = ['[data-key="' + e.keyCode + '-R"]']
-            } else {
-                var code = e.keyCode || e.which;
-                selector = [
-                    '[data-key="' + code + '"]',
-                    '[data-char*="' + encodeURIComponent(String.fromCharCode(code)) + '"]'
-                ].join(',');
-            }
-            return document.querySelector(selector);
-        }
+function getKey(e) {
+  var location = e.location;
+  var selector;
+  if (location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT) {
+    selector = ['[data-key="' + e.keyCode + '-R"]']
+  }
+  else {
+    var code = e.keyCode || e.which;
+    selector = [
+                '[data-key="' + code + '"]',
+                '[data-char*="' + encodeURIComponent(String.fromCharCode(code)) + '"]'
+               ].join(',');
+  }
+  return document.querySelector(selector);
+}
 
-        function pressKey (char) {
-            var key = document.querySelector('[data-char*="' + char.toUpperCase() + '"]');
-            if (!key) {
-                return console.warn('No key for', char);
-            }
-            key.setAttribute('data-pressed', 'on');
-            setTimeout(function () {
-                key.removeAttribute('data-pressed');
-            }, 200);
-        }
+function pressKey(char) {
+  var key = document.querySelector('[data-char*="' + char.toUpperCase() + '"]');
+  if (!key) {
+    return console.warn('No key for', char);
+  }
+  key.setAttribute('data-pressed', 'on');
+  setTimeout(function () {
+    key.removeAttribute('data-pressed');
+  }, 200);
+}
 
-        var h1 = document.querySelector('h1');
-        var originalQueue = h1.innerHTML;
-        var queue = h1.innerHTML;
+var h1 = document.querySelector('h1');
+var originalQueue = h1.innerHTML;
+var queue = h1.innerHTML;
 
-        function next () {
-            var c = queue[0];
-            queue = queue.slice(1);
-            h1.innerHTML = originalQueue.slice(0, originalQueue.length - queue.length);
-            pressKey(c);
-            if (queue.length) {
-                setTimeout(next, Math.random() * 200 + 50);
-            }
-        }
+function next() {
+  var c = queue[0];
+  queue = queue.slice(1);
+  h1.innerHTML = originalQueue.slice(0, originalQueue.length - queue.length);
+  pressKey(c);
+  if (queue.length) {
+    setTimeout(next, Math.random() * 200 + 50);
+  }
+}
 
-        h1.innerHTML = "&nbsp;";
-        setTimeout(next, 500);
+h1.innerHTML = "&nbsp;";
+setTimeout(next, 500);
 
-        document.body.addEventListener('keydown', function (e) {
-            var key = getKey(e);
-            if (!key) {
-                return console.warn('No key for', e.keyCode);
-            }
+document.body.addEventListener('keydown', function (e) {
+  var key = getKey(e);
+  if (!key) {
+    return console.warn('No key for', e.keyCode);
+  }
+  
+  key.setAttribute('data-pressed', 'on');
+});
 
-            key.setAttribute('data-pressed', 'on');
-        });
+document.body.addEventListener('keyup', function (e) {
+  var key = getKey(e);
+  key && key.removeAttribute('data-pressed');
+});
 
-        document.body.addEventListener('keyup', function (e) {
-            var key = getKey(e);
-            key && key.removeAttribute('data-pressed');
-        });
+var keyboard = document.querySelector('.keyboard');
 
-        function size () {
-            var size = keyboard.parentNode.clientWidth / 90;
-            keyboard.style.fontSize = size + 'px';
-            console.log(size);
-        }
+function size() {
+  var size = keyboard.parentNode.clientWidth / 90;
+  windown.alert("size: " + size);
+  keyboard.style.fontSize = size + 'px';
+  console.log(size);
+}
 
-        var keyboard = document.querySelector('.keyboard');
-        window.addEventListener('resize', function (e) {
-            size();
-        });
-        size();
+window.addEventListener('resize', function (e) {
+  size();
+});
+
+size();
 </script>
+-->
+
 </body>
 </html> 
