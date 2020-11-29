@@ -12,12 +12,11 @@
 //});
 
 </script>
+<div>
 <p>Explore o que o teclado pode escrever para criar textos e para obter informações.</p>
-<hr>
 
-<div contenteditable="true" style="line-height:30px">Seu texto aqui.</div>
+<div contenteditable="true" style="height: 100px; background: #CCCCCC; margin: 10px; padding: 5px;"></div>
 
-<hr>
 
 <!--
 <div contenteditable="true" style="line-height:30px" onkeyup="window.alert('OK')">
@@ -25,382 +24,95 @@
 </div>
 -->
 
-<!--
 <style>
-h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: monospace;
-  padding: 0.7em;
-}
-
-.keyboard {
-    text-align: center;
-    font-size: 14px;
-    font-family: sans-serif;
-}
-
-.keyboard__row {
-    display: inline-block;
-    height: 3em;
-    margin: 0.2em;
-}
-
-.keyboard__row--h1 {
-    height: 1.7em;
-    line-height: 1.4em;
-}
-
-.keyboard__row--h3 {
-    height: 3.3em;
-}
-
-.keyboard__row > * {
-    position: relative;
-    background: #333;
-    text-align: center;
-    color: #eee;
-    float: left;
-    border-radius: 0.3em;
-    margin: 0.2em;
-    padding: 0.2em;
-    width: 3.3em;
-    height: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
-    -webkit-user-select: none;
-    border: 1px solid #444;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    border-bottom-color: #555;
-}
-
-.keyboard__row--h1 > div {
-    width: 3.5em;
-}
-
-.keyboard__row > div[data-pressed],
-.keyboard__row > div:active {
-    background: #2a2a2a;
-    color: #aaa;
-    position: relative;
-    top: 0.2em;
-    box-shadow: 0 0 0 0.05em black;
-}
-
-.key--w3 {
-    width: 4.6em;
-}
-
-.key--w4 {
-    width: 6em;
-}
-
-.key--w5 {
-    width: 6.5em;
-}
-
-.key--w6 {
-    width: 8.3em;
-}
-
-.key--space {
-    width: 18em;
-}
-
-.key--double > * {
-    padding-top: 0.1em;
-}
-
-.key--letter {
-    line-height: 2.8em;
-}
-
-.key--bottom-left > * {
-    position: absolute;
-    text-align: left;
-    bottom: 0.4em;
-    left: 0.4em;
-}
-
-.key--bottom-right > * {
-    position: absolute;
-    text-align: right;
-    bottom: 0.4em;
-    right: 0.4em;
-}
-
-.key--fn > * {
-    font-size: 0.6em;
-    line-height: 1em;
-    padding-top: 1.2em;
-    padding-right: 0.2em;
-    text-align: right;
-    float: right;
-}
-
-.key--word > * {
-    font-size: 0.8em;
-}
-
-.key--arrow--tall > *,
-.key--arrow > * {
-    font-size: 0.5em;
-    line-height: 3em;
-}
-
-.key--arrow {
-    height: 1.8em;
-    margin-top: 1.7em;
-    line-height: 0.5em;
-}
-
-.key--arrow--tall > * {
-    padding-top: 0.2em;
-}
-
-</style>
--->
-
-<style>
-.keyboard {
-    background: #0000FF;
-    text-align: center;
-    font-size: 14px;
-    font-family: Impact, Charcoal, sans-serif;
-    font-weight: bold;
-}
-
-.keyboard__row {
-    display: inline-block;
-    height: 3em;
-    margin: 0.2em;
-}
-
-/* child selector > selects all elements (*) that are the children of element (class keyboard) */
-.keyboard__row > * {
-    position: relative;
-    background: #FF3333;
-    text-align: center;
-    color: #eeeeee;
-    border-radius: 0.3em;
-    margin: 0.2em;
-    padding: 0.2em;
-    width: 3.3em;
-    height: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
-    border: 1px solid #4444FF;
-    border-bottom-color: #55FF55;
-    box-shadow: 0 0.2em 0 0.05em #222222;
-}
-
-.keyboard__row > div[data-pressed],
-.keyboard__row > div:active {
-    position: relative;
-    top: 0.2em;
-    background: #2a2a2a;
-    color: #aaaaaa;
-    box-shadow: 0 0 0 0.05em #000000;
-}
-
-.keyboard > .keyboard__row {
-    text-align: center;
-}
-
 .tecla {
   float: left;
   width: 23px;
   height: 23px;
-  border: 1px solid #4444FF;
+  border: 1px solid #777777;
+  border-radius: 3px;
   margin: 3px;
   padding: 5px;
-  
-  
-
+  text-align: center;
+  background: #333333;
+  color: #eeeeee;
+  font-size: 16px;
+  font-family: Impact, Charcoal, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
 
-<div style="margin:auto; padding: 3px; background: #000000;  width: 580px; height: 224px;">
-  <div class="tecla" data-key="192">'</div>
-  <div class="tecla" data-key="49">1</div>
-  <div class="tecla" data-key="50">2</div>
-  <div class="tecla" data-key="50">3</div>
-  <div class="tecla" data-key="50">4</div>
-  <div class="tecla" data-key="50">5</div>
-  <div class="tecla" data-key="50">6</div>
-  <div class="tecla" data-key="50">7</div>
-  <div class="tecla" data-key="50">8</div>
-  <div class="tecla" data-key="50">9</div>
-  <div class="tecla" data-key="50">0</div>
-  <div class="tecla" data-key="50">-</div>
-  <div class="tecla" data-key="50">=</div>
-  <div class="tecla" data-key="50">del</div>
-  <div class="tecla" data-key="9">tab</div>
-  <div class="tecla" data-char="Q">Q</div>
-  <div class="tecla" data-char="W">W</div>
-  <div class="tecla" data-char="E">E</div>
-  <div class="tecla" data-char="R">R</div>
-  <div class="tecla" data-char="T">T</div>
-  <div class="tecla" data-char="Y">Y</div>
-  <div class="tecla" data-char="U">U</div>
-  <div class="tecla" data-char="I">I</div>
-  <div class="tecla" data-char="O">O</div>
-  <div class="tecla" data-char="P">P</div>
-  <div class="tecla" data-char="P">'</div>
-  <div class="tecla" data-char="P">[</div>
-  <div class="tecla" data-char="P">enter</div>
+<div style="margin:auto; padding: 3px; background: #999999; width: 575px; height: 205px; border: 1px solid #7777FF; border-radius: 5px">
+  <div class="tecla" id="">'</div>
+  <div class="tecla" id="">1</div>
+  <div class="tecla" id="">2</div>
+  <div class="tecla" id="">3</div>
+  <div class="tecla" id="">4</div>
+  <div class="tecla" id="">5</div>
+  <div class="tecla" id="">6</div>
+  <div class="tecla" id="">7</div>
+  <div class="tecla" id="">8</div>
+  <div class="tecla" id="">9</div>
+  <div class="tecla" id="">0</div>
+  <div class="tecla" id="">-</div>
+  <div class="tecla" id="">=</div>
+  <div class="tecla" id="">&#x2326;</div>
+  <div class="tecla" id="" >&#x21E5;</div>
+  <div class="tecla" id="">Q</div>
+  <div class="tecla" id="">W</div>
+  <div class="tecla" id="">E</div>
+  <div class="tecla" id="">R</div>
+  <div class="tecla" id="">T</div>
+  <div class="tecla" id="">Y</div>
+  <div class="tecla" id="">U</div>
+  <div class="tecla" id="">I</div>
+  <div class="tecla" id="">O</div>
+  <div class="tecla" id="">P</div>
+  <div class="tecla" id="">'</div>
+  <div class="tecla" id="">[</div>
+  <div class="tecla" id="">&#x232B;</div>
+  <div class="tecla" id="">&#x21EA;</div>
+  <div class="tecla" id="" style="background: #eeeeee; color: #333333;">A</div>
+  <div class="tecla" id="" style="background: #999999">S</div>
+  <div class="tecla" id="">D</div>
+  <div class="tecla" id="">F</div>
+  <div class="tecla" id="">G</div>
+  <div class="tecla" id="">H</div>
+  <div class="tecla" id="">J</div>
+  <div class="tecla" id="">K</div>
+  <div class="tecla" id="">L</div>
+  <div class="tecla" id="">Ç</div>
+  <div class="tecla" id="">~</div>
+  <div class="tecla" id="">]</div>
+  <div class="tecla" id="">&#x2386;</div>
+  <div class="tecla" id="">&#x21E7;</div>
+  <div class="tecla" id="">\</div>
+  <div class="tecla" id="">Z</div>
+  <div class="tecla" id="">X</div>
+  <div class="tecla" id="">C</div>
+  <div class="tecla" id="">V</div>
+  <div class="tecla" id="">B</div>
+  <div class="tecla" id="">N</div>
+  <div class="tecla" id="">M</div>
+  <div class="tecla" id="">,</div>
+  <div class="tecla" id="">.</div>
+  <div class="tecla" id="">;</div>
+  <div class="tecla" id="">/</div>
+  <div class="tecla" id="">Fn</div>
+  <div class="tecla" id="">&#x2388;</div>
+  <div class="tecla" id="">&#x2756;</div>
+  <div class="tecla" id="">&#x2387;</div>
+  <div class="tecla" id="" style="width: 228px">&#x2334;</div>
+  <div class="tecla" id="">&#x2630;</div>
+  <div class="tecla" id="">&#x2190;</div>
+  <div class="tecla" id="">&#x2191;</div>
+  <div class="tecla" id="">&#x2193;</div>
+  <div class="tecla" id="">&#x2192;</div>
+<!-- http://xahlee.info/comp/unicode_computing_symbols.html -->
 </div>
 
 
-<hr>
-
-<div class="keyboard">
-  <div class="keyboard__row">
-    <div class="key--double" data-key="192">
-      <div>~</div>
-      <div>`</div>
-    </div>
-    <div class="key--double" data-key="49">
-      <div>!</div>
-      <div>1</div>
-    </div>
-    <div class="key--double" data-key="50">
-      <div>@</div>
-      <div>2</div>
-    </div>
-    <div class="key--double" data-key="51">
-      <div>#</div>
-      <div>3</div>
-    </div>
-    <div class="key--double" data-key="52">
-      <div>$</div>
-      <div>4</div>
-    </div>
-    <div class="key--double" data-key="53">
-      <div>%</div>
-      <div>5</div>
-    </div>
-    <div class="key--double" data-key="54">
-      <div>^</div>
-      <div>6</div>
-    </div>
-    <div class="key--double" data-key="55">
-      <div>&</div>
-      <div>7</div>
-    </div>
-    <div class="key--double" data-key="56">
-      <div>*</div>
-      <div>8</div>
-    </div>
-    <div class="key--double" data-key="57">
-      <div>(</div>
-      <div>9</div>
-    </div>
-    <div class="key--double" data-key="48">
-      <div>)</div>
-      <div>0</div>
-    </div>
-    <div class="key--double" data-key="189">
-      <div>_</div>
-      <div>-</div>
-    </div>
-    <div class="key--double" data-key="187">
-      <div>+</div>
-      <div>=</div>
-    </div>
-    <div class="key--bottom-right key--word key--w4" data-key="8">
-      <span>delete</span>
-    </div>
-  </div>
-  
-  <div class="keyboard__row">
-    <div class="key--bottom-left key--word key--w4" data-key="9">
-      <span>tab</span>
-    </div>
-    <div class="key--letter" data-char="Q">Q</div>
-    <div class="key--letter" data-char="W">W</div>
-    <div class="key--letter" data-char="E">E</div>
-    <div class="key--letter" data-char="R">R</div>
-    <div class="key--letter" data-char="T">T</div>
-    <div class="key--letter" data-char="Y">Y</div>
-    <div class="key--letter" data-char="U">U</div>
-    <div class="key--letter" data-char="I">I</div>
-    <div class="key--letter" data-char="O">O</div>
-    <div class="key--letter" data-char="P">P</div>
-    <div class="key--double" data-key="219" data-char="{[">
-      <div>{</div>
-      <div>[</div>
-    </div>
-    <div class="key--double" data-key="221" data-char="}]">
-      <div>}</div>
-      <div>]</div>
-    </div>
-    <div class="key--double" data-key="220" data-char="|\">
-      <div>|</div>
-      <div>\</div>
-    </div>
-  </div>
-  
-  <div class="keyboard__row">
-    <div class="key--bottom-left key--word key--w5" data-key="20">
-      <span>caps lock</span>
-    </div>
-    <div class="key--letter" data-char="A">A</div>
-    <div class="key--letter" data-char="S">S</div>
-    <div class="key--letter" data-char="D">D</div>
-    <div class="key--letter" data-char="F">F</div>
-    <div class="key--letter" data-char="G">G</div>
-    <div class="key--letter" data-char="H">H</div>
-    <div class="key--letter" data-char="J">J</div>
-    <div class="key--letter" data-char="K">K</div>
-    <div class="key--letter" data-char="L">L</div>
-    <div class="key--double" data-key="186">
-      <div>:</div>
-      <div>;</div>
-    </div>
-    <div class="key--double" data-key="222">
-      <div>"</div>
-      <div>'</div>
-    </div>
-    <div class="key--bottom-right key--word key--w5" data-key="13">
-      <span>return</span>
-    </div>
-  </div>
-  
-  <div class="keyboard__row">
-    <div class="key--bottom-left key--word key--w6" data-key="16">
-      <span>shift</span>
-    </div>
-    <div class="key--letter" data-char="Z">Z</div>
-    <div class="key--letter" data-char="X">X</div>
-    <div class="key--letter" data-char="C">C</div>
-    <div class="key--letter" data-char="V">V</div>
-    <div class="key--letter" data-char="B">B</div>
-    <div class="key--letter" data-char="N">N</div>
-    <div class="key--letter" data-char="M">M</div>
-    <div class="key--double" data-key="188">
-      <div>&lt;</div>
-      <div>,</div>
-    </div>
-    <div class="key--double" data-key="190">
-      <div>&gt;</div>
-      <div>.</div>
-    </div>
-    <div class="key--double" data-key="191">
-      <div>?</div>
-      <div>/</div>
-    </div>
-    <div class="key--bottom-right key--word key--w6" data-key="16-R">
-      <span>shift</span>
-    </div>
-  </div>
-  
-  <div class="keyboard__row">
-    <div class="key--double key--right key--space" data-key="32" data-char=" ">
-      &nbsp;
-    </div>
-  </div>
-</div>
 
 <!--
 <script>
