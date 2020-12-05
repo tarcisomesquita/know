@@ -6,16 +6,10 @@
 </head>
 <body>
 
-<script>
-//document.body.addEventListener('keydown', function (e) {
-//  alert(e.keyCode);
-//});
-
-</script>
 <div>
 <p>Explore o que o teclado pode escrever para criar textos e para obter informações.</p>
 
-<div contenteditable="true" style="height: 100px; background: #CCCCCC; margin: 10px; padding: 5px;"></div>
+<div id="texto" style="height: 100px; background: #CCCCCC; margin: 10px; padding: 5px;"></div>
 
 
 <!--
@@ -47,152 +41,129 @@
 </style>
 
 <div style="margin:auto; padding: 3px; background: #999999; width: 575px; height: 205px; border: 1px solid #7777FF; border-radius: 5px">
-  <div class="tecla" id="">'</div>
-  <div class="tecla" id="">1</div>
-  <div class="tecla" id="">2</div>
-  <div class="tecla" id="">3</div>
-  <div class="tecla" id="">4</div>
-  <div class="tecla" id="">5</div>
-  <div class="tecla" id="">6</div>
-  <div class="tecla" id="">7</div>
-  <div class="tecla" id="">8</div>
-  <div class="tecla" id="">9</div>
-  <div class="tecla" id="">0</div>
-  <div class="tecla" id="">-</div>
-  <div class="tecla" id="">=</div>
-  <div class="tecla" id="">&#x2326;</div>
-  <div class="tecla" id="" >&#x21E5;</div>
-  <div class="tecla" id="">Q</div>
-  <div class="tecla" id="">W</div>
-  <div class="tecla" id="">E</div>
-  <div class="tecla" id="">R</div>
-  <div class="tecla" id="">T</div>
-  <div class="tecla" id="">Y</div>
-  <div class="tecla" id="">U</div>
-  <div class="tecla" id="">I</div>
-  <div class="tecla" id="">O</div>
-  <div class="tecla" id="">P</div>
-  <div class="tecla" id="">'</div>
-  <div class="tecla" id="">[</div>
-  <div class="tecla" id="">&#x232B;</div>
-  <div class="tecla" id="">&#x21EA;</div>
-  <div class="tecla" id="" style="background: #eeeeee; color: #333333;">A</div>
-  <div class="tecla" id="" style="background: #999999">S</div>
-  <div class="tecla" id="">D</div>
-  <div class="tecla" id="">F</div>
-  <div class="tecla" id="">G</div>
-  <div class="tecla" id="">H</div>
-  <div class="tecla" id="">J</div>
-  <div class="tecla" id="">K</div>
-  <div class="tecla" id="">L</div>
-  <div class="tecla" id="">Ç</div>
-  <div class="tecla" id="">~</div>
-  <div class="tecla" id="">]</div>
-  <div class="tecla" id="">&#x2386;</div>
-  <div class="tecla" id="">&#x21E7;</div>
-  <div class="tecla" id="">\</div>
-  <div class="tecla" id="">Z</div>
-  <div class="tecla" id="">X</div>
-  <div class="tecla" id="">C</div>
-  <div class="tecla" id="">V</div>
-  <div class="tecla" id="">B</div>
-  <div class="tecla" id="">N</div>
-  <div class="tecla" id="">M</div>
-  <div class="tecla" id="">,</div>
-  <div class="tecla" id="">.</div>
-  <div class="tecla" id="">;</div>
-  <div class="tecla" id="">/</div>
-  <div class="tecla" id="">Fn</div>
-  <div class="tecla" id="">&#x2388;</div>
-  <div class="tecla" id="">&#x2756;</div>
-  <div class="tecla" id="">&#x2387;</div>
-  <div class="tecla" id="" style="width: 228px">&#x2334;</div>
-  <div class="tecla" id="">&#x2630;</div>
-  <div class="tecla" id="">&#x2190;</div>
-  <div class="tecla" id="">&#x2191;</div>
-  <div class="tecla" id="">&#x2193;</div>
-  <div class="tecla" id="">&#x2192;</div>
+  <div class="tecla" id="Backquote">'</div>
+  <div class="tecla" id="Digit1">1</div>
+  <div class="tecla" id="Digit2">2</div>
+  <div class="tecla" id="Digit3">3</div>
+  <div class="tecla" id="Digit4">4</div>
+  <div class="tecla" id="Digit5">5</div>
+  <div class="tecla" id="Digit6">6</div>
+  <div class="tecla" id="Digit7">7</div>
+  <div class="tecla" id="Digit8">8</div>
+  <div class="tecla" id="Digit9">9</div>
+  <div class="tecla" id="Digit0">0</div>
+  <div class="tecla" id="Minus">-</div>
+  <div class="tecla" id="Equal">=</div>
+  <div class="tecla" id="Delete">&#x2326;</div>
+  <div class="tecla" id="Tab" >&#x21E5;</div>
+  <div class="tecla" id="KeyQ">Q</div>
+  <div class="tecla" id="KeyW">W</div>
+  <div class="tecla" id="KeyE">E</div>
+  <div class="tecla" id="KeyR">R</div>
+  <div class="tecla" id="KeyT">T</div>
+  <div class="tecla" id="KeyY">Y</div>
+  <div class="tecla" id="KeyU">U</div>
+  <div class="tecla" id="KeyI">I</div>
+  <div class="tecla" id="KeyO">O</div>
+  <div class="tecla" id="KeyP">P</div>
+  <div class="tecla" id="BracketLeft">'</div>
+  <div class="tecla" id="BracketRight">[</div>
+  <div class="tecla" id="Backspace">&#x232B;</div>
+  <div class="tecla" id="CapsLock">&#x21EA;</div>
+  <div class="tecla" id="KeyA" style="background: #eeeeee; color: #333333;">A</div>
+  <div class="tecla" id="KeyS" style="background: #999999">S</div>
+  <div class="tecla" id="KeyD">D</div>
+  <div class="tecla" id="KeyF">F</div>
+  <div class="tecla" id="KeyG">G</div>
+  <div class="tecla" id="KeyH" onmousedown="pressionar('KeyH')">H</div>
+  <div class="tecla" id="KeyJ">J</div>
+  <div class="tecla" id="KeyK">K</div>
+  <div class="tecla" id="KeyL">L</div>
+  <div class="tecla" id="Semicolon">Ç</div>
+  <div class="tecla" id="Quote">~</div>
+  <div class="tecla" id="Backslash">]</div>
+  <div class="tecla" id="Enter">&#x2386;</div>
+  <div class="tecla" id="ShiftLeft">&#x21E7;</div>
+  <div class="tecla" id="IntlBackslash">\</div>
+  <div class="tecla" id="KeyZ">Z</div>
+  <div class="tecla" id="KeyX">X</div>
+  <div class="tecla" id="KeyC">C</div>
+  <div class="tecla" id="KeyV">V</div>
+  <div class="tecla" id="KeyB">B</div>
+  <div class="tecla" id="KeyN">N</div>
+  <div class="tecla" id="KeyM">M</div>
+  <div class="tecla" id="Comma">,</div>
+  <div class="tecla" id="Period">.</div>
+  <div class="tecla" id="Slash">;</div>
+  <div class="tecla" id="IntlRo">/</div>
+  <div class="tecla" id="Fn">Fn</div>
+  <div class="tecla" id="ControlLeft">&#x2388;</div>
+  <div class="tecla" id="Window">&#x2756;</div>
+  <div class="tecla" id="AltLeft">&#x2387;</div>
+  <div class="tecla" id="Space" style="width: 228px">&#x2334;</div>
+  <div class="tecla" id="ContextMenu">&#x2630;</div>
+  <div class="tecla" id="ArrowLeft">&#x2190;</div>
+  <div class="tecla" id="ArrowUp">&#x2191;</div>
+  <div class="tecla" id="ArrowDown">&#x2193;</div>
+  <div class="tecla" id="ArrowRight">&#x2192;</div>
 <!-- http://xahlee.info/comp/unicode_computing_symbols.html -->
+<!-- https://keycode.info/ -->
 </div>
 
 
 
-<!--
 <script>
 function getKey(e) {
-  var location = e.location;
-  var selector;
-  if (location === KeyboardEvent.DOM_KEY_LOCATION_RIGHT) {
-    selector = ['[data-key="' + e.keyCode + '-R"]']
-  }
-  else {
-    var code = e.keyCode || e.which;
-    selector = [
-                '[data-key="' + code + '"]',
-                '[data-char*="' + encodeURIComponent(String.fromCharCode(code)) + '"]'
-               ].join(',');
-  }
-  return document.querySelector(selector);
+  var texto = document.getElementById("texto");
+  
+  if (e.code == 'KeyH') texto.innerHTML += 'H';
+  // alert(String.fromCharCode(e.keyCode));
+  alert(e.key);
 }
-
-function pressKey(char) {
-  var key = document.querySelector('[data-char*="' + char.toUpperCase() + '"]');
-  if (!key) {
-    return console.warn('No key for', char);
-  }
-  key.setAttribute('data-pressed', 'on');
-  setTimeout(function () {
-    key.removeAttribute('data-pressed');
-  }, 200);
-}
-
-var h1 = document.querySelector('h1');
-var originalQueue = h1.innerHTML;
-var queue = h1.innerHTML;
-
-function next() {
-  var c = queue[0];
-  queue = queue.slice(1);
-  h1.innerHTML = originalQueue.slice(0, originalQueue.length - queue.length);
-  pressKey(c);
-  if (queue.length) {
-    setTimeout(next, Math.random() * 200 + 50);
-  }
-}
-
-h1.innerHTML = "&nbsp;";
-setTimeout(next, 500);
 
 document.body.addEventListener('keydown', function (e) {
-  var key = getKey(e);
-  if (!key) {
-    return console.warn('No key for', e.keyCode);
-  }
-  
-  key.setAttribute('data-pressed', 'on');
+  //getKey(e);
+  var tecla = document.getElementById(e.code);
+  tecla.style.backgroundColor = "#eeeeee";
+  tecla.style.color = "#333333";
+//getKey(e);
 });
 
 document.body.addEventListener('keyup', function (e) {
-  var key = getKey(e);
-  key && key.removeAttribute('data-pressed');
+  var tecla = document.getElementById(e.code);
+  tecla.style.backgroundColor = "#333333";
+  tecla.style.color = "#eeeeee";
 });
 
-var keyboard = document.querySelector('.keyboard');
-
-function size() {
-  var size = keyboard.parentNode.clientWidth / 90;
-  windown.alert("size: " + size);
-  keyboard.style.fontSize = size + 'px';
-  console.log(size);
+function pressionar(ptecla) {
+  document.dispatchEvent(new KeyboardEvent('keypress', {'code': 'KeyH'}));
+  // document.dispatchEvent(new KeyboardEvent('keypress', {'key': 'y'})); 
+  
 }
 
-window.addEventListener('resize', function (e) {
-  size();
-});
+document.addEventListener('keypress', function (e) { 
+  getKey(e); 
+}); 
 
-size();
+
+// char.toUpperCase()
+
+
+/*
+https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
+alert(KeyboardEvent.key) 
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event
+mousedown
+https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event
+https://www.w3schools.com/jsref/dom_obj_style.asp
+
+document.getElementById('elementID').click();
+
+event = new KeyboardEvent(typeArg, KeyboardEventInit);
+*/
+
 </script>
--->
 
 </body>
 </html> 
