@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>know</title>
 </head>
-<body onload="teclado_agora()">
+<body onload="lista_palavras()">
 
 <div>
 <p>Explore o que o teclado pode escrever para criar textos e para obter informações.</p>
@@ -113,27 +113,63 @@
 
 
 <script>
-var ativo = ['KeyT', 'KeyE', 'KeyS'];
-var caracter = {Backquote:"'", Digit1:'1', Digit2:'2', Digit3:'3', Digit4:'4', Digit5:'5', Digit6:'6', Digit7:'7', Digit8:'8', Digit9:'9', Digit0:'0', Minus:'-', Equal:'=', Tab:'&#x21E5;', KeyQ:'Q', KeyW:'W', KeyE:'E', KeyR:'R', KeyT:'T', KeyY:'Y', KeyU:'U', KeyI:'I', KeyO:'O', KeyP:'P', BracketRight:'[', KeyA:'A', KeyS:'S', KeyD:'D', KeyF:'F', KeyG:'G', KeyH:'H', KeyJ:'J', KeyK:'K', KeyL:'L', Semicolon:'Ç', Backslash:']', IntlBackslash:'\\', KeyZ:'Z', KeyX:'X', KeyC:'C', KeyV:'V', KeyB:'B', KeyN:'N', KeyM:'M', Comma:',', Period:'.', Slash:';', IntlRo:'/', Space:' '};
+var palavras = ['ar', 'espaço', 'tempo', 'massa', 'velocidade', 'volume'];
+
+var pos_letra = 0;
+
+var code2char = {Backquote:"'", 
+                Digit1:'1', Digit2:'2', Digit3:'3', Digit4:'4', Digit5:'5', Digit6:'6', Digit7:'7', Digit8:'8', Digit9:'9', Digit0:'0', Minus:'-', Equal:'=', 
+                KeyQ:'q', KeyW:'w', KeyE:'e', KeyR:'r', KeyT:'t', KeyY:'y', KeyU:'u', KeyI:'i', KeyO:'o', KeyP:'p', BracketRight:'[', 
+                KeyA:'a', KeyS:'s', KeyD:'d', KeyF:'f', KeyG:'g', KeyH:'h', KeyJ:'j', KeyK:'k', KeyL:'l', Semicolon:'ç', Backslash:']', 
+                IntlBackslash:'\\', KeyZ:'z', KeyX:'x', KeyC:'c', KeyV:'v', KeyB:'b', KeyN:'n', KeyM:'m', Comma:',', Period:'.', Slash:';', IntlRo:'/', 
+                Space:' '};
+
+var char2code = {"'":'Backquote', 
+                 1:'Digit1', 2:'Digit2', 3:'Digit3', 4:'Digit4', 5:'Digit5', 6:'Digit6', 7:'Digit7', 8:'Digit8', 9:'Digit9', 0:'Digit0', '-':'Minus', '=':'Equal', 
+                 q:'KeyQ', w:'KeyW', e:'KeyE', r:'KeyR', t:'KeyT', y:'KeyY', u:'KeyU', i:'KeyI', o:'KeyO', p:'KeyP', '[':'BracketRight', 
+                 a:'KeyA', s:'KeyS', d:'KeyD', f:'KeyF', g:'KeyG', h:'KeyH', j:'KeyJ', k:'KeyK', l:'KeyL', ç:'Semicolon', ']':'Backslash', 
+                 '\\':'IntlBackslash', z:'KeyZ', x:'KeyX', c:'KeyC', v:'KeyV', b:'KeyB', n:'KeyN', m:'KeyM', ',':'Comma', '.':'Period', ';':'Slash', '/':'IntlRo', 
+                 ' ':'Space'};
+
+var ativo = [];
 
 function teclado_agora() {
+  //alert(ativo.length + '    [' + ativo.toString() + ']');
   for (i=0; i<ativo.length; i++) {
     var tecla = document.getElementById(ativo[i]);
     tecla.style.backgroundColor = "#333333";
-    tecla.style.color = "#eeeeee";
   }
 }
-/*
-frutas.push('Manga');
-// ['Morango', 'Banana', 'Manga']
 
-var pos = frutas.indexOf('Banana');
-// 1
+function limpa_teclado() {
+  for (i=0; i<ativo.length; i++) {
+    var tecla = document.getElementById(ativo[i]);
+    tecla.style.backgroundColor = "#999999";
+  }
+}
 
-var removedItem = frutas.splice(pos, 1); // é assim que se remove um item
-// ['Morango', 'Manga']
+function limpa_palavras(letra) {
+  var tamanho = palavras.length;
+  
+  for (i=0; ; ) {
+    if (palavras[i][pos_letra - 1] != letra) {
+      palavras.splice(i, 1);
+      tamanho -= 1;
+    }
+    else i++;
+    if (i >= tamanho) break;
+  }
+}
 
-*/
+function lista_palavras() {
+  for (i=0; i<palavras.length; i++) {
+    var letra_p = char2code[palavras[i][pos_letra]];
+    if (ativo.indexOf(letra_p) == -1) ativo.push(letra_p);
+  }
+  pos_letra += 1;
+  
+  teclado_agora();
+}
 
 function tDown(t_code) {
   if (ativo.indexOf(t_code) == -1) return;
@@ -146,6 +182,7 @@ function tDown(t_code) {
 }
 
 function tUp(t_code) {
+  alert(t_code + '  [' + ativo.toString() + ']');
   if (ativo.indexOf(t_code) == -1) return;
   
   var tecla = document.getElementById(t_code);
@@ -154,7 +191,14 @@ function tUp(t_code) {
   
   var texto = document.getElementById("texto");
   
-  texto.innerHTML += caracter[t_code];
+  texto.innerHTML += code2char[t_code];
+  
+  limpa_teclado();
+  var tamanho = ativo.length;
+  for (i=0; i<tamanho; i++) ativo.pop();
+  
+  limpa_palavras(code2char[t_code]);
+  lista_palavras();
 }
 
 document.body.addEventListener('keydown', function (e) {
