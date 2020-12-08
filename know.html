@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>know</title>
 </head>
-<body>
+<body onload="teclado_agora()">
 
 <div>
 <p>Explore o que o teclado pode escrever para criar textos e para obter informações.</p>
@@ -28,7 +28,7 @@
   margin: 3px;
   padding: 5px;
   text-align: center;
-  background: #333333;
+  background: #999999;
   color: #eeeeee;
   font-size: 16px;
   font-family: Impact, Charcoal, sans-serif;
@@ -41,71 +41,71 @@
 </style>
 
 <div style="margin:auto; padding: 3px; background: #999999; width: 575px; height: 205px; border: 1px solid #7777FF; border-radius: 5px">
-  <div class="tecla" id="Backquote">'</div>
-  <div class="tecla" id="Digit1">1</div>
-  <div class="tecla" id="Digit2">2</div>
-  <div class="tecla" id="Digit3">3</div>
-  <div class="tecla" id="Digit4">4</div>
-  <div class="tecla" id="Digit5">5</div>
-  <div class="tecla" id="Digit6">6</div>
-  <div class="tecla" id="Digit7">7</div>
-  <div class="tecla" id="Digit8">8</div>
-  <div class="tecla" id="Digit9">9</div>
-  <div class="tecla" id="Digit0">0</div>
-  <div class="tecla" id="Minus">-</div>
-  <div class="tecla" id="Equal">=</div>
-  <div class="tecla" id="Delete">&#x2326;</div>
-  <div class="tecla" id="Tab" >&#x21E5;</div>
-  <div class="tecla" id="KeyQ">Q</div>
-  <div class="tecla" id="KeyW">W</div>
-  <div class="tecla" id="KeyE">E</div>
-  <div class="tecla" id="KeyR">R</div>
-  <div class="tecla" id="KeyT">T</div>
-  <div class="tecla" id="KeyY">Y</div>
-  <div class="tecla" id="KeyU">U</div>
-  <div class="tecla" id="KeyI">I</div>
-  <div class="tecla" id="KeyO">O</div>
-  <div class="tecla" id="KeyP">P</div>
-  <div class="tecla" id="BracketLeft">'</div>
-  <div class="tecla" id="BracketRight">[</div>
-  <div class="tecla" id="Backspace">&#x232B;</div>
-  <div class="tecla" id="CapsLock">&#x21EA;</div>
-  <div class="tecla" id="KeyA" style="background: #eeeeee; color: #333333;">A</div>
-  <div class="tecla" id="KeyS" style="background: #999999">S</div>
-  <div class="tecla" id="KeyD">D</div>
-  <div class="tecla" id="KeyF">F</div>
-  <div class="tecla" id="KeyG">G</div>
-  <div class="tecla" id="KeyH" onmousedown="pressionar('KeyH')">H</div>
-  <div class="tecla" id="KeyJ">J</div>
-  <div class="tecla" id="KeyK">K</div>
-  <div class="tecla" id="KeyL">L</div>
-  <div class="tecla" id="Semicolon">Ç</div>
-  <div class="tecla" id="Quote">~</div>
-  <div class="tecla" id="Backslash">]</div>
-  <div class="tecla" id="Enter">&#x2386;</div>
-  <div class="tecla" id="ShiftLeft">&#x21E7;</div>
-  <div class="tecla" id="IntlBackslash">\</div>
-  <div class="tecla" id="KeyZ">Z</div>
-  <div class="tecla" id="KeyX">X</div>
-  <div class="tecla" id="KeyC">C</div>
-  <div class="tecla" id="KeyV">V</div>
-  <div class="tecla" id="KeyB">B</div>
-  <div class="tecla" id="KeyN">N</div>
-  <div class="tecla" id="KeyM">M</div>
-  <div class="tecla" id="Comma">,</div>
-  <div class="tecla" id="Period">.</div>
-  <div class="tecla" id="Slash">;</div>
-  <div class="tecla" id="IntlRo">/</div>
-  <div class="tecla" id="Fn">Fn</div>
-  <div class="tecla" id="ControlLeft">&#x2388;</div>
-  <div class="tecla" id="Window">&#x2756;</div>
-  <div class="tecla" id="AltLeft">&#x2387;</div>
-  <div class="tecla" id="Space" style="width: 228px">&#x2334;</div>
-  <div class="tecla" id="ContextMenu">&#x2630;</div>
-  <div class="tecla" id="ArrowLeft">&#x2190;</div>
-  <div class="tecla" id="ArrowUp">&#x2191;</div>
-  <div class="tecla" id="ArrowDown">&#x2193;</div>
-  <div class="tecla" id="ArrowRight">&#x2192;</div>
+  <div class="tecla" id="Backquote" onmousedown="tDown('Backquote')" onmouseup="tUp('Backquote')">'</div>
+  <div class="tecla" id="Digit1" onmousedown="tDown('Digit1')" onmouseup="tUp('Digit1')">1</div>
+  <div class="tecla" id="Digit2" onmousedown="tDown('Digit2')" onmouseup="tUp('Digit2')">2</div>
+  <div class="tecla" id="Digit3" onmousedown="tDown('Digit3')" onmouseup="tUp('Digit3')">3</div>
+  <div class="tecla" id="Digit4" onmousedown="tDown('Digit4')" onmouseup="tUp('Digit4')">4</div>
+  <div class="tecla" id="Digit5" onmousedown="tDown('Digit5')" onmouseup="tUp('Digit5')">5</div>
+  <div class="tecla" id="Digit6" onmousedown="tDown('Digit6')" onmouseup="tUp('Digit6')">6</div>
+  <div class="tecla" id="Digit7" onmousedown="tDown('Digit7')" onmouseup="tUp('Digit7')">7</div>
+  <div class="tecla" id="Digit8" onmousedown="tDown('Digit8')" onmouseup="tUp('Digit8')">8</div>
+  <div class="tecla" id="Digit9" onmousedown="tDown('Digit9')" onmouseup="tUp('Digit9')">9</div>
+  <div class="tecla" id="Digit0" onmousedown="tDown('Digit0')" onmouseup="tUp('Digit0')">0</div>
+  <div class="tecla" id="Minus" onmousedown="tDown('Minus')" onmouseup="tUp('Minus')">-</div>
+  <div class="tecla" id="Equal" onmousedown="tDown('Equal')" onmouseup="tUp('Equal')">=</div>
+  <div class="tecla" id="Delete" onmousedown="tDown('Delete')" onmouseup="tUp('Delete')">&#x2326;</div>
+  <div class="tecla" id="Tab" onmousedown="tDown('Tab')" onmouseup="tUp('Tab')" >&#x21E5;</div>
+  <div class="tecla" id="KeyQ" onmousedown="tDown('KeyQ')" onmouseup="tUp('KeyQ')">Q</div>
+  <div class="tecla" id="KeyW" onmousedown="tDown('KeyW')" onmouseup="tUp('KeyW')">W</div>
+  <div class="tecla" id="KeyE" onmousedown="tDown('KeyE')" onmouseup="tUp('KeyE')">E</div>
+  <div class="tecla" id="KeyR" onmousedown="tDown('KeyR')" onmouseup="tUp('KeyR')">R</div>
+  <div class="tecla" id="KeyT" onmousedown="tDown('KeyT')" onmouseup="tUp('KeyT')">T</div>
+  <div class="tecla" id="KeyY" onmousedown="tDown('KeyY')" onmouseup="tUp('KeyY')">Y</div>
+  <div class="tecla" id="KeyU" onmousedown="tDown('KeyU')" onmouseup="tUp('KeyU')">U</div>
+  <div class="tecla" id="KeyI" onmousedown="tDown('KeyI')" onmouseup="tUp('KeyI')">I</div>
+  <div class="tecla" id="KeyO" onmousedown="tDown('KeyO')" onmouseup="tUp('KeyO')">O</div>
+  <div class="tecla" id="KeyP" onmousedown="tDown('KeyP')" onmouseup="tUp('KeyP')">P</div>
+  <div class="tecla" id="BracketLeft" onmousedown="tDown('BracketLeft')" onmouseup="tUp('BracketLeft')">'</div>
+  <div class="tecla" id="BracketRight" onmousedown="tDown('BracketRight')" onmouseup="tUp('BracketRight')">[</div>
+  <div class="tecla" id="Backspace" onmousedown="tDown('Backspace')" onmouseup="tUp('Backspace')">&#x232B;</div>
+  <div class="tecla" id="CapsLock" onmousedown="tDown('CapsLock')" onmouseup="tUp('CapsLock')">&#x21EA;</div>
+  <div class="tecla" id="KeyA" onmousedown="tDown('KeyA')" onmouseup="tUp('KeyA')">A</div>
+  <div class="tecla" id="KeyS" onmousedown="tDown('KeyS')" onmouseup="tUp('KeyS')">S</div>
+  <div class="tecla" id="KeyD" onmousedown="tDown('KeyD')" onmouseup="tUp('KeyD')">D</div>
+  <div class="tecla" id="KeyF" onmousedown="tDown('KeyF')" onmouseup="tUp('KeyF')">F</div>
+  <div class="tecla" id="KeyG" onmousedown="tDown('KeyG')" onmouseup="tUp('KeyG')">G</div>
+  <div class="tecla" id="KeyH" onmousedown="tDown('KeyH')" onmouseup="tUp('KeyH')">H</div>
+  <div class="tecla" id="KeyJ" onmousedown="tDown('KeyJ')" onmouseup="tUp('KeyJ')">J</div>
+  <div class="tecla" id="KeyK" onmousedown="tDown('KeyK')" onmouseup="tUp('KeyK')">K</div>
+  <div class="tecla" id="KeyL" onmousedown="tDown('KeyL')" onmouseup="tUp('KeyL')">L</div>
+  <div class="tecla" id="Semicolon" onmousedown="tDown('Semicolon')" onmouseup="tUp('Semicolon')">Ç</div>
+  <div class="tecla" id="Quote" onmousedown="tDown('Quote')" onmouseup="tUp('Quote')">~</div>
+  <div class="tecla" id="Backslash" onmousedown="tDown('Backslash')" onmouseup="tUp('Backslash')">]</div>
+  <div class="tecla" id="Enter" onmousedown="tDown('Enter')" onmouseup="tUp('Enter')">&#x2386;</div>
+  <div class="tecla" id="ShiftLeft" onmousedown="tDown('ShiftLeft')" onmouseup="tUp('ShiftLeft')">&#x21E7;</div>
+  <div class="tecla" id="IntlBackslash" onmousedown="tDown('IntlBackslash')" onmouseup="tUp('IntlBackslash')">\</div>
+  <div class="tecla" id="KeyZ" onmousedown="tDown('KeyZ')" onmouseup="tUp('KeyZ')">Z</div>
+  <div class="tecla" id="KeyX" onmousedown="tDown('KeyX')" onmouseup="tUp('KeyX')">X</div>
+  <div class="tecla" id="KeyC" onmousedown="tDown('KeyC')" onmouseup="tUp('KeyC')">C</div>
+  <div class="tecla" id="KeyV" onmousedown="tDown('KeyV')" onmouseup="tUp('KeyV')">V</div>
+  <div class="tecla" id="KeyB" onmousedown="tDown('KeyB')" onmouseup="tUp('KeyB')">B</div>
+  <div class="tecla" id="KeyN" onmousedown="tDown('KeyN')" onmouseup="tUp('KeyN')">N</div>
+  <div class="tecla" id="KeyM" onmousedown="tDown('KeyM')" onmouseup="tUp('KeyM')">M</div>
+  <div class="tecla" id="Comma" onmousedown="tDown('Comma')" onmouseup="tUp('Comma')">,</div>
+  <div class="tecla" id="Period" onmousedown="tDown('Period')" onmouseup="tUp('Period')">.</div>
+  <div class="tecla" id="Slash" onmousedown="tDown('Slash')" onmouseup="tUp('Slash')">;</div>
+  <div class="tecla" id="IntlRo" onmousedown="tDown('IntlRo')" onmouseup="tUp('IntlRo')">/</div>
+  <div class="tecla" id="Fn" onmousedown="tDown('Fn')" onmouseup="tUp('Fn')">Fn</div>
+  <div class="tecla" id="ControlLeft" onmousedown="tDown('ControlLeft')" onmouseup="tUp('ControlLeft')">&#x2388;</div>
+  <div class="tecla" id="Window" onmousedown="tDown('Window')" onmouseup="tUp('Window')">&#x2756;</div>
+  <div class="tecla" id="AltLeft" onmousedown="tDown('AltLeft')" onmouseup="tUp('AltLeft')">&#x2387;</div>
+  <div class="tecla" id="Space" onmousedown="tDown('Space')" onmouseup="tUp('Space')" style="width: 228px">&#x2334;</div>
+  <div class="tecla" id="ContextMenu" onmousedown="tDown('ContextMenu')" onmouseup="tUp('ContextMenu')">&#x2630;</div>
+  <div class="tecla" id="ArrowLeft" onmousedown="tDown('ArrowLeft')" onmouseup="tUp('ArrowLeft')">&#x2190;</div>
+  <div class="tecla" id="ArrowUp" onmousedown="tDown('ArrowUp')" onmouseup="tUp('ArrowUp')">&#x2191;</div>
+  <div class="tecla" id="ArrowDown" onmousedown="tDown('ArrowDown')" onmouseup="tUp('ArrowDown')">&#x2193;</div>
+  <div class="tecla" id="ArrowRight" onmousedown="tDown('ArrowRight')" onmouseup="tUp('ArrowRight')">&#x2192;</div>
 <!-- http://xahlee.info/comp/unicode_computing_symbols.html -->
 <!-- https://keycode.info/ -->
 </div>
@@ -113,60 +113,66 @@
 
 
 <script>
-function getKey(e) {
+var ativo = ['KeyT', 'KeyE', 'KeyS'];
+var caracter = {Backquote:"'", Digit1:'1', Digit2:'2', Digit3:'3', Digit4:'4', Digit5:'5', Digit6:'6', Digit7:'7', Digit8:'8', Digit9:'9', Digit0:'0', Minus:'-', Equal:'=', Tab:'&#x21E5;', KeyQ:'Q', KeyW:'W', KeyE:'E', KeyR:'R', KeyT:'T', KeyY:'Y', KeyU:'U', KeyI:'I', KeyO:'O', KeyP:'P', BracketRight:'[', KeyA:'A', KeyS:'S', KeyD:'D', KeyF:'F', KeyG:'G', KeyH:'H', KeyJ:'J', KeyK:'K', KeyL:'L', Semicolon:'Ç', Backslash:']', IntlBackslash:'\\', KeyZ:'Z', KeyX:'X', KeyC:'C', KeyV:'V', KeyB:'B', KeyN:'N', KeyM:'M', Comma:',', Period:'.', Slash:';', IntlRo:'/', Space:' '};
+
+function teclado_agora() {
+  for (i=0; i<ativo.length; i++) {
+    var tecla = document.getElementById(ativo[i]);
+    tecla.style.backgroundColor = "#333333";
+    tecla.style.color = "#eeeeee";
+  }
+}
+/*
+frutas.push('Manga');
+// ['Morango', 'Banana', 'Manga']
+
+var pos = frutas.indexOf('Banana');
+// 1
+
+var removedItem = frutas.splice(pos, 1); // é assim que se remove um item
+// ['Morango', 'Manga']
+
+*/
+
+function tDown(t_code) {
+  if (ativo.indexOf(t_code) == -1) return;
+  
+  var tecla = document.getElementById(t_code);
+  tecla.style.backgroundColor = "#eeeeee";
+  tecla.style.color = "#333333";
+
+   // style="background: #999999"
+}
+
+function tUp(t_code) {
+  if (ativo.indexOf(t_code) == -1) return;
+  
+  var tecla = document.getElementById(t_code);
+  tecla.style.backgroundColor = "#333333";
+  tecla.style.color = "#eeeeee";
+  
   var texto = document.getElementById("texto");
   
-  if (e.code == 'KeyH') texto.innerHTML += 'H';
-  // alert(String.fromCharCode(e.keyCode));
-  alert(e.key);
+  texto.innerHTML += caracter[t_code];
 }
 
 document.body.addEventListener('keydown', function (e) {
-  //getKey(e);
-  var tecla = document.getElementById(e.code);
-  tecla.style.backgroundColor = "#eeeeee";
-  tecla.style.color = "#333333";
-//getKey(e);
+  tDown(e.code);
 });
 
 document.body.addEventListener('keyup', function (e) {
-  var tecla = document.getElementById(e.code);
-  tecla.style.backgroundColor = "#333333";
-  tecla.style.color = "#eeeeee";
+  tUp(e.code);
 });
-
-function pressionar(ptecla) {
-  document.dispatchEvent(new KeyboardEvent('keypress', {'code': 'KeyH'}));
-  // document.dispatchEvent(new KeyboardEvent('keypress', {'key': 'y'})); 
-  
-}
-
-document.addEventListener('keypress', function (e) { 
-  getKey(e); 
-}); 
-
 
 // char.toUpperCase()
 
 
 /*
-https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
-alert(KeyboardEvent.key) 
-
 https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event
 mousedown
 https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event
 https://www.w3schools.com/jsref/dom_obj_style.asp
-
-document.getElementById('elementID').click();
-
-event = new KeyboardEvent(typeArg, KeyboardEventInit);
-
-
-document.onkeydown = function (t) {
- if(t.which == 9){
-  return false;
- }
 */
 
 </script>
