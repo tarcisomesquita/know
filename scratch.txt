@@ -1,10 +1,29 @@
+"distância é grandeza"
+
+Uma grandeza pode ser expressa em uma medida.
+Uma medida contém um valor e uma unidade. Exemplos: 2 m, 24 h, 80 km/h.
+O valor da medida é um número e a unidade da medida é composta de símbolos.
+
+Um número é uma sequência de dígitos de 0 a 9. Pode conter pontos e uma vírgula. Pode conter potência.
+
+
 O gênero não é da palavra, mas do objeto.
 Exemplo: na Língua Portuguesa existem grama masculino e grama feminino.
 
+https://www.wikidata.org/wiki/Q162378
+grammatical gender
+
+ wd:Q499327	masculine
+  wd:Q1775415	feminine
+  wd:Q1775461	neuter
+  
+  
 https://www.wikidata.org/wiki/Q8171
 
 <http://www.wikidata.org/entity/Q8171> <http://www.w3.org/2000/01/rdf-schema#label> "word"@en .
 <http://www.wikidata.org/entity/Q8171> <http://www.w3.org/2000/01/rdf-schema#label> "palavra"@pt-br .
+<http://www.wikidata.org/prop/direct/P279> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.wikidata.org/entity/P279> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://wikiba.se/ontology#Property> .
 <http://www.wikidata.org/entity/P279> <http://www.w3.org/2000/01/rdf-schema#label> "subclass of"@en .
 <http://www.wikidata.org/entity/P279> <http://www.w3.org/2000/01/rdf-schema#label> "subclasse de"@pt-br .
 <http://www.wikidata.org/entity/P279> <http://wikiba.se/ontology#directClaim> <http://www.wikidata.org/prop/direct/P279> .
