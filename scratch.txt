@@ -1,3 +1,30 @@
+O gênero não é da palavra, mas do objeto.
+Exemplo: na Língua Portuguesa existem grama masculino e grama feminino.
+
+https://www.wikidata.org/wiki/Q8171
+
+<http://www.wikidata.org/entity/Q8171> <http://www.w3.org/2000/01/rdf-schema#label> "word"@en .
+<http://www.wikidata.org/entity/Q8171> <http://www.w3.org/2000/01/rdf-schema#label> "palavra"@pt-br .
+<http://www.wikidata.org/entity/P279> <http://www.w3.org/2000/01/rdf-schema#label> "subclass of"@en .
+<http://www.wikidata.org/entity/P279> <http://www.w3.org/2000/01/rdf-schema#label> "subclasse de"@pt-br .
+<http://www.wikidata.org/entity/P279> <http://wikiba.se/ontology#directClaim> <http://www.wikidata.org/prop/direct/P279> .
+<http://www.wikidata.org/entity/Q8171> <http://www.wikidata.org/prop/direct/P279> <http://www.wikidata.org/entity/Q2944660> .
+<http://www.wikidata.org/entity/Q8171> <http://www.wikidata.org/prop/direct/P279> <http://www.wikidata.org/entity/Q187931> .
+<http://www.wikidata.org/entity/Q187931> <http://www.w3.org/2000/01/rdf-schema#label> "phrase"@en .
+<http://www.wikidata.org/entity/Q187931> <http://www.w3.org/2000/01/rdf-schema#label> "frase"@pt-br .
+<http://www.wikidata.org/entity/Q2944660> <http://www.w3.org/2000/01/rdf-schema#label> "lexical item"@en .
+<http://www.wikidata.org/entity/Q2944660> <http://www.w3.org/2000/01/rdf-schema#label> "unidade lexical"@pt-br .
+
+https://www.w3.org/TR/sparql11-query/
+
+https://query.wikidata.org
+SELECT ?I ?EN ?PT
+WHERE {
+  ?I <http://www.wikidata.org/prop/direct/P279> <http://www.wikidata.org/entity/Q187931> .
+  ?I <http://www.w3.org/2000/01/rdf-schema#label> ?EN .
+  OPTIONAL { ?I <http://www.w3.org/2000/01/rdf-schema#label> ?PT . }
+  FILTER (lang(?EN) = 'en' && lang(?PT) = 'pt-br')
+}
 
 https://codepen.io/gschier/pen/VKgyaY
 
