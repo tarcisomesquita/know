@@ -1,3 +1,21 @@
+comprimento é grandeza
+2 m é medida
+metro é unidade da grandeza comprimento
+metro é unidade de comprimento
+
+m é símbolo
+símbolo do metro                                                                                                                      
+                                                                                                                                      
+peso é força                                                                                                                          
+atrito é força                                                                                                                        
+trabalho é energia                                                                                                                    
+raio é distância                                                                                                                      
+diâmetro                                                                                                                              
+circunferência
+deslocamento
+posição 
+
+
 "distância é grandeza"
 
 Uma grandeza pode ser expressa em uma medida.
