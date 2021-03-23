@@ -1,3 +1,47 @@
+https://query.wikidata.org
+https://www.wikidata.org/wiki/Q107715
+SELECT ?I ?EN ?PT
+WHERE {
+  ?I <http://www.wikidata.org/prop/direct/P279> <http://www.wikidata.org/entity/Q107715> .
+  ?I <http://www.w3.org/2000/01/rdf-schema#label> ?EN .
+  OPTIONAL { ?I <http://www.w3.org/2000/01/rdf-schema#label> ?PT . }
+  FILTER (lang(?EN) = 'en' && lang(?PT) = 'pt-br')
+}
+ length (Q36253)
+  metre (Q11573)
+   millimetre (Q174789) 
+    kilometre (Q828224) 
+hour (Q25235)
+ unit of length (Q1978718) 
+unit of time (Q1790144) 
+ foot (Q3710) 
+  inch (Q218593) 
+
+ force (Q11402) 
+  velocity (Q11465) 
+   speed (Q3711325) 
+
+  quantity (Q309314) 
+  
+  
+  measurement (Q12453) medição
+  
+ unit of measurement (Q47574) 
+ 
+ https://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2012.pdf
+ https://www.bipm.org/en/measurement-units/
+ 
+ measuring instrument (Q2041172)   same as   measurement tool (Q1047213) 
+ 
+function
+https://www.wikidata.org/wiki/Q11348
+
+ Newton's second law of motion (general) (Q104212301) 
+ 
+ <http://www.wikidata.org/entity/P2534> <http://www.w3.org/2000/01/rdf-schema#label> "defining formula"@en .
+ 
+<http://www.wikidata.org/entity/Q104212301> <http://www.wikidata.org/prop/direct/P2534> "<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" alttext=\"{\\displaystyle {\\vec {F}}={\\frac {\\mathrm {d} {\\vec {p}}}{\\mathrm {d} t}}}\">\n  <semantics>\n    <mrow class=\"MJX-TeXAtom-ORD\">\n      <mstyle displaystyle=\"true\" scriptlevel=\"0\">\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mrow class=\"MJX-TeXAtom-ORD\">\n            <mover>\n              <mi>F</mi>\n              <mo stretchy=\"false\">&#x2192;<!-- \u2192 --></mo>\n            </mover>\n          </mrow>\n        </mrow>\n        <mo>=</mo>\n        <mrow class=\"MJX-TeXAtom-ORD\">\n          <mfrac>\n            <mrow>\n              <mrow class=\"MJX-TeXAtom-ORD\">\n                <mi mathvariant=\"normal\">d</mi>\n              </mrow>\n              <mrow class=\"MJX-TeXAtom-ORD\">\n                <mrow class=\"MJX-TeXAtom-ORD\">\n                  <mover>\n                    <mi>p</mi>\n                    <mo stretchy=\"false\">&#x2192;<!-- \u2192 --></mo>\n                  </mover>\n                </mrow>\n              </mrow>\n            </mrow>\n            <mrow>\n              <mrow class=\"MJX-TeXAtom-ORD\">\n                <mi mathvariant=\"normal\">d</mi>\n              </mrow>\n              <mi>t</mi>\n            </mrow>\n          </mfrac>\n        </mrow>\n      </mstyle>\n    </mrow>\n    <annotation encoding=\"application/x-tex\">{\\displaystyle {\\vec {F}}={\\frac {\\mathrm {d} {\\vec {p}}}{\\mathrm {d} t}}}</annotation>\n  </semantics>\n</math>"^^<http://www.w3.org/1998/Math/MathML> .
+
 comprimento é grandeza
 2 m é medida
 metro é unidade da grandeza comprimento
