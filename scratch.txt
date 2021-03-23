@@ -29,6 +29,7 @@ unit of time (Q1790144)
  unit of measurement (Q47574) 
  
  https://www.bipm.org/utils/common/documents/jcgm/JCGM_200_2012.pdf
+ https://www.bipm.org/utils/common/pdf/si-brochure/SI-Brochure-9-EN.pdf
  https://www.bipm.org/en/measurement-units/
  
  measuring instrument (Q2041172)   same as   measurement tool (Q1047213) 
