@@ -9,3 +9,6 @@ Acesse neste link o software [know](know.html) em desenvolvimento.
 ou
 
 https://tarcisomesquita.github.io/know/know.html
+
+
+## Veja a [documentação](https://tarcisomesquita.github.io/know/doc/index.html).
