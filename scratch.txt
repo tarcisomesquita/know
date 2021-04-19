@@ -1,3 +1,14 @@
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data
+https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function
+
 https://query.wikidata.org
 https://www.wikidata.org/wiki/Q107715
 SELECT ?I ?EN ?PT
