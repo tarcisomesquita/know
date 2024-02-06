@@ -1,0 +1,544 @@
+O Wikidata é organizado em torno de entidades, que são objetos do mundo real, como pessoas, lugares, coisas e eventos. Cada entidade tem um identificador exclusivo, chamado de QID.
+
+Qual é o QID do país Brasil?
+from wikidata import ItemPage
+item = ItemPage(id="Q733")
+label = item.label
+print(label)
+
+
+https://buildmedia.readthedocs.org/media/pdf/rdflib/latest/rdflib.pdf
+
+from rdflib import Graph
+g = Graph()
+g.parse("https://www.w3.org/People/Berners-Lee/card")
+
+for subj, pred, obj in g:
+   if (subj, pred, obj) not in g:
+      raise Exception("It better be!")
+  
+
+print(f"Graph g has {len(g)} statements.")
+print(g.serialize(format="turtle"))
+
+
+from rdflib import Graph
+graph = Graph()
+graph.parse("https://www.wikidata.org/wiki/Special:Export/rdf")
+triples = graph.query(
+"""
+SELECT ?subject ?label
+WHERE {
+?subject rdf:type dbo:Interface .
+?subject rdfs:label ?label .
+}
+""",
+filter=lambda t: t[1] is not None,
+)
+
+for subject, label in triples:
+  print(label)
+
+
+from rdflib import Graph
+graph = Graph()
+graph.parse('https://www.wikidata.org/wiki/Special:Export/rdf', format='xml')
+subjects = graph.subjects(predicate=rdf.type, object=dbo.Interface)
+for subject in subjects:
+  print(graph.value(subject, rdfs.label))
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+dbo:Q733 rdf:type dbo:Country .
+Essa tripla significa que o recurso <https://www.wikidata.org/wiki/Q733> é um indivíduo do tipo "Country"
+
+Bard, extraia todas as triplas RDF do seguinte texto usando o esquema RDF do Wikidata:
+
+> O Brasil é um país localizado na América do Sul. A capital do Brasil é Brasília.
+Bard irá retornar todas as triplas RDF possíveis a partir do texto, usando o esquema RDF do Wikidata, incluindo:
+
+wd:Q733 rdfs:label "Brasil" .
+wd:Q733 rdf:type dbo:Country .
+wd:Q733 rdf:type dbo:Place .
+wd:Q733 rdf:type dbo:Location .
+wd:Q733 dbo:location wd:Q414 .
+wd:Q733 dbo:capital wd:Q1977 .
+Extrair triplas RDF de um texto com um determinado predicado:
+Bard, extraia todas as triplas RDF do seguinte texto com o predicado "rdf:type":
+
+> O Brasil é um país localizado na América do Sul. A capital do Brasil é Brasília.
+
+Bard, extraia todas as triplas RDF do seguinte texto com o sujeito "Brasil":
+Bard, extraia todas as triplas RDF do seguinte texto com o objeto "América do Sul":
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+produtos em vez de medidas
+
+https://json-ld.org/
+
+Os códigos de barras EAN-13 servem como identificação de seu produto
+Também conhecido como GTIN-13, esse código de barras é usado no mundo todo, exceto nos EUA e no Canadá 
+https://schema.org/Product
+
+código de barras de coca-cola 2L
+7894900011517
+https://www.systax.com.br/ean/07894900011517
+
+GTIN/EAN: 07896035270807 - Sal cisne refinado 1kg
+
+tem código de barras em https://redemachado.com.br/
+
+SELECT ?s ?p
+WHERE {
+?s ?p <https://schema.org/Product> .
+}
+
+product (Q2424752)
+anything that can be offered to a market
+main subject (P921)
+subclass of (P279)
+
+SELECT ?item ?itemLabel 
+WHERE 
+{
+  ?item wdt:P31 wd:Q2424752. # Must be of a cat
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt". }
+}
+
+https://developers.google.com/search/docs/appearance/structured-data/product
+
+https://www.clubeextra.com.br/produto/459692
+<script type="application/ld+json">{
+	"@context": "https://schema.org/",
+	"@type": "Product",
+	"image":["https://static.clubeextra.com.br/img/uploads/1/607/677607.jpg"],
+   "sku": "1207436",
+   "gtin8": "7894900027037",
+   "manufacturer": {
+      "@type": "Organization",
+      "name": "undefined",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "undefined"
+      }
+   },
+   "offers": [
+      {
+         "@type": "Offer",
+         "priceCurrency": "BRL",
+         "availability": "InStock",
+         "seller": {
+            "@type": "Organization",
+            "name": "Clube Extra"
+         },
+         "price": "9.99"
+      }
+   ],
+   
+   "name": "Coca-Cola Menos Açúcar PET 3L"
+}
+
+<html>
+  <head>
+    <title>Executive Anvil</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Executive Anvil",
+      "image": [
+        "https://example.com/photos/1x1/photo.jpg",
+        "https://example.com/photos/4x3/photo.jpg",
+        "https://example.com/photos/16x9/photo.jpg"
+       ],
+      "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
+      "sku": "0446310786",
+      "mpn": "925872",
+      "brand": {
+        "@type": "Brand",
+        "name": "ACME"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": 4,
+          "bestRating": 5
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Fred Benson"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.4,
+        "reviewCount": 89
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://example.com/anvil",
+        "priceCurrency": "USD",
+        "price": 119.99,
+        "priceValidUntil": "2020-11-20",
+        "itemCondition": "https://schema.org/UsedCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Recipe",
+    "name": "{{recipe_name}}",
+    "image": [ "{{recipe_image}}" ],
+    "author": {
+      "@type": "Person",
+      "name": "{{recipe_author}}"
+    }
+  }
+</script>
+
+ <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Party Coffee Cake",
+      "author": {
+        "@type": "Person",
+        "name": "Mary Stone"
+      },
+      "datePublished": "2018-03-10",
+      "description": "This coffee cake is awesome and perfect for parties.",
+      "prepTime": "PT20M"
+    }
+    </script>
+	 
+
+<script type="application/ld+json">
+{
+  "@context": "https://Schema.org/",
+  "@type": "Product",
+  "name": "Product Name",
+  "image": "https://www.example.com/product-image.jpg",
+  "description": "Product Description",
+  "sku": "Product SKU",
+  "brand": {
+    "@type": "Brand",
+    "name": "Brand Name"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "Product Price",
+    "priceCurrency": "USD",
+    "availability": "http://Schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Seller Name"
+    }
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Reviewer Name"
+    },
+    "datePublished": "Review Date",
+    "description": "Review Description"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+"@context": "https://Schema.org/",
+"@type": "Product",
+"name": "Product Name",
+"image": "https://www.example.com/product-image.jpg",
+"description": "Product Description",
+"sku": "Product SKU",
+"brand": {
+"@type": "Brand",
+"name": "Brand Name"
+},
+"offers": {
+"@type": "Offer",
+"price": "Product Price",
+"priceCurrency": "GBP",
+"availability": "http://Schema.org/InStock",
+"seller": {
+"@type": "Organization",
+"name": "Seller Name"
+}
+},
+"review": {
+"@type": "Review",
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "4.5"
+},
+"author": {
+"@type": "Person",
+"name": "Reviewer Name"
+},
+"datePublished": "Review Date",
+"description": "Review Description"
+}
+}
+</script>
+
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"@id": "",
+"name": "Business Name",
+"url": ""https://www.business.com",
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "City Name",
+"addressCountry": "Country Code",
+"postalCode": "Postal Code",
+"streetAddress": "Street Name and Number"
+}
+"logo": ""https://www.business.com/logo.png",
+"description": "Description of the business",
+"sameAs": [
+"https://www.facebook.com/example",
+"https://twitter.com/example",
+"https://www.linkedin.com/business/example"
+]
+}
+
+
+<html>
+  <head>
+    <title>NCDC Storm Events Database</title>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org/",
+      "@type":"Dataset",
+      "name":"NCDC Storm Events Database",
+      "description":"Storm Data is provided by the National Weather Service (NWS) and contain statistics on...",
+      "url":"https://catalog.data.gov/dataset/ncdc-storm-events-database",
+      "sameAs":"https://gis.ncdc.noaa.gov/geoportal/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00510",
+      "identifier": ["https://doi.org/10.1000/182",
+                     "https://identifiers.org/ark:/12345/fk1234"],
+      "keywords":[
+         "ATMOSPHERE > ATMOSPHERIC PHENOMENA > CYCLONES",
+         "ATMOSPHERE > ATMOSPHERIC PHENOMENA > DROUGHT",
+         "ATMOSPHERE > ATMOSPHERIC PHENOMENA > FOG",
+         "ATMOSPHERE > ATMOSPHERIC PHENOMENA > FREEZE"
+      ],
+      "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+      "isAccessibleForFree" : true,
+      "hasPart" : [
+        {
+          "@type": "Dataset",
+          "name": "Sub dataset 01",
+          "description": "Informative description of the first subdataset...",
+          "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+          "creator":{
+             "@type":"Organization",
+             "name": "Sub dataset 01 creator"
+          }
+        },
+        {
+          "@type": "Dataset",
+          "name": "Sub dataset 02",
+          "description": "Informative description of the second subdataset...",
+          "license" : "https://creativecommons.org/publicdomain/zero/1.0/",
+          "creator":{
+             "@type":"Organization",
+             "name": "Sub dataset 02 creator"
+          }
+        }
+      ],
+      "creator":{
+         "@type":"Organization",
+         "url": "https://www.ncei.noaa.gov/",
+         "name":"OC/NOAA/NESDIS/NCEI > National Centers for Environmental Information, NESDIS, NOAA, U.S. Department of Commerce",
+         "contactPoint":{
+            "@type":"ContactPoint",
+            "contactType": "customer service",
+            "telephone":"+1-828-271-4800",
+            "email":"ncei.orders@noaa.gov"
+         }
+      },
+      "funder":{
+         "@type": "Organization",
+         "sameAs": "https://ror.org/00tgqzw13",
+         "name": "National Weather Service"
+      },
+      "includedInDataCatalog":{
+         "@type":"DataCatalog",
+         "name":"data.gov"
+      },
+      "distribution":[
+         {
+            "@type":"DataDownload",
+            "encodingFormat":"CSV",
+            "contentUrl":"https://www.ncdc.noaa.gov/stormevents/ftp.jsp"
+         },
+         {
+            "@type":"DataDownload",
+            "encodingFormat":"XML",
+            "contentUrl":"https://gis.ncdc.noaa.gov/all-records/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00510"
+         }
+      ],
+      "temporalCoverage":"1950-01-01/2013-12-18",
+      "spatialCoverage":{
+         "@type":"Place",
+         "geo":{
+            "@type":"GeoShape",
+            "box":"18.0 -65.0 72.0 172.0"
+         }
+      }
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+https://search.google.com/test/rich-results
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+cada um organiza ou classifica as coisas de acordo com seus interesses
+entidade x coisa
+medir, medição, medida
+proteger, proteção, protegida
+
+Datasets
+DBpedia
+GeoNames
+Wikidata 
+Global Research Identifier Database (GRID) 
+
+https://en.wikipedia.org/wiki/Turtle_(syntax)
+https://en.wikipedia.org/wiki/N-Triples
+Subjects may take the form of a URI or a blank node; predicates must be a URI; objects may be a URI, blank node or a literal.
+https://en.wikipedia.org/wiki/Semantic_triple
+
+the UIMA tutorial is a program that performs named-entity recognition (NER)
+https://en.wikipedia.org/wiki/Semantic_triple
+https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model#History
+
+he Google App Engine [2] offers the greatest variety of data types: in addition to dividing numeric data into int, long, or float, it also defines custom data types such as phone number, E-mail address, geocode and hyperlink. 
+Google lets you operate on the data using a subset of SQL
+https://cloud.google.com/appengine/docs
+
+https://hub.docker.com/r/openlink/virtuoso-closedsource-8#
+https://jena.apache.org/
+
+Natural Language Toolkit (NLTK) python
+https://nltk.org/
+
+
+
+identificação, localização e composição
+
+identificação é um endereço de memória
+atribuímos nomes para identificar. Agora URL
+coisa = entidade.
+No endereço fica armazenada uma tabela com as propriedades da coisa.
+
+upper ontology
+top level ontology
+
+https://schema.org/Thing
+https://schema.org/Distance
+
+https://en.wikipedia.org/wiki/RDF_Schema
+https://en.wikipedia.org/wiki/Ontology_(information_science)
+
+entidade
+https://www.wikidata.org/wiki/Q
+wd:36253
+
+equivalent class	https://schema.org/Thing
+https://www.w3.org/2002/07/owl#Thing
+owl:Thing a owl:Class ;
+     rdfs:label "Thing" ;
+     rdfs:comment "The class of OWL individuals." ;
+     rdfs:isDefinedBy <http://www.w3.org/2002/07/owl#> .
+
+owl:Class a rdfs:Class ;
+     rdfs:label "Class" ;
+     rdfs:comment "The class of OWL classes." ;
+     rdfs:subClassOf rdfs:Class . 
+
+rdfs:domain owl:Thing ;
+rdfs:range owl:Thing . 
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+https://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Class a rdfs:Class ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "Class" ;
+	rdfs:comment "The class of classes." ;
+	rdfs:subClassOf rdfs:Resource .
+
+rdfs:Resource a rdfs:Class ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "Resource" ;
+	rdfs:comment "The class resource, everything." .
+
+our daily lives will be handled by machines talking to machines.
+
+_:a <https://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
+ _:a <https://schema.org/name> "Paul Schuster" .
+ _:a <https://schema.org/birthPlace> <https://www.wikidata.org/entity/Q1731> .
+ <https://www.wikidata.org/entity/Q1731> <https://schema.org/itemtype> <https://schema.org/Place> .
+ <https://www.wikidata.org/entity/Q1731> <https://schema.org/name> "Dresden" .
+ 
+https://en.wikipedia.org/wiki/JSON-LD
+
+https://en.wikipedia.org/wiki/Turtle_(syntax)
+
+https://en.wikipedia.org/wiki/N-Triples
+
+
+URL > retorna tabela (JSON)
+URL?property > retorna valor
+
+não é extração dados de textos
+the objctive not is project extract structured content from text
+In 2008, Tim Berners-Lee described DBpedia as one of the most famous parts of the decentralized Linked Data effort.
+
+DBpedia Spotlight performs named entity extraction, including entity detection and name resolution (in other words, disambiguation).
+https://en.wikipedia.org/wiki/DBpedia#DBpedia_Spotlight
+https://en.wikipedia.org/wiki/Entity_extraction
+https://en.wikipedia.org/wiki/Entity_detection
+https://en.wikipedia.org/wiki/Name_resolution_(semantics_and_text_extraction)
+
+It can also be used for named entity recognition, and other information extraction tasks. 
+https://en.wikipedia.org/wiki/Named_entity_recognition
+https://en.wikipedia.org/wiki/Information_extraction
+
+https://demo.dbpedia-spotlight.org/
+https://babelnet.org/
+
+https://en.wikipedia.org/wiki/Entity_Linking
+
+separar as palavras do texto didático, isolar as com conceito importantes, fazer um glossário.
+
+generate a mapping "class->superclass" 
+SELECT ?class ?classLabel ?superclass ?superclassLabel
+WHERE 
+{
+    wd:Q36253 wdt:P279* ?class.
+    ?class wdt:P279 ?superclass.
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+}

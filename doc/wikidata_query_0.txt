@@ -1,0 +1,55 @@
+https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/queries/examples
+https://www.w3.org/TR/sparql11-query/
+
+<p><a target="_blank" href="https://www.wikidata.org/wiki/Q11573">metro</a></p>
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+https://en.wikipedia.org/wiki/Distance
+https://en.wikipedia.org/wiki/Unit_of_measurement
+https://en.wikipedia.org/wiki/Units_of_measurement
+https://en.wikipedia.org/wiki/Temperature
+https://en.wikipedia.org/wiki/Second
+https://en.wikipedia.org/wiki/Light
+https://en.wikipedia.org/wiki/SI_units
+https://en.wikipedia.org/wiki/Ruler
+https://en.wikipedia.org/wiki/Measurement
+https://en.wikipedia.org/wiki/Physical_quantity
+https://en.wikipedia.org/wiki/International_System_of_Units
+https://en.wikipedia.org/wiki/Measuring_instrument
+https://en.wikipedia.org/wiki/Kilogram
+https://en.wikipedia.org/wiki/Ampere
+https://en.wikipedia.org/wiki/Kelvin
+https://en.wikipedia.org/wiki/Inch
+https://en.wikipedia.org/wiki/Kilometre
+https://en.wikipedia.org/wiki/Mile
+https://en.wikipedia.org/wiki/Planck_constant
+https://en.wikipedia.org/wiki/Physical_constant
+https://en.wikipedia.org/wiki/System_of_measurement
+https://en.wikipedia.org/wiki/Millimetres
+https://en.wikipedia.org/wiki/Centimetre
+https://en.wikipedia.org/wiki/Hour
+https://en.wikipedia.org/wiki/Day
+https://en.wikipedia.org/wiki/Week
+https://en.wikipedia.org/wiki/Month
+https://en.wikipedia.org/wiki/Year
+https://en.wikipedia.org/wiki/Time
+https://en.wikipedia.org/wiki/Weighing_scale
+https://en.wikipedia.org/wiki/Gram
+https://en.wikipedia.org/wiki/Ton
+https://en.wikipedia.org/wiki/Pound_(mass)
+https://en.wikipedia.org/wiki/Gravity_of_Earth
+https://en.wikipedia.org/wiki/Isaac_Newton
+
+peso é força                                                                                                                          
+atrito é força                                                                                                                        
+trabalho é energia                                                                                                                    
+raio é distância                                                                                                                      
+
+comprimento é palavra
+masculino é gênero
+feminino é gênero
+comprimento tem masculino
+palavra é palavra
+palavra tem feminino
+

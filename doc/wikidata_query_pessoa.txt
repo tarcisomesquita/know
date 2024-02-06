@@ -1,0 +1,39 @@
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+DESCRIBE foaf:Person LIMIT 50' | \
+grep -v 'www.wikidata.org/value/' | \
+grep -v 'www.wikidata.org/entity/statement' | \
+sed '
+/"@[a-z-]* \.$/{/"@en \.$\|"@pt-br \.$/!d;}; 
+/\.wikipedia\.\|\.wikibooks\.\|\.wikiquote\.\|\.wikiversity\./{/\/en\.\|\/pt\./!d}'
+
+<http://www.wikidata.org/entity/Q5> <http://www.wikidata.org/prop/direct/P1709> <http://xmlns.com/foaf/0.1/Person> .
+
+<http://www.wikidata.org/entity/P1709> <http://www.w3.org/2000/01/rdf-schema#label> "equivalent class"@en .
+<http://www.wikidata.org/entity/Q5> <http://www.w3.org/2000/01/rdf-schema#label> "human"@en .
+<http://www.wikidata.org/entity/Q5> <http://www.w3.org/2000/01/rdf-schema#label> "ser humano"@pt-br .
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: text/csv' \
+'https://query.wikidata.org/sparql?query=
+SELECT ?item ?itemLabel 
+WHERE {
+  ?item wdt:P31 wd:Q5 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt-br,en". }
+}
+LIMIT 20
+OFFSET 0
+'
+OFFSET 21
+OFFSET 42
+
+http://www.wikidata.org/entity/Q80,Tim Berners-Lee
+http://www.wikidata.org/entity/Q307,Galileu Galilei
+http://www.wikidata.org/entity/Q410,Carl Sagan
+http://www.wikidata.org/entity/Q529,Louis Pasteur
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+

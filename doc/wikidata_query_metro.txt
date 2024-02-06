@@ -1,0 +1,184 @@
+
+wget -q -O - --header='Accept: text/csv' 'https://query.wikidata.org/sparql?query=
+SELECT ?item 
+WHERE {
+  <https://en.wikipedia.org/wiki/Metre> schema:about ?item .
+}' | tail -n 1 | cut -d'/' -f5
+
+Q11573
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: text/csv' \
+'https://query.wikidata.org/sparql?query=
+SELECT DISTINCT ?x 
+WHERE {
+  ?x schema:about wd:Q11573 .
+}
+' | egrep '(/en\.|/pt\.)wikipedia' | grep -v '[^htps]{4}:'
+
+https://pt.wikipedia.org/wiki/Metro
+https://en.wikipedia.org/wiki/Metre
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+DESCRIBE wd:Q11573' | \
+grep -v 'www.wikidata.org/value/' | \
+grep -v 'www.wikidata.org/entity/statement' | \
+sed '
+/"@[a-z-]* \.$/{/"@en \.$\|"@pt-br \.$/!d;}; 
+/\.wikipedia\.\|\.wikibooks\.\|\.wikiquote\.\|\.wikiversity\./{/\/en\.\|\/pt\./!d}'
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+CONSTRUCT {
+  wd:Q11573 rdfs:label ?label .
+}
+WHERE {
+  wd:Q11573 rdfs:label ?label .
+  FILTER ( lang(?label) = "en" || lang(?label) = "pt-br" )
+}'
+
+<http://www.wikidata.org/entity/Q11573> <http://www.w3.org/2000/01/rdf-schema#label> "metre"@en .
+<http://www.wikidata.org/entity/Q11573> <http://www.w3.org/2000/01/rdf-schema#label> "metro"@pt-br .
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: text/csv' \
+'https://query.wikidata.org/sparql?query=
+SELECT ?item 
+WHERE {
+  ?item rdfs:label "metro"@pt-br .
+}'
+
+item
+http://www.wikidata.org/entity/Q11573
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+CONSTRUCT {
+  wd:Q11573 schema:description ?description .
+}
+WHERE {
+  wd:Q11573 schema:description ?description .
+  FILTER ( lang(?description) = "en" || lang(?description) = "pt-br" )
+}'
+
+<http://www.wikidata.org/entity/Q11573> <http://schema.org/description> "SI unit of length"@en .
+<http://www.wikidata.org/entity/Q11573> <http://schema.org/description> "unidade de comprimento do Sistema Internacional de Unidades"@pt-br .
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+CONSTRUCT {
+  wd:Q11573 wdt:P31 ?classe .
+}
+WHERE {
+  wd:Q11573 wdt:P31 ?classe .
+}'
+
+<http://www.wikidata.org/entity/Q11573> <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q223662> .
+<http://www.wikidata.org/entity/Q11573> <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q1978718> .
+<http://www.wikidata.org/entity/Q11573> <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q69197847> .
+<http://www.wikidata.org/entity/Q11573> <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q82047053> .
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: text/csv' \
+'https://query.wikidata.org/sparql?query=
+SELECT ?p ?item ?label 
+WHERE {
+  wd:Q11573 ?p ?item .
+  ?item rdfs:label ?label .
+  FILTER ( lang(?label) = "en" || lang(?label) = "pt-br")
+}'
+
+http://www.wikidata.org/prop/direct/P31,http://www.wikidata.org/entity/Q223662,SI base unit
+http://www.wikidata.org/prop/direct/P31,http://www.wikidata.org/entity/Q223662,unidade básica do SI
+http://www.wikidata.org/prop/direct/P31,http://www.wikidata.org/entity/Q1978718,unit of length
+http://www.wikidata.org/prop/direct/P31,http://www.wikidata.org/entity/Q1978718,unidade(s) de comprimento
+
+http://www.wikidata.org/prop/direct/P111,http://www.wikidata.org/entity/Q126017,distance
+http://www.wikidata.org/prop/direct/P111,http://www.wikidata.org/entity/Q126017,distância
+http://www.wikidata.org/prop/direct/P111,http://www.wikidata.org/entity/Q36253,length
+http://www.wikidata.org/prop/direct/P111,http://www.wikidata.org/entity/Q36253,comprimento
+http://www.wikidata.org/prop/direct/P111,http://www.wikidata.org/entity/Q192388,position vector
+
+http://www.wikidata.org/prop/direct/P361,http://www.wikidata.org/entity/Q12457,International System of Units
+http://www.wikidata.org/prop/direct/P361,http://www.wikidata.org/entity/Q512417,MKS system of units
+http://www.wikidata.org/prop/direct/P361,http://www.wikidata.org/entity/Q730906,MKSA system of units
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+<http://www.wikidata.org/entity/P268> <http://wikiba.se/ontology#directClaim> <http://www.wikidata.org/prop/direct/P268> .
+
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+CONSTRUCT {
+  ?p ?x ?direct .
+}
+WHERE {
+  wd:Q11573 ?direct ?item .
+  ?p ?x ?direct .
+}' | grep -E '<http://wikiba.se/ontology#(directClaimNormalized|directClaim|claim)>' | cut -d' ' -f1 | sort -u | \
+(while read; do
+wget -q -O - \
+--header='Accept: application/n-triples' \
+'https://query.wikidata.org/sparql?query=
+CONSTRUCT {
+  '$REPLY' rdfs:label ?label .
+}
+WHERE {
+  '$REPLY' rdfs:label ?label .
+  FILTER ( lang(?label) = "en" || lang(?label) = "pt-br" )
+}'
+done)
+
+<http://www.wikidata.org/entity/P31> "instance of"@en .
+<http://www.wikidata.org/entity/P31> "inst\u00E2ncia de"@pt-br .
+<http://www.wikidata.org/entity/P111> "measured physical quantity"@en .
+<http://www.wikidata.org/entity/P111> "grandeza f\u00EDsica"@pt-br .
+<http://www.wikidata.org/entity/P1343> "described by source"@en .
+<http://www.wikidata.org/entity/P1343> "descrito pela fonte"@pt-br .
+<http://www.wikidata.org/entity/P18> "image"@en .
+<http://www.wikidata.org/entity/P18> "imagem"@pt-br .
+<http://www.wikidata.org/entity/P2370> "conversion to SI unit"@en .
+<http://www.wikidata.org/entity/P2442> "conversion to standard unit"@en .
+<http://www.wikidata.org/entity/P361> "part of"@en .
+<http://www.wikidata.org/entity/P361> "parte de"@pt-br .
+<http://www.wikidata.org/entity/P4934> "calculated from"@en .
+<http://www.wikidata.org/entity/P5061> "unit symbol"@en .
+<http://www.wikidata.org/entity/P8769> "Ontology of units of Measure 2.0 unit ID"@en .
+<http://www.wikidata.org/entity/P8814> "WordNet 3.1 Synset ID"@en .
+<http://www.wikidata.org/entity/P9059> "subdivision of this unit"@en .
+<http://www.wikidata.org/entity/P910> "topic's main category"@en .
+<http://www.wikidata.org/entity/P910> "categoria principal do assunto"@pt-br .
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+wget -q -O - \
+--header='Accept: text/csv' \
+'https://query.wikidata.org/sparql?query=
+SELECT ?item ?itemLabel 
+WHERE {
+  ?item wdt:P31 Q11573 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "pt-br,en". }
+}'
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+

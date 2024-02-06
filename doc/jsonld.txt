@@ -1,0 +1,213 @@
+
+https://json-ld.org/playground/
+{
+  "@context": {
+    "name": "http://xmlns.com/foaf/0.1/name",
+    "Person": "http://xmlns.com/foaf/0.1/Person"
+  },
+  "@id": "https://me.example.com",
+  "@type": "Person",
+  "name": "John Smith"
+}
+
+[
+{
+  "@context": "https://json-ld.org/contexts/person.jsonld",
+  "@id": "http://dbpedia.org/resource/John_Lennon",
+  "name": "John Lennon",
+  "born": "1940-10-09",
+  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+},
+{
+  "@context": "https://json-ld.org/contexts/person.jsonld",
+  "@id": "http://dbpedia.org/resource/John_Lennona",
+  "name": "John Lennona",
+  "born": "1940-10-09",
+  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+}
+]
+
+{
+  "@context": [
+    "https://json-ld.org/contexts/person.jsonld",
+    "https://json-ld.org/contexts/place.jsonld",
+    {"title": "http://purl.org/dc/terms/title"}
+  ],
+  "@graph": [{
+    "http://xmlns.com/foaf/0.1/name": "Manu Sporny",
+    "homepage": "http://manu.sporny.org/",
+    "depiction": "http://twitter.com/account/profile_image/manusporny"
+  }, {
+    "title": "The Empire State Building",
+    "description": "The Empire State Building is a 102-story landmark in New York City.",
+    "geo": {
+      "latitude": "40.75",
+      "longitude": "73.98"
+    }
+  }]
+}
+
+<html>
+  <head>
+    <title>Party Coffee Cake</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Party Coffee Cake",
+      "author": {
+        "@type": "Person",
+        "name": "Mary Stone"
+      },
+      "datePublished": "2018-03-10",
+      "description": "This coffee cake is awesome and perfect for parties.",
+      "prepTime": "PT20M"
+    }
+    </script>
+  </head>
+  <body>
+    <h2>Party coffee cake recipe</h2>
+    <p>
+      <i>by Mary Stone, 2018-03-10</i>
+    </p>
+    <p>
+      This coffee cake is awesome and perfect for parties.
+    </p>
+    <p>
+      Preparation time: 20 minutes
+    </p>
+  </body>
+</html>
+
+<html>
+  <head>
+    <title>Executive Anvil</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Executive Anvil",
+        "image": [
+          "https://example.com/photos/1x1/photo.jpg",
+          "https://example.com/photos/4x3/photo.jpg",
+          "https://example.com/photos/16x9/photo.jpg"
+         ],
+        "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
+        "sku": "0446310786",
+        "mpn": "925872",
+        "brand": {
+          "@type": "Brand",
+          "name": "ACME"
+        },
+        "review": {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Fred Benson"
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.4",
+          "reviewCount": "89"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": "5",
+          "lowPrice": "119.99",
+          "highPrice": "199.99",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+      "offers": {
+        "@type": "Offer",
+        "url": "https://example.com/anvil",
+        "priceCurrency": "USD",
+        "price": "119.99",
+        "priceValidUntil": "2020-11-20",
+        "itemCondition": "https://schema.org/UsedCondition",
+        "availability": "https://schema.org/InStock"
+      }
+
+"shippingDetails": {
+  "@type": "OfferShippingDetails",
+  "shippingRate": {
+    "@type": "MonetaryAmount",
+    "value": "0",
+    "currency": "USD"
+  },
+  "shippingDestination": [
+    {
+      "@type": "DefinedRegion",
+      "addressCountry": "US",
+      "addressRegion": ["NY"]
+    }
+  ]
+}
+
+https://developers.google.com/search/docs/appearance/structured-data/product
+
+
+your sitemap includes only web page URLs, you can provide Google with a simple text file that contains one URL per line. For example:
+
+https://www.example.com/file1.html
+https://www.example.com/file2.html
+
+Guidelines for text file sitemaps
+
+    Encode your file using UTF-8 encoding.
+    Don't put anything other than URLs in the sitemap file.
+    You can name the text file anything you wish, provided it has a .txt extension (for instance, sitemap.txt).
+
+Break up large sitemaps into smaller sitemaps: a sitemap can contain up to 50,000 URLs and must not exceed 50MB uncompressed.
+Use a sitemap index file to list all the individual sitemaps and submit this single file to Google rather than submitting individual sitemaps
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tarcisomesquita.github.io/index.html</loc>
+  </url>
+</urlset>
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+https://www.example.com/ümlat.html&q=name
+
+Here is that same URL encoded using ISO-8859 encoding, and with the entity escaped:
+
+https://www.example.com/%FCmlat.html&amp;q=name
+
+Here is that same URL using UTF-8 encoding, and with the e
+
+https://www.example.com/%C3%BCmlat.html&amp;q=name
+
+ = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+Google does not pledge to crawl every URL in a sitemap.
+
+submit
+https://www.google.com/ping?sitemap=https://example.com/sitemap.xml
+
+
+
+Describe your page with unique titles and snippets
+
+Às vezes, o Google usa a tag <meta name="description"> da página para gerar um snippet de resultado da pesquisa.
+
+ Por exemplo, a metadescrição a seguir oferece informações detalhadas sobre um livro, e as informações são claramente marcadas e separadas:
+
+    <meta name="description" content="Escrito por U.M. Autor, ilustrado por V. Gogh, Preço: R$ 17,99, tamanho: 784 páginas">
+    

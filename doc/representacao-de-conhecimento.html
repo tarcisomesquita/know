@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Representação de conhecimento</title>
+
+<meta name="viewport" content="width=device-width">
+
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+a:link    {color:#2160DE; text-decoration:none;}      /* unvisited link  */
+a:visited {color:#2160DE; text-decoration:none;}      /* visited link    */
+a:hover   {color:#2160DE; text-decoration:underline;} /* mouse over link */
+a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
+
+a:link.oo    {color: initial;}      /* unvisited link  */
+a:visited.oo {color:initial;}      /* visited link    */
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  border-spacing: 5px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Objetivos</h2>
+<p>Validar sequências com uma base.</p>
+
+<h2>Relações em uma tabela</h2>
+
+<p>Abaixo temos informações na forma de tabela e na forma de sequência de palavras.</p>
+
+<table>
+  <tr><th>classe</th><th>propriedade</th></tr>
+  <tr><td><a class="oo" target="_blank" href="https://www.wikidata.org/wiki/Q107715">grandeza</a></td><td>unidade</td></tr>
+</table>
+
+<p>A grandeza é uma classe. A unidade é uma propriedade. Uma classe tem uma propriedade. A unidade é uma propriedade da grandeza.</p>
+
+
+<p>Na tabela abaixo, vou detalhar as relações.</p>
+
+<table>
+  <tr><th>grandeza</th><th>unidade</th></tr>
+  <tr><td>comprimento</td><td>metro</td></tr>
+  <tr><td>massa</td><td>quilograma</td></tr>
+  <tr><td>tempo</td><td>segundo</td></tr>
+  <tr><td>corrente</td><td>ampere</td></tr>
+  <tr><td>temperatura</td><td>kelvin</td></tr>
+</table>
+
+
+<p>Em cada coluna, a <b>relação</b> entre o objeto e a classe é representada pela palavra <b>é</b>. Por exemplo, <b>comprimento é grandeza</b> e <b>metro é unidade</b>. Observe que o inverso da sequência, "grandeza é comprimento", é falso. A palavra <b>é</b> expressa uma relação vertical, de baixo para cima. Aqui segui o formato [o|a] &lt;OBJETO&gt; é [um|uma] &lt;CLASSE&gt;.</p>
+
+<p>Quando vamos nos referir ao objeto, é opcional adicionar a classe antes. Por exemplo, <b>o comprimento</b> ou <b>a grandeza comprimento</b>.</p>
+
+<p>Entre duas colunas, a <b>relação</b> entre objeto e propriedade é representada pelas palavras <b>de</b> e <b>tem</b>. Por exemplo, <b>uma unidade do comprimento</b>. Lembre que a palavra "do" e a contração das palavras "de o". Observe que também podemos formar sequências maiores, como: "uma unidade da grandeza comprimento", "o metro é uma unidade do comprimento" e "o metro é uma unidade da grandeza comprimento". A palavra <b>de</b> expressa uma relação diagonal de cima para baixo e para esquerda.</p>
+
+<p>A palavra <b>tem</b> expressa uma relação horizontal da esquerda para direita. Por exemplo: <b>grandeza tem unidade</b> e <b>comprimento tem unidade metro</b>.</p>
+
+<p>Seguindo esta lógica, deveríamos escrever "Pedro tem a idade 2 anos" em vez de "Pedro tem 2 anos de idade".</p>
+
+
+<h2>Definição de objeto, classe e propriedade</h2>
+
+<p>Nas tabelas, uma célula de uma coluna representa um <b>objeto</b>. Por exemplo: o <b>comprimento</b> é um <b>objeto</b>. Um objeto é um elemento de um conjunto.</p>
+
+<p>Nas tabelas, o cabeçalho da primeira coluna representa uma <b>classe</b> e o cabeçalho da segunda coluna representa uma <b>propriedade</b>. Por exemplo: "a <b>grandeza</b> é uma <b>classe</b>" e "a <b>unidade</b> é uma <b>propriedade</b>".</p>
+
+<p>Uma classe é um conjunto de objetos com alguma propriedade em comum. Por exemplo, comprimento, massa e tempo tem em comum o fato de terem uma unidade.</p>
+
+<p>A palavra grandeza aparece em uma tabela como sendo objeto e em outra tabela como sendo classe. P</p>
+
+<p>Uma propriedade também é um conjunto de objetos ou valores.</p>
+
+<p>Uma coluna à direita representa uma <b>propriedade</b> da classe. Por exemplo: a <b>unidade</b> é uma <b>propriedade</b> da grandeza</b>.</p>
+
+<p>Um objeto deve ser precedido pelas palavras <b>o</b> ou <b>a</b>. Uma classe deve ser precedida pelas palavras <b>um</b> ou <b>uma</b>. Porém, artigos são stopwords, ou seja, podem ser ignorados, pois não afetam a relação. Exemplo: as sequências "o comprimento é uma grandeza" e "comprimento é grandeza" expressam a relação é.</p>
+
+
+<h2>Representação de conhecimento</h2>
+<h2>Tabela em formato texto</h2>
+<p>Acima usei tabelas em formato gráfico, que usa linhas para desenhar as colunas e as células. Porém, o desenho fica muito complicado ao aumentar as relações representadas.</p>
+
+<p>Uma lista de relações verticais e horizontais é uma modo mais fácil escrever uma tabela. Por exemplo:
+<ul>
+<li>comprimento é grandeza</li>
+<li>metro é unidade</li>
+<li>grandeza tem unidade</li>
+</ul>
+</p>
+
+<p>Usando o formato texto podemos armazenar várias tabelas em um único arquivo. O software que gerencia o banco de dados deve verificar a coerência das tabelas (se as relações únicas são obedecidas) e também gerar as possíveis sequências de palavras, inclusive as relações diagonais e as heranças. Exemplo de herança: uma tabela diz "x é y", outra tabela diz "y é z", então por herança, "x é z".</p>
+
+<p>
+Como fica o caso da sequência <br>
+"população de Campinas em 2004" (incluir a dimensão tempo, tabela tridimensional)<br>
+&lt;comprimento&gt; &lt;unidade&gt; &lt;metro&gt;
+</p>
+
+<table>
+  <tr><th>unidade</th><th>símbolo</th></tr>
+  <tr><td>metro</td><td>m</td></tr>
+  <tr><td>quilograma</td><td>kg</td></tr>
+  <tr><td>segundo</td><td>s</td></tr>
+  <tr><td>ampere</td><td>A</td></tr>
+  <tr><td>kelvin</td><td>K</td></tr>
+  <tr><td>mol</td><td>mol</td></tr>
+  <tr><td>candela</td><td>cd</td></tr>
+</table> 
+
+</body>
+</html>

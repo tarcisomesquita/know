@@ -1,0 +1,86 @@
+https://www.google.com/intl/pt-br/add_url.html
+Para ver se suas páginas já estão indexadas, procure o site na Pesquisa Google
+[site:example.com]
+
+http://example.org/people#manu
+
+<p vocab="http://schema.org/" prefix="ov: http://open.vocab.org/terms/" resource="#manu" typeof="Person">
+   My name is
+   <span property="name">Manu Sporny</span>
+   and you can give me a ring via
+   <span property="telephone">1-800-555-0199</span>.
+   <img property="image" src="http://manu.sporny.org/images/manu.png" />
+   My favorite animal is the <span property="ov:preferredAnimal">Liger</span>.
+</p>
+
+ sameAs 	URL 	URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website. 
+
+<table>
+<tr vocab="http://schema.org/" resource="https://t7m8.com.br/pessoas#manu" typeof="Person">
+<td property="name">Manu Sporny</td><td property="telephone">1-800-555-0199</td>
+</tr>
+</table>
+
+
+<div vocab="http://purl.org/dc/terms/">
+   <div resource="/alice/posts/trouble_with_bob">
+      <h2 property="title">The trouble with Bob</h2>
+      <h3 property="creator" resource="#me">Alice</h3>
+   </div>
+</div>
+
+
+<div class="sidebar" prefix="foaf: http://xmlns.com/foaf/0.1/ schema: http://schema.org/" 
+     resource="#me" typeof="foaf:Person schema:Person">
+  <p>
+   <span property="foaf:name">Alice Birpemswick</span>,
+     Email: <a property="foaf:mbox" href="mailto:alice@example.com">alice@example.com</a>,
+     Phone: <a property="foaf:phone" href="tel:+1-617-555-7332">+1 617.555.7332</a>
+  </p>
+</div>
+
+
+
+You can learn more about RDFa by reading the
+<span vocab="http://schema.org/" typeof="TechArticle">
+   <a property="url" href="http://www.w3.org/TR/rdfa-primer/">
+      <span property="name">RDFa 1.1 Primer</span></a>.
+</span>
+
+
+https://rdfa.info/play/
+https://validator.schema.org/
+
+
+<html>
+  <head>
+    <title>Party Coffee Cake</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Party Coffee Cake",
+      "author": {
+        "@type": "Person",
+        "name": "Mary Stone"
+      },
+      "datePublished": "2018-03-10",
+      "description": "This coffee cake is awesome and perfect for parties.",
+      "prepTime": "PT20M"
+    }
+    </script>
+  </head>
+  <body>
+    <h2>Party coffee cake recipe</h2>
+    <p>
+      <i>by Mary Stone, 2018-03-10</i>
+    </p>
+    <p>
+      This coffee cake is awesome and perfect for parties.
+    </p>
+    <p>
+      Preparation time: 20 minutes
+    </p>
+  </body>
+</html>
+https://search.google.com/test/rich-results
