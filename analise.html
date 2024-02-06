@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta viewport='width=device-width'>
+<title>texto</title>
+</head>
+
+<body>
+
+<script>
+let entrada = "";
+
+function analise() {
+  document.getElementById("entra_texto").setAttribute("disabled","true");
+  document.getElementById('analisar').style.display="none";
+  document.getElementById('editar').style.display="block";
+  
+  entrada = document.getElementById("entra_texto").value;
+  
+  let pos = 0;
+  
+  if (entrada.search("\n") !== -1) {
+    document.getElementById('saida').innerHTML = `<p>ERRO: não pode haver quebra de linha.</p>`;
+    return;
+  }
+  
+  pos = entrada.search(/[^0-9A-Za-z çãáàéêíóôú.]/);
+  if (pos !== -1) {
+    document.getElementById('saida').innerHTML = `<p>ERRO: "${entrada[pos]}" é um caractere desconhecido.</p>`;
+    return;
+  }
+  
+  if (entrada.search(/^[A-Z]/) == -1) {
+    document.getElementById('saida').innerHTML = `<p>ERRO: o texto <b>não começa</b> com letra maiúscula.</p>`;
+    return;
+  }
+  
+  if (entrada.search(/\.$/) == -1) {
+    document.getElementById('saida').innerHTML = `<p>ERRO: o texto <b>não termina</b> com ponto final.</p>`;
+    return;
+  }
+  
+  if (entrada.search(/\./) !== (entrada.length - 1)) {
+    document.getElementById('saida').innerHTML = `<p>ERRO: o texto tem <b>mais de um</b> ponto final.</p>`;
+    return;
+  }
+  
+  document.getElementById('saida').innerHTML = `<p>Entrada: "${entrada}"</p>`;
+  return;
+}
+
+function editar() {
+  document.getElementById("entra_texto").removeAttribute("disabled");
+  document.getElementById('editar').style.display="none";
+  document.getElementById('analisar').style.display="block";
+  document.getElementById('saida').innerHTML="";
+  
+  return;
+}
+</script>
+
+<p>Quero que marque como correta as sequências: (trocar os exemplos por grandeza e unidade)<br>
+elefante é um mamífero<br>
+elefante não é uma ave (ave sendo uma classe fechada)<br>
+mamífero elefante<br>
+elefante, homem e vaca são mamíferos<br>
+mamíferos: elefante, homem e vaca<br>
+a grama é uma planta<br>
+o grama é uma unidade
+</p>
+
+<p>Quero que marque como icorreta a sequência:<br>
+elefante é um pássaro
+</p>
+
+<p>Considere erro humano: "a grandeza d[ae] velocidade" em vez de "a grandeza velocidade"</p>
+<main>
+<textarea id="entra_texto" cols="150" rows="3" spellcheck="false"></textarea>
+
+<input id="analisar" type="button" value="analise" onclick="analise()" style="display:block">
+<input id="editar"   type="button" value="editar"  onclick="editar()" style="display:none">
+
+<div id="saida"></div>
+</main>
+
+<p>Regras:
+<ul>
+<li>não pode haver quebra de linha</li>
+<li>suporta o alfabeto [0-9A-Za-z çãáàéêíóôú.]</li>
+<li>texto deve começar com letra maiúscula</li>
+<li>texto deve terminar com ponto final</li>
+<li>apenas um ponto final</li>
+<li></li>
+<li></li>
+</ul>
+</p>
+<pre wrap="wrap">
+Elementos suportados
+Apenas parágrafos (&lt;p&gt;). Não suporta títulos, tabelas, listas e imagens.
+
+Pontuação suportada
+Apenas ponto final. Não suporta vírgula, ponto e vírgula, dois pontos, ponto de interrogação, ponto de exclamação, reticências, aspas, parênteses, parênteses angulares, colchetes, chaves, travessão, hífen e barra.
+
+
+TALVEZ NADA DISSO: APENAS UM USUÁRIO DO SOFTWARE KNOW.
+Fazer:
+
+Usar o espaço como separador de elementos.
+
+Identificar se os elementos são palavras, números, símbolos ou siglas.
+
+Identificar se as palavras pertencem à Língua Portuguesa (subconjunto meu)
+
+Identificar se as palavas estão no plural ou no singular
+
+https://www.normaculta.com.br
+
+</pre>
+
+</body>
+</html>
+
