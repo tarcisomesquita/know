@@ -4,27 +4,40 @@
 <meta charset="UTF-8">
 <title>know</title>
 <link rel="icon" type="image/png" sizes="16x16" href="icone.png">
-</head>
-<body onload="lista_palavras()">
 
-<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="60" height="60" onclick="location.reload()">
+<style>
+body {
+  height: 100%;
+  background-color: #FFFFFF;
+  font-family: 'Open Sans',sans-serif;
+  color: #000000;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: justify;
+  margin: 0px;
+  padding: 5mm;
+}
+
+a:link    {color:#2160DE; text-decoration:none;}      /* unvisited link  */
+a:visited {color:#2160DE; text-decoration:none;}      /* visited link    */
+a:hover   {color:#2160DE; text-decoration:underline;} /* mouse over link */
+a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
+</style>
+</head>
+
+<body onload="carregar('1')">
+
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="60" height="60" onclick="location.reload()" style="//float:left; margin:5px">
   <rect x="1" y="1" rx="10" ry="10" width="58" height="58" style="fill:#ADD8E6;stroke:#000000;stroke-width:1"/>
   <circle r="5" cx="20" cy="30" style="fill:none;stroke:#000000;stroke-width:2" />
   <circle r="5" cx="40" cy="30" style="fill:none;stroke:#000000;stroke-width:2" />
   <path d="M  24,30  36,30 z" style="fill:none;stroke:#000000;stroke-width:2"/>
 </svg>
 
-<div>
 <p>Explore o que o teclado pode escrever para validar uma sequência de palavras.</p>
 
-<div id="texto" style="height: 100px; background: #CCCCCC; margin: 10px; padding: 5px;"></div>
-
-
-<!--
-<div contenteditable="true" style="line-height:30px" onkeyup="window.alert('OK')">
-<p> Write <span style="border: 1px solid #0000FF">your own</span> name ashere<br/><span style="border: 1px solid #00FF00">asf jsf ajkl</span> sfdjlçasdlfk asdfla</p>
-</div>
--->
+<div id="texto" style="height: 70px; background: #CCCCCC; margin: 10px; padding: 5px;"></div>
 
 <style>
 .tecla {
@@ -121,92 +134,64 @@
 
 
 <script>
-var palavras = ['ar', 'espaço', 'tempo', 'massa', 'velocidade', 'volume'];
-
 var pos_letra = 0;
 
-var code2char = {Backquote:"'", 
+let code2char = {Backquote:"'", 
                 Digit1:'1', Digit2:'2', Digit3:'3', Digit4:'4', Digit5:'5', Digit6:'6', Digit7:'7', Digit8:'8', Digit9:'9', Digit0:'0', Minus:'-', Equal:'=', 
                 KeyQ:'q', KeyW:'w', KeyE:'e', KeyR:'r', KeyT:'t', KeyY:'y', KeyU:'u', KeyI:'i', KeyO:'o', KeyP:'p', BracketRight:'[', 
                 KeyA:'a', KeyS:'s', KeyD:'d', KeyF:'f', KeyG:'g', KeyH:'h', KeyJ:'j', KeyK:'k', KeyL:'l', Semicolon:'ç', Backslash:']', 
                 IntlBackslash:'\\', KeyZ:'z', KeyX:'x', KeyC:'c', KeyV:'v', KeyB:'b', KeyN:'n', KeyM:'m', Comma:',', Period:'.', Slash:';', IntlRo:'/', 
                 Space:' '};
 
-var char2code = {"'":'Backquote', 
+let char2code = {"'":'Backquote', 
                  1:'Digit1', 2:'Digit2', 3:'Digit3', 4:'Digit4', 5:'Digit5', 6:'Digit6', 7:'Digit7', 8:'Digit8', 9:'Digit9', 0:'Digit0', '-':'Minus', '=':'Equal', 
                  q:'KeyQ', w:'KeyW', e:'KeyE', r:'KeyR', t:'KeyT', y:'KeyY', u:'KeyU', i:'KeyI', o:'KeyO', p:'KeyP', '[':'BracketRight', 
                  a:'KeyA', s:'KeyS', d:'KeyD', f:'KeyF', g:'KeyG', h:'KeyH', j:'KeyJ', k:'KeyK', l:'KeyL', ç:'Semicolon', ']':'Backslash', 
                  '\\':'IntlBackslash', z:'KeyZ', x:'KeyX', c:'KeyC', v:'KeyV', b:'KeyB', n:'KeyN', m:'KeyM', ',':'Comma', '.':'Period', ';':'Slash', '/':'IntlRo', 
                  ' ':'Space'};
 
-var ativo = [];
+// teclas ativas no estado atual
+let ativo = [];
+
+// histórico dos estados buscados na base
+let response_history = [];
 
 function teclado_agora() {
-  //alert(ativo.length + '    [' + ativo.toString() + ']');
-  for (i=0; i<ativo.length; i++) {
-    var tecla = document.getElementById(ativo[i]);
-    tecla.style.backgroundColor = "#333333";
-  }
+  for (i = 0; i < ativo.length; i++) document.getElementById(ativo[i]).style.backgroundColor = "#333333";
 }
 
 function limpa_teclado() {
-  for (i=0; i<ativo.length; i++) {
-    var tecla = document.getElementById(ativo[i]);
-    tecla.style.backgroundColor = "#999999";
-  }
-}
-
-function limpa_palavras(letra) {
-  var tamanho = palavras.length;
-  
-  for (i=0; ; ) {
-    if (palavras[i][pos_letra - 1] != letra) {
-      palavras.splice(i, 1);
-      tamanho -= 1;
-    }
-    else i++;
-    if (i >= tamanho) break;
-  }
-}
-
-function lista_palavras() {
-  for (i=0; i<palavras.length; i++) {
-    var letra_p = char2code[palavras[i][pos_letra]];
-    if (ativo.indexOf(letra_p) == -1) ativo.push(letra_p);
-  }
-  pos_letra += 1;
-  
-  teclado_agora();
+  for (i = 0; i < ativo.length; i++) document.getElementById(ativo[i]).style.backgroundColor = "#999999";
 }
 
 function tDown(t_code) {
   if (ativo.indexOf(t_code) == -1) return;
   
-  var tecla = document.getElementById(t_code);
+  let tecla = document.getElementById(t_code);
   tecla.style.backgroundColor = "#eeeeee";
   tecla.style.color = "#333333";
-
-   // style="background: #999999"
+  
+  //document.getElementById("links").setAttribute("disabled","disabled");
 }
 
 function tUp(t_code) {
-  //alert(t_code + '  [' + ativo.toString() + ']');
   if (ativo.indexOf(t_code) == -1) return;
   
-  var tecla = document.getElementById(t_code);
+  let tecla = document.getElementById(t_code);
   tecla.style.backgroundColor = "#333333";
   tecla.style.color = "#eeeeee";
   
-  var texto = document.getElementById("texto");
-  
+  let texto = document.getElementById("texto");
   texto.innerHTML += code2char[t_code];
   
   limpa_teclado();
-  var tamanho = ativo.length;
-  for (i=0; i<tamanho; i++) ativo.pop();
+  let tamanho = ativo.length;
+  ativo = []; //for (i = 0; i < tamanho; i++) ativo.pop();
   
-  limpa_palavras(code2char[t_code]);
-  lista_palavras();
+  let estado = response_history[response_history.length - 1];
+  if (estado[code2char[t_code]] === "") return;
+  else carregar(estado[code2char[t_code]]);
+  // AQUI
 }
 
 document.body.addEventListener('keydown', function (e) {
@@ -217,33 +202,33 @@ document.body.addEventListener('keyup', function (e) {
   tUp(e.code);
 });
 
-// char.toUpperCase()
-
-
-/*
-https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event
-mousedown
-https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event
-https://www.w3schools.com/jsref/dom_obj_style.asp
-*/
-
-</script>
-
-<script>
-function certo(estado) {
-  console.log(Object.keys(estado));
+function mostrar(estado) {
+  response_history.push(estado);
   
-  for (key in estado) {
-    console.log(`${key} ${estado[key]}`);
+  if (Object.keys(estado)[0] === "*" &&  Object.keys(estado)[1] === "#") {
+    let texto = document.getElementById("texto");
+    texto.innerHTML += estado["*"];
+    if (estado["#"] === "") return;
+    else carregar(estado["#"]);
+    
+    return;
   }
+  
+  for (key in estado) ativo.push(char2code[key]);
+  
+  teclado_agora();
 }
 
-fetch("teste.json").then(response => {
-  if (response.status === 200) response.json().then(data => certo(data));
-  else {
-    console.log("> " + response.statusText);
-  }
-})
+function carregar(s) {
+  fetch(`base/${s}.json`).then(
+    response => {
+      if (response.status === 200) response.json().then(estado => mostrar(estado));
+      else {
+        console.log("> " + response.statusText);
+      }
+    }
+  )
+}
 </script>
 
 <footer style='font-family:"sans-serif"; font-size:10px;'>
@@ -251,52 +236,16 @@ Autor: <a href='https://tarcisomesquita.github.io/me/'>Tarciso Mesquita</a><br/>
 <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/me/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.pt_BR">Creative Commons Atribuição 4.0 Internacional</a>
 <footer>
 
+<br />
+<iframe name="hiddenFrame" style="visibility:hidden"></iframe>
+<form name="formlog" enctype="application/x-www-form-urlencoded"action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeH6hDfEOI6jvgDsdkuuUeah_FU3dPGxZZr-sBBkIjj4Hkwog/formResponse" method="POST" target="hiddenFrame">
+<input id="texto_log" name="entry.667481942" type="hidden">
+</form>
+
 <script>
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return '';
-}
-
-let token = getCookie('token');
-let email = getCookie('email');
-
-const set_cookie = (id,value) => {
-  let expira = new Date((new Date()).getTime() + 365*24*3600*1000).toISOString();
-  document.cookie = `${id}=${value};expires=${expira};path=/;`;
-}
-
-if (token === '') {
-  token = (Math.random().toString(36)+"00000000000").substring(2,13).toUpperCase();
-  set_cookie('token',token);
-}
-
-if (email === '') {
-  email = 'indefinido@gmail.com';
-  set_cookie('email',email);
-}
-
-let log = `entry.340072360=${location.href};${token};${email};${screen.width}x${screen.height};${navigator.deviceMemory};${navigator.userAgent.replace(/;/g,',')}`;
-
-fetch(
-  'https://docs.google.com/forms/u/0/d/e/1FAIpQLScGwq8tvtiFUjhTQ58SlhN0b9rymqGGeXbJJoFB2YWks4FSPA/formResponse', 
-  {
-    method: 'POST',
-    mode: 'no-cors',
-    credentials: 'omit',
-    headers: {  
-      'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-    },
-    'body': encodeURI(log)
-  }
-);
+let info = window.location.href;
+document.getElementById("texto_log").value = info;
+document.forms.formlog.submit();
 </script>
 
 </body>
