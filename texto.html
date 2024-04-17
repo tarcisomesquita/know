@@ -6,12 +6,6 @@
 <title>texto</title>
 </head>
 
-<!--
-https://www.normaculta.com.br
-
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element
--->
-
 <body>
 
 <script>
@@ -67,11 +61,17 @@ function editar() {
 </script>
 
 <main>
-<p><b>Objetivo:</b> Verificar se uma sequência de palavras está de acordo com uma base de conhecimento.</p>
+<p><b>Objetivo:</b> Verificar se uma sequência de palavras está de acordo com uma base de conhecimento (verificação de precisão e consistência).</p>
 
-<p><b>Elementos suportados:</b> Apenas parágrafos. Não suporta títulos, tabelas, listas e imagens.</p>
-
-<p><b>Pontuação suportada:</b> Apenas ponto final. Não suporta vírgula, ponto e vírgula, dois pontos, ponto de interrogação, ponto de exclamação, reticências, aspas, parênteses, parênteses angulares, colchetes, chaves, travessão, hífen e barra.</p>
+<p>Regras:
+<ul>
+<li>não pode haver quebra de linha</li>
+<li>suporta o alfabeto [0-9A-Za-z çãáàéêíóôú.]</li>
+<li>texto deve começar com letra maiúscula</li>
+<li>texto deve terminar com ponto final</li>
+<li>apenas um ponto final</li>
+</ul>
+</p>
 
 <p><b>Exemplo:</b> "O m é o símbolo da unidade metro."</p>
 
@@ -83,6 +83,22 @@ function editar() {
 <input id="editar"   type="button" value="editar"  onclick="editar()" style="display:none">
 
 <div id="saida"></div>
+
+<pre wrap="wrap">
+Coisas para fazer:
+
+Conectar ao software Know.
+
+Usar o espaço como separador de elementos.
+
+Identificar se os elementos são palavras, números, símbolos ou siglas.
+
+Identificar se as palavras pertencem à Língua Portuguesa (subconjunto meu)
+
+Identificar se as palavas estão no plural ou no singular
+
+</pre>
+
 </main>
 </body>
 </html>
