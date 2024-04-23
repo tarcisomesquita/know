@@ -54,7 +54,17 @@ table, th, td {
    +--------+--------+
 </pre>
 
-<p>Uma <b>base de conhecimento</b> é um conjunto de <b>tabelas</b>. Usando o conteúdo nas tabelas, construímos <b>sequências</b> seguindo as <b>relações em uma tabela</b>. Usando as sequências, contruímos os arquivos json com os possíveis estados de um teclado (teclas ativadas/desativadas) que permite escrever essas sequências.</p>
+<p>Uma <b>base de conhecimento</b> é um conjunto de <b>tabelas</b>. Usando o conteúdo nas tabelas, construímos <b>sequências</b> seguindo as <b>relações em uma tabela</b>. Usando as sequências, contruímos a <b>base de estados</b>, que são arquivos json com os possíveis estados de um teclado (teclas ativadas/desativadas) que permite digitar essas sequências.</p>
+
+<h2>Base de estados</h2>
+
+<p>Esta base é uma lista encadeada.</p>
+
+<p>Exemplo: { "t": "", "v": "2", "%": "1" }<br>
+A chave ("t" e "v") é o nome da tecla ativa. Os valores ("" e "2") são nomes dos arquivos json que serão carregados ao pressionar a tecla. O valor "" é especial, ele significa que a sequência acabou. A chave "%" é especial, seu valor contém o nome do arquivo anterior.</p>
+
+<p>Exemplo: { "*": "ab123", "#": "3", "$": "3", "%": "1" }<br>
+As chaves "*", "#" e "$" são especiais. Seus valores contém respectivamente: o nome do arquivo da entidade na base de conhecimento, a quantidade de caracteres que o link envolve e o nome do próximo arquivo na base de estados.</p>
 
 <h2>Falta desenvolver</h2>
 <pre>
