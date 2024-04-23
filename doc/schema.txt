@@ -1,8 +1,0 @@
-https://schema.org/docs/full.html
-
-https://schema.org/City
-https://schema.org/State
-https://schema.org/Country
-https://schema.org/Dataset
-https://schema.org/WebApplication
-ttps://schema.org/WebSite
