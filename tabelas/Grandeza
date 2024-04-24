@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>Grandeza</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+a:link    {color:#2160DE; text-decoration:none;}      /* unvisited link  */
+a:visited {color:#2160DE; text-decoration:none;}      /* visited link    */
+a:hover   {color:#2160DE; text-decoration:underline;} /* mouse over link */
+a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
+
+a:link.oo    {color: initial;}     /* unvisited link  */
+a:visited.oo {color:initial;}      /* visited link    */
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  border-spacing: 5px;
+}
+</style>
+<body>
+
+<h2>Grandeza</h2>
+
+<table>
+  <tr><th>grandeza</th><th>unidade</th></tr>
+  <tr><td><a href="https://tarcisomesquita.github.io/know/base-de-conhecimento/1.html">tempo</a></td><td>segundo</td></tr>
+  <tr><td></td><td></td></tr>
+</table>
+
+</body>
+</html>
