@@ -1,3 +1,9 @@
+https://www.w3.org/2011/rdf-wg/wiki/RDF_Test_Suites
+
+https://en.wikipedia.org/wiki/Notation3
+https://en.wikipedia.org/wiki/Turtle_(syntax)
+https://en.wikipedia.org/wiki/N-Triples
+
 https://github.com/frogcat/ttl2jsonld
 https://json-ld.org/playground/
 {
