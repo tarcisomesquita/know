@@ -1,0 +1,42 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+rdfs:Class rdf:type rdfs:Class .
+rdfs:Class rdfs:label "Class" .
+rdfs:Class rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:Class rdfs:comment "The class of classes." .
+
+rdf:type rdf:type rdf:Property .
+rdf:type rdfs:label "type" .
+rdf:type rdfs:isDefinedBy <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+rdf:type rdfs:domain rdfs:Resource .
+rdf:type rdfs:range rdfs:Class .
+rdf:type rdfs:comment "The subject is an instance of a class." .
+
+rdf:Property rdf:type rdfs:Class .
+rdf:Property rdfs:label "Property" .
+rdf:Property rdfs:isDefinedBy <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+rdf:Property rdfs:comment "The class of RDF properties." .
+
+rdfs:Resource rdf:type rdfs:Class .
+rdfs:Resource rdfs:label "Resource" .
+rdfs:Resource rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:Resource rdfs:comment "The class resource, everything." .
+
+rdfs:Literal rdf:type rdfs:Class .
+rdfs:Literal rdfs:label "Literal" .
+rdfs:Literal rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:Literal rdfs:comment "The class of literal values, eg. textual strings and integers." .
+
+owl:Thing rdf:type owl:Class .
+owl:Thing rdfs:label "Thing" .
+owl:Thing rdfs:isDefinedBy <http://www.w3.org/2002/07/owl#> .
+owl:Thing rdfs:comment "The class of OWL individuals." .
+
+owl:sameAs rdf:type rdf:Property .
+owl:sameAs rdfs:label "sameAs" .
+owl:sameAs rdfs:isDefinedBy <http://www.w3.org/2002/07/owl#> .
+owl:sameAs rdfs:domain owl:Thing .
+owl:sameAs rdfs:range owl:Thing .
+owl:sameAs rdfs:comment "The property that determines that two given individuals are equal." .
