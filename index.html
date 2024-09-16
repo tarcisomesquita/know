@@ -223,7 +223,7 @@ function mostrar(estado) {
 }
 
 function carregar(s) {
-  fetch(`base/${s}.json`).then(
+  fetch(`base-de-estados/${s}.json`).then(
     response => {
       if (response.status === 200) response.json().then(estado => mostrar(estado));
       else {
