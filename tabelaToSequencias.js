@@ -51,7 +51,7 @@ async function htmlToJsonArray(html) {
   return jsonArray;
 }
 
-async function teste() {
+async function tabelaToSequencias(tabela) {
   const palavra = await getContent('palavra');
   if (! palavra) {
     console.error("Failed to fetch palavra.html");
@@ -61,7 +61,6 @@ async function teste() {
   const genero = await htmlToJson(palavra);
   console.log(JSON.stringify(genero));
   
-  let tabela = 'palavra';
   const tabelaHtml = await getContent(tabela);
   if (! tabelaHtml) {
     console.error(`Failed to fetch a tabela ${tabela}`);
@@ -252,7 +251,11 @@ async function teste() {
   }
   
   const sequencias = [...new Set(sequenciasGeral)];
-  console.log(sequencias.sort().join('\n'));
+  
+  const link = document.createElement('a');
+  link.href = 'data:text/plain;charset=UTF-8,' + JSON.stringify(sequencias.sort());
+  link.download = tabela + '_seq.json';
+  link.click();
 }
 
-teste()
+tabelaToSequencias('grandeza')
