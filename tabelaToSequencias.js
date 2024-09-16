@@ -251,7 +251,7 @@ async function tabelaToSequencias(tabela) {
   const sequencias = [...new Set(sequenciasGeral)];
   
   const link = document.createElement('a');
-  link.href = 'data:text/plain;charset=UTF-8,' + JSON.stringify(sequencias.sort());
+  link.href = 'data:text/plain;charset=UTF-8,' + JSON.stringify(sequencias.sort(), null, 2);
   link.download = tabela + '_seq.json';
   link.click();
 }
