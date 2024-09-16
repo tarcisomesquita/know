@@ -59,7 +59,6 @@ async function tabelaToSequencias(tabela) {
   }
   
   const genero = await htmlToJson(palavra);
-  console.log(JSON.stringify(genero));
   
   const tabelaHtml = await getContent(tabela);
   if (! tabelaHtml) {
@@ -68,7 +67,6 @@ async function tabelaToSequencias(tabela) {
   }
   
   const tabelaJson = await htmlToJsonArray(tabelaHtml);
-  console.log(JSON.stringify(tabelaJson));
   
   const sequenciasGeral = [];
   
