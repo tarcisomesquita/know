@@ -128,8 +128,6 @@ a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
   <div class="tecla" id="ArrowUp" onmousedown="tDown('ArrowUp')" onmouseup="tUp('ArrowUp')">&#x2191;</div>
   <div class="tecla" id="ArrowDown" onmousedown="tDown('ArrowDown')" onmouseup="tUp('ArrowDown')">&#x2193;</div>
   <div class="tecla" id="ArrowRight" onmousedown="tDown('ArrowRight')" onmouseup="tUp('ArrowRight')">&#x2192;</div>
-<!-- http://xahlee.info/comp/unicode_computing_symbols.html -->
-<!-- https://keycode.info/ -->
 </div>
 
 <p>Veja a <a href="https://tarcisomesquita.github.io/know/doc/representacao-de-conhecimento.html">documentação</a>.</p>
@@ -141,16 +139,16 @@ var pos_letra = 0;
 
 let code2char = {Backquote:"'", 
                 Digit1:'1', Digit2:'2', Digit3:'3', Digit4:'4', Digit5:'5', Digit6:'6', Digit7:'7', Digit8:'8', Digit9:'9', Digit0:'0', Minus:'-', Equal:'=', 
-                KeyQ:'q', KeyW:'w', KeyE:'e', KeyR:'r', KeyT:'t', KeyY:'y', KeyU:'u', KeyI:'i', KeyO:'o', KeyP:'p', BracketRight:'[', 
-                KeyA:'a', KeyS:'s', KeyD:'d', KeyF:'f', KeyG:'g', KeyH:'h', KeyJ:'j', KeyK:'k', KeyL:'l', Semicolon:'ç', Backslash:']', 
-                IntlBackslash:'\\', KeyZ:'z', KeyX:'x', KeyC:'c', KeyV:'v', KeyB:'b', KeyN:'n', KeyM:'m', Comma:',', Period:'.', Slash:';', IntlRo:'/', 
+                KeyQ:'q', KeyW:'w', KeyE:'e', KeyR:'r', KeyT:'t', KeyY:'y', KeyU:'u', KeyI:'i', KeyO:'o', KeyP:'p', BracketLeft:'´', BracketRight:'[', 
+                KeyA:'a', KeyS:'s', KeyD:'d', KeyF:'f', KeyG:'g', KeyH:'h', KeyJ:'j', KeyK:'k', KeyL:'l', Semicolon:'ç', Quote:'~', Backslash:']', 
+                'ShiftLeft':'\u21E7', IntlBackslash:'\\', KeyZ:'z', KeyX:'x', KeyC:'c', KeyV:'v', KeyB:'b', KeyN:'n', KeyM:'m', Comma:',', Period:'.', Slash:';', IntlRo:'/', 
                 Space:' '};
 
 let char2code = {"'":'Backquote', 
                  1:'Digit1', 2:'Digit2', 3:'Digit3', 4:'Digit4', 5:'Digit5', 6:'Digit6', 7:'Digit7', 8:'Digit8', 9:'Digit9', 0:'Digit0', '-':'Minus', '=':'Equal', 
-                 q:'KeyQ', w:'KeyW', e:'KeyE', r:'KeyR', t:'KeyT', y:'KeyY', u:'KeyU', i:'KeyI', o:'KeyO', p:'KeyP', '[':'BracketRight', 
-                 a:'KeyA', s:'KeyS', d:'KeyD', f:'KeyF', g:'KeyG', h:'KeyH', j:'KeyJ', k:'KeyK', l:'KeyL', ç:'Semicolon', ']':'Backslash', 
-                 '\\':'IntlBackslash', z:'KeyZ', x:'KeyX', c:'KeyC', v:'KeyV', b:'KeyB', n:'KeyN', m:'KeyM', ',':'Comma', '.':'Period', ';':'Slash', '/':'IntlRo', 
+                 q:'KeyQ', w:'KeyW', e:'KeyE', r:'KeyR', t:'KeyT', y:'KeyY', u:'KeyU', i:'KeyI', o:'KeyO', p:'KeyP', '´':'BracketLeft', '[':'BracketRight', 
+                 a:'KeyA', s:'KeyS', d:'KeyD', f:'KeyF', g:'KeyG', h:'KeyH', j:'KeyJ', k:'KeyK', l:'KeyL', ç:'Semicolon', '~':'Quote', ']':'Backslash', 
+                 '\u21E7':'ShiftLeft', '\\':'IntlBackslash', z:'KeyZ', x:'KeyX', c:'KeyC', v:'KeyV', b:'KeyB', n:'KeyN', m:'KeyM', ',':'Comma', '.':'Period', ';':'Slash', '/':'IntlRo', 
                  ' ':'Space'};
 
 // teclas ativas no estado atual
@@ -173,10 +171,10 @@ function tDown(t_code) {
   let tecla = document.getElementById(t_code);
   tecla.style.backgroundColor = "#eeeeee";
   tecla.style.color = "#333333";
-  
-  //document.getElementById("links").setAttribute("disabled","disabled");
 }
 
+let agudo = false;
+let shift = false;
 function tUp(t_code) {
   if (ativo.indexOf(t_code) == -1) return;
   
@@ -185,7 +183,11 @@ function tUp(t_code) {
   tecla.style.color = "#eeeeee";
   
   let texto = document.getElementById("texto");
-  texto.innerHTML += code2char[t_code];
+  if      (t_code === 'BracketLeft') agudo = true;
+  else if (t_code === 'ShiftLeft') shift = true;
+  else if (agudo && t_code === 'KeyA') {texto.innerHTML += 'á'; agudo = false;}
+  else if (agudo && t_code === 'KeyE') {texto.innerHTML += 'é'; agudo = false;}
+  else texto.innerHTML += code2char[t_code];
   
   limpa_teclado();
   let tamanho = ativo.length;
@@ -217,20 +219,18 @@ function mostrar(estado) {
     return;
   }
   
-  for (key in estado) ativo.push(char2code[key]);
+  for (let key in estado) ativo.push(char2code[key]);
   
   teclado_agora();
 }
 
 function carregar(s) {
-  fetch(`base-de-estados/${s}.json`).then(
-    response => {
-      if (response.status === 200) response.json().then(estado => mostrar(estado));
-      else {
-        console.log("> " + response.statusText);
-      }
-    }
-  )
+  fetch(`base-de-estados/${s}.json`)
+  .then(response => {
+    if (response.status === 200) return response.json();
+    else console.log("> " + response.statusText);
+  })
+  .then(estado => mostrar(estado));
 }
 </script>
 
