@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8"><!-- iso-8859-1 -->
+  <title>texto exemplo</title>
+  <meta name="description" content="exemplo">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+span {
+  position: relative;
+}
+
+span:after {
+  content: 'wd:'attr(data-id);
+  position: absolute;
+  top: -23px;
+  white-space: nowrap;
+  background: black;
+  color: white;
+  padding: 2px;
+  border: 1px solid #eee;
+  opacity: 0;
+  transition: 0.5s opacity;
+}
+
+span:hover:after {
+  opacity: 1;
+}
+
+span:hover {
+  background: #AAAAAA;
+}
+</style>
+</head>
+
+<body>
+
+<p>Passe o <span data-id="Q107602">ponteiro do mouse</span> sobre o <span data-id="Q194431">parágrafo</span> abaixo.</p>
+
+<p>O <span data-id="Q36253">comprimento</span> é uma <span data-id="Q107715">grandeza</span>.</p>
+
+<p>O <span data-id="Q194431">parágrafo</span> acima está usando a <span data-id="Q2013">wikidata</span> como <span data-id="Q121769">referência</span>. Uma das <span data-id="Q121769">referências</span> usadas foi <a href="https://www.wikidata.org/entity/Q36253">https://www.wikidata.org/entity/Q36253</a>.</p>
+
+</body>
+</html>
