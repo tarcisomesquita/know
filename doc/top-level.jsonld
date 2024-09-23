@@ -5,169 +5,44 @@
     "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@graph": [
-    {
-      "@id": "rdfs:Class",
-      "rdf:type": {
-        "@id": "rdfs:Class"
-      }
-    },
-    {
-      "@id": "rdfs:Class",
-      "rdfs:label": "Class"
-    },
-    {
-      "@id": "rdfs:Class",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#"
-      }
-    },
-    {
-      "@id": "rdfs:Class",
-      "rdfs:comment": "The class of classes."
-    },
-    {
-      "@id": "rdf:type",
-      "rdf:type": {
-        "@id": "rdf:Property"
-      }
-    },
-    {
-      "@id": "rdf:type",
-      "rdfs:label": "type"
-    },
-    {
-      "@id": "rdf:type",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-      }
-    },
-    {
-      "@id": "rdf:type",
-      "rdfs:domain": {
-        "@id": "rdfs:Resource"
-      }
-    },
-    {
-      "@id": "rdf:type",
-      "rdfs:range": {
-        "@id": "rdfs:Class"
-      }
-    },
-    {
-      "@id": "rdf:type",
-      "rdfs:comment": "The subject is an instance of a class."
-    },
-    {
-      "@id": "rdf:Property",
-      "rdf:type": {
-        "@id": "rdfs:Class"
-      }
-    },
-    {
-      "@id": "rdf:Property",
-      "rdfs:label": "Property"
-    },
-    {
-      "@id": "rdf:Property",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-      }
-    },
-    {
-      "@id": "rdf:Property",
-      "rdfs:comment": "The class of RDF properties."
-    },
-    {
-      "@id": "rdfs:Resource",
-      "rdf:type": {
-        "@id": "rdfs:Class"
-      }
-    },
-    {
-      "@id": "rdfs:Resource",
-      "rdfs:label": "Resource"
-    },
-    {
-      "@id": "rdfs:Resource",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#"
-      }
-    },
-    {
-      "@id": "rdfs:Resource",
-      "rdfs:comment": "The class resource, everything."
-    },
-    {
-      "@id": "rdfs:Literal",
-      "rdf:type": {
-        "@id": "rdfs:Class"
-      }
-    },
-    {
-      "@id": "rdfs:Literal",
-      "rdfs:label": "Literal"
-    },
-    {
-      "@id": "rdfs:Literal",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#"
-      }
-    },
-    {
-      "@id": "rdfs:Literal",
-      "rdfs:comment": "The class of literal values, eg. textual strings and integers."
-    },
-    {
-      "@id": "owl:Thing",
-      "rdf:type": {
-        "@id": "owl:Class"
-      }
-    },
-    {
-      "@id": "owl:Thing",
-      "rdfs:label": "Thing"
-    },
-    {
-      "@id": "owl:Thing",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/2002/07/owl#"
-      }
-    },
-    {
-      "@id": "owl:Thing",
-      "rdfs:comment": "The class of OWL individuals."
-    },
-    {
-      "@id": "owl:sameAs",
-      "rdf:type": {
-        "@id": "rdf:Property"
-      }
-    },
-    {
-      "@id": "owl:sameAs",
-      "rdfs:label": "sameAs"
-    },
-    {
-      "@id": "owl:sameAs",
-      "rdfs:isDefinedBy": {
-        "@id": "http://www.w3.org/2002/07/owl#"
-      }
-    },
-    {
-      "@id": "owl:sameAs",
-      "rdfs:domain": {
-        "@id": "owl:Thing"
-      }
-    },
-    {
-      "@id": "owl:sameAs",
-      "rdfs:range": {
-        "@id": "owl:Thing"
-      }
-    },
-    {
-      "@id": "owl:sameAs",
-      "rdfs:comment": "The property that determines that two given individuals are equal."
+    { "@id": "rdfs:Class", "rdf:type": { "@id": "rdfs:Class" }},
+    { "@id": "rdfs:Class", "rdfs:label": "Class" },
+    { "@id": "rdfs:Class", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/2000/01/rdf-schema#" }},
+    { "@id": "rdfs:Class", "rdfs:comment": "The class of classes." },
+    
+    { "@id": "rdf:type", "rdf:type": { "@id": "rdf:Property" }},
+    { "@id": "rdf:type", "rdfs:label": "type" },
+    { "@id": "rdf:type", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" }},
+    { "@id": "rdf:type", "rdfs:domain": { "@id": "rdfs:Resource" }},
+    { "@id": "rdf:type", "rdfs:range": { "@id": "rdfs:Class" }},
+    { "@id": "rdf:type", "rdfs:comment": "The subject is an instance of a class." },
+    
+    { "@id": "rdf:Property", "rdf:type": { "@id": "rdfs:Class" }},
+    { "@id": "rdf:Property", "rdfs:label": "Property" },
+    { "@id": "rdf:Property", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#" }},
+    { "@id": "rdf:Property", "rdfs:comment": "The class of RDF properties." },
+    
+    { "@id": "rdfs:Resource", "rdf:type": { "@id": "rdfs:Class" }},
+    { "@id": "rdfs:Resource", "rdfs:label": "Resource" },
+    { "@id": "rdfs:Resource", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/2000/01/rdf-schema#" }},
+    { "@id": "rdfs:Resource", "rdfs:comment": "The class resource, everything." },
+    
+    { "@id": "rdfs:Literal", "rdf:type": { "@id": "rdfs:Class" }},
+    { "@id": "rdfs:Literal", "rdfs:label": "Literal" },
+    { "@id": "rdfs:Literal", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/2000/01/rdf-schema#" }},
+    { "@id": "rdfs:Literal", "rdfs:comment": "The class of literal values, eg. textual strings and integers." },
+    
+    { "@id": "owl:Thing", "rdf:type": { "@id": "owl:Class" }},
+    { "@id": "owl:Thing", "rdfs:label": "Thing" },
+    { "@id": "owl:Thing", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/2002/07/owl#" }},
+    { "@id": "owl:Thing", "rdfs:comment": "The class of OWL individuals." },
+    
+    { "@id": "owl:sameAs", "rdf:type": { "@id": "rdf:Property" }},
+    { "@id": "owl:sameAs", "rdfs:label": "sameAs" },
+    { "@id": "owl:sameAs", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/2002/07/owl#" }},
+    { "@id": "owl:sameAs", "rdfs:domain": { "@id": "owl:Thing" }},
+    { "@id": "owl:sameAs", "rdfs:range": { "@id": "owl:Thing" }},
+    { "@id": "owl:sameAs", "rdfs:comment": "The property that determines that two given individuals are equal."
     }
   ]
 }
