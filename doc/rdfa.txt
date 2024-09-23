@@ -1,3 +1,6 @@
+https://rdfa.info/play/
+https://validator.schema.org/
+
 <table>
 <tr vocab="http://schema.org/" resource="https://t7m8.com.br/pessoas#manu" typeof="Person">
 <td property="name">Manu Sporny</td><td property="telephone">1-800-555-0199</td>
@@ -9,10 +12,3 @@
 <td property="foaf:name">Manu Sporny</td><td property="schema:telephone">1-800-555-0199</td>
 </tr>
 </table>
-
-https://rdfa.info/play/
-https://validator.schema.org/
-
-https://www.google.com/intl/pt-br/add_url.html
-Para ver se suas páginas já estão indexadas, procure o site na Pesquisa Google
-[site:example.com]
