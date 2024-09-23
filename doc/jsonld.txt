@@ -1,64 +1,17 @@
-https://www.w3.org/2011/rdf-wg/wiki/RDF_Test_Suites
-
-https://en.wikipedia.org/wiki/Notation3
-https://en.wikipedia.org/wiki/Turtle_(syntax)
-https://en.wikipedia.org/wiki/N-Triples
-
 https://github.com/frogcat/ttl2jsonld
 https://json-ld.org/playground/
 
-
-https://developers.google.com/search/docs/appearance/structured-data/product
-
-
-your sitemap includes only web page URLs, you can provide Google with a simple text file that contains one URL per line. For example:
-
-https://www.example.com/file1.html
-https://www.example.com/file2.html
-
-Guidelines for text file sitemaps
-
-    Encode your file using UTF-8 encoding.
-    Don't put anything other than URLs in the sitemap file.
-    You can name the text file anything you wish, provided it has a .txt extension (for instance, sitemap.txt).
-
-Break up large sitemaps into smaller sitemaps: a sitemap can contain up to 50,000 URLs and must not exceed 50MB uncompressed.
-Use a sitemap index file to list all the individual sitemaps and submit this single file to Google rather than submitting individual sitemaps
-
- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tarcisomesquita.github.io/index.html</loc>
-  </url>
-</urlset>
-
- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-https://www.example.com/ümlat.html&q=name
-
-Here is that same URL encoded using ISO-8859 encoding, and with the entity escaped:
-
-https://www.example.com/%FCmlat.html&amp;q=name
-
-Here is that same URL using UTF-8 encoding, and with the e
-
-https://www.example.com/%C3%BCmlat.html&amp;q=name
-
- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-Google does not pledge to crawl every URL in a sitemap.
-
-submit
-https://www.google.com/ping?sitemap=https://example.com/sitemap.xml
-
-
-
-Describe your page with unique titles and snippets
-
-Às vezes, o Google usa a tag <meta name="description"> da página para gerar um snippet de resultado da pesquisa.
-
- Por exemplo, a metadescrição a seguir oferece informações detalhadas sobre um livro, e as informações são claramente marcadas e separadas:
-
-    <meta name="description" content="Escrito por U.M. Autor, ilustrado por V. Gogh, Preço: R$ 17,99, tamanho: 784 páginas">
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "@graph": [
+    { "@id": "rdfs:Class", "rdfs:label": "Class" },
+    { "@id": "rdfs:Class", "rdfs:isDefinedBy": { "@id": "http://www.w3.org/2000/01/rdf-schema#" }},
+    { "@id": "owl:Thing", "rdf:type": { "@id": "owl:Class" }},
+    { "@id": "http://dbpedia.org/resource/John_Lennon", "http://schema.org/birthDate": { "@value": "1940-10-09", "@type": "http://www.w3.org/2001/XMLSchema#date" }},
+    { "@id": "http://example.com/people/alice", "http://schema.org/gender": { "@value": "female", "@language": "en" }}
+  ]
+}
