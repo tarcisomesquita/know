@@ -41,7 +41,7 @@ table, th, td {
 
 <h2>Introdução</h2>
 
-<p>As mentiras e as fakenews existem, mas hoje podemos validar as informações numa base de conhecimento em que confiamos. Para isso, é necessário escrever de tal forma que as máquinas "entendam", é necessário usarmos <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>. Usamos palavras para representar coisas, porém a mesma coisa é representada por palavras diferentes nas línguas. Numa língua uma palavra pode representar coisas diferentes. Uma solução é: assim como usamos palavras para representar coisas, usarmos endereços na web para representar coisas. Essa ideia já é usada em bases de conhecimento como a <a href="https://www.dbpedia.org">dbpedia</a> e a <a href="https://www.wikidata.org">wikidata</a>. Minha ideia é incluir, junto às palavras, o endereço da coisa que ela refere. Isso é diferente de <a href="https://en.wikipedia.org/wiki/RDFa#Examples">RDFa</a>, pois ele visa converter o texto numa base de conhecimento. Eu referencio o texto em uma base. Veja o <a href="exemplo-texto-marcado.html">texto exemplo</a> neste línk.</p>
+<p>As mentiras e as fakenews existem, mas hoje podemos validar as informações numa base de conhecimento em que confiamos. Para isso, é necessário escrever de tal forma que as máquinas "entendam", é necessário usarmos <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>. Usamos palavras para representar coisas, porém a mesma coisa é representada por palavras diferentes nas línguas. Numa língua uma palavra pode representar coisas diferentes. Uma solução é: assim como usamos palavras para representar coisas, usarmos endereços na web para representar coisas. Essa ideia já é usada em bases de conhecimento como a <a href="https://www.dbpedia.org">dbpedia</a> e a <a href="https://www.wikidata.org">wikidata</a>. Minha ideia é incluir, junto às palavras, o endereço da coisa que ela refere. Isso é diferente de <a href="formato-rdfa.html">RDFa</a>, pois ele visa converter o texto numa base de conhecimento. Eu referencio o texto em uma base. Veja o <a href="exemplo-texto-marcado.html">texto exemplo</a> neste línk.</p>
 
 <h2>Estrutura</h2>
 <pre>
@@ -72,7 +72,7 @@ As chaves "*", "#" e "$" são especiais. Seus valores contém respectivamente: o
 
 <h2>Base de conhecimentos</h2>
 
-<p>Assim como usamos uma palavra para representar uma coisa, na base de conhecimentos usamos um arquivo na internet para representar uma coisa. Atualmente se usa o formato JSON-LD para os arquivos.</p>
+<p>Assim como usamos uma palavra para representar uma coisa, na base de conhecimentos usamos um arquivo na internet para representar uma coisa. Atualmente se usa o formato <a href="formato-jsonld.html">JSON-LD</a> para os arquivos.</p>
 
 <pre>
 Rascunho
@@ -175,7 +175,7 @@ Como fica o caso da sequência <br>
 <footer style='font-family:"sans-serif"; font-size:10px;'>
 Autor: <a href='https://tarcisomesquita.github.io'>Tarciso Mesquita</a><br/>
 <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.pt_BR">Creative Commons Atribuição 4.0 Internacional</a>
-<script src="https://tarcisomesquita.github.io/log.js" defer></script>
+<script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
 </footer>
 
 </body>

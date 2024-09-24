@@ -1,6 +1,27 @@
-https://github.com/frogcat/ttl2jsonld
-https://json-ld.org/playground/
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+  <meta charset="utf-8"><!-- iso-8859-1 -->
+  <title>JSON-LD</title>
+  <meta name="description" content="exemplo">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="https://json-ld.org/playground/">https://json-ld.org/playground/</a></p>
+<p><a href="https://github.com/frogcat/ttl2jsonld">https://github.com/frogcat/ttl2jsonld</a></p>
+
+<pre>
 {
   "@context": {
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -15,3 +36,7 @@ https://json-ld.org/playground/
     { "@id": "http://example.com/people/alice", "http://schema.org/gender": { "@value": "female", "@language": "en" }}
   ]
 }
+</pre>
+
+</body>
+</html>

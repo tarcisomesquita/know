@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8"><!-- iso-8859-1 -->
+  <title>RDFa</title>
+  <meta name="description" content="exemplo">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<p><a href="https://rdfa.info/play/">https://rdfa.info/play/</a></p>
+<p><a href="https://validator.schema.org/">https://validator.schema.org/</a></p>
+
+<pre>
+&lt;table&gt;
+&lt;tr vocab="http://schema.org/" resource="https://t7m8.com.br/pessoas#manu" typeof="Person"&gt;
+&lt;td property="name"&gt;Manu Sporny&lt;/td&gt;&lt;td property="telephone"&gt;1-800-555-0199&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;table prefix="foaf: http://xmlns.com/foaf/0.1/ schema: http://schema.org/"&gt;
+&lt;tr resource="https://t7m8.com.br/pessoas#manu" typeof="schema:Person"&gt;
+&lt;td property="foaf:name"&gt;Manu Sporny&lt;/td&gt;&lt;td property="schema:telephone"&gt;1-800-555-0199&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+</body>
+</html>
