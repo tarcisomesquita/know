@@ -1,0 +1,69 @@
+dbo	http://dbpedia.org/ontology/
+dbp	http://dbpedia.org/property/
+dbr	http://dbpedia.org/resource/
+schema	http://schema.org/
+wikidata	http://www.wikidata.org/entity/
+
+wget -q -O - \
+"https://dbpedia.org/sparql?default-graph-uri=$(echo 'http://dbpedia.org&query=
+SELECT ?x ?y
+WHERE {
+  ?x ?y <http://www.wikidata.org/entity/Q11573> .
+}
+LIMIT 100
+' | \
+sed 's/ /+/g; s|/|%2F|g; s|:|%3A|g; s|?|%3F|g; s|{|%7B|g; s|}|%7D|g; s|<|%3C|g; s|>|%3E|g;'
+)&format=text%2Fcsv&timeout=30000&signal_void=on&signal_unconnected=on"
+
+wget -q -O - \
+"https://dbpedia.org/sparql?default-graph-uri=$(echo 'http://dbpedia.org&query=
+SELECT ?p ?o
+WHERE {
+  dbr:Metre ?p ?o .
+}
+LIMIT 100
+' | \
+sed 's/ /+/g; s|/|%2F|g; s|:|%3A|g; s|?|%3F|g; s|{|%7B|g; s|}|%7D|g; s|<|%3C|g; s|>|%3E|g;'
+)&format=text%2Fcsv&timeout=30000&signal_void=on&signal_unconnected=on"
+
+wget -q -O - \
+"https://dbpedia.org/sparql?default-graph-uri=$(echo 'http://dbpedia.org&query=
+SELECT ?o
+WHERE {
+  dbr:Metre rdfs:label ?o .
+  FILTER (lang(?o) = "pt" || lang(?o) = "en")
+}
+' | \
+sed 's/ /+/g; s|/|%2F|g; s|:|%3A|g; s|?|%3F|g; s|{|%7B|g; s|}|%7D|g; s|<|%3C|g; s|>|%3E|g;'
+)&format=text%2Fcsv&timeout=30000&signal_void=on&signal_unconnected=on"
+
+wget -q -O - \
+"https://dbpedia.org/sparql?default-graph-uri=$(echo 'http://dbpedia.org&query=
+SELECT ?o
+WHERE {
+  dbr:Metre rdfs:comment ?o .
+  FILTER (lang(?o) = "pt" || lang(?o) = "en")
+}
+' | \
+sed 's/ /+/g; s|/|%2F|g; s|:|%3A|g; s|?|%3F|g; s|{|%7B|g; s|}|%7D|g; s|<|%3C|g; s|>|%3E|g;'
+)&format=text%2Fcsv&timeout=30000&signal_void=on&signal_unconnected=on"
+
+
+
+wget -q -O - \
+"https://dbpedia.org/sparql?default-graph-uri=$(echo 'http://dbpedia.org&query=
+SELECT ?p ?o
+WHERE {
+  dbr:Metre ?x ?y .
+  ?x rdfs:label ?p .
+  ?y rdfs:label ?o .
+  FILTER NOT EXISTS {dbr:Metre rdfs:label ?y .}
+  FILTER NOT EXISTS {dbr:Metre rdfs:comment ?y .}
+  FILTER NOT EXISTS {dbr:Metre dbo:wikiPageWikiLink ?y .}
+  FILTER (lang(?p) = "pt" || lang(?p) = "en")
+  FILTER (lang(?o) = "pt" || lang(?o) = "en")
+}
+' | \
+sed 's/ /+/g; s|/|%2F|g; s|:|%3A|g; s|?|%3F|g; s|{|%7B|g; s|}|%7D|g; s|<|%3C|g; s|>|%3E|g;'
+)&format=text%2Fcsv&timeout=30000&signal_void=on&signal_unconnected=on"
+

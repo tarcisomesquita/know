@@ -1,3 +1,15 @@
+wget -q -O - \
+--header='Accept: text/csv' \
+'https://query.wikidata.org/sparql?query=
+SELECT ?x 
+WHERE {
+  wd:Q5 rdfs:label ?x .
+  FILTER (lang(?x) = "pt-br" || lang(?x) = "en")
+}
+'
+
+
+
 https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/queries/examples
 https://www.w3.org/TR/sparql11-query/
 
@@ -40,16 +52,3 @@ https://en.wikipedia.org/wiki/Ton
 https://en.wikipedia.org/wiki/Pound_(mass)
 https://en.wikipedia.org/wiki/Gravity_of_Earth
 https://en.wikipedia.org/wiki/Isaac_Newton
-
-peso é força                                                                                                                          
-atrito é força                                                                                                                        
-trabalho é energia                                                                                                                    
-raio é distância                                                                                                                      
-
-comprimento é palavra
-masculino é gênero
-feminino é gênero
-comprimento tem masculino
-palavra é palavra
-palavra tem feminino
-

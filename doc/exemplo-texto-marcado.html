@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8"><!-- iso-8859-1 -->
+  <meta charset="utf-8">
   <title>texto exemplo</title>
-  <meta name="description" content="exemplo">
+  <meta name="description" content="exemplo de texto marcado">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
 <style>
@@ -14,30 +14,31 @@ body {
   font-family: 'Open Sans',sans-serif;
 }
 
+a:link    {color:#2160DE; text-decoration:none;}      /* unvisited link  */
+a:visited {color:#2160DE; text-decoration:none;}      /* visited link    */
+a:hover   {color:#2160DE; text-decoration:underline;} /* mouse over link */
+a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
+
 span {
   position: relative;
 }
 
-span:after {
-  content: 'wd:'attr(data-id);
+span.pp {
   position: absolute;
   top: -23px;
-  white-space: nowrap;
-  background: black;
-  color: white;
-  padding: 2px;
+  
   border: 1px solid #eee;
-  opacity: 0;
-  transition: 0.5s opacity;
-}
-
-span:hover:after {
-  opacity: 1;
+  padding: 2px;
+  background: #AAAAAA;
+  
+  color: white;
+  white-space: nowrap;
 }
 
 span:hover {
   background: #AAAAAA;
 }
+
 </style>
 </head>
 
@@ -49,5 +50,25 @@ span:hover {
 
 <p>O <span data-id="Q194431">parágrafo</span> acima está usando a <span data-id="Q2013">wikidata</span> como <span data-id="Q121769">referência</span>. Uma das <span data-id="Q121769">referências</span> usadas foi <a href="https://www.wikidata.org/entity/Q36253">https://www.wikidata.org/entity/Q36253</a>.</p>
 
+<script>
+let timeoutId;
+const data = document.querySelectorAll('[data-id]');
+
+for (let i = 0; i < data.length; i++) {
+  data[i].onmouseover = () => {
+    let span = document.createElement('span');
+    span.innerHTML = `<a href="https://www.wikidata.org/entity/${data[i].dataset.id}">${data[i].dataset.id}</a>`;
+    span.setAttribute('id', data[i].dataset.id);
+    span.setAttribute('class', 'pp');
+    span.onmouseover = () => {clearTimeout(timeoutId)};
+    span.onmouseout = () => {data[i].removeChild(document.getElementById(data[i].dataset.id))};
+    data[i].appendChild(span);
+  }
+  
+  data[i].onmouseout = () => {
+    timeoutId = setTimeout(() => {data[i].removeChild(document.getElementById(data[i].dataset.id))}, 500);
+  }
+}
+</script>
 </body>
 </html>
