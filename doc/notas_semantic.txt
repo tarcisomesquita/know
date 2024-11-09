@@ -1,13 +1,15 @@
+An RDF graph statement is represented by: (1) a node for the subject, (2) an arc from subject to object, representing a predicate, and (3) a node for the object. Each of these parts can be identified by a Uniform Resource Identifier (URI). An object can also be a literal value.
+SPARQL is a standard query language for RDF graphs.
+It is based on the idea of making statements about resources in expressions of the form subject–predicate–object, known as triples.
+
+https://en.wikipedia.org/wiki/N-Triples
+https://en.wikipedia.org/wiki/Resource_Description_Framework
+
 ontologia QUDT (Quantities, Units, Dimensions, and Data Types) é amplamente utilizada para representar quantidades físicas e unidades de medida.
 
 GraphDB Cloud: Oferece versões gratuitas para pequenos projetos, permitindo publicar e consultar dados RDF diretamente pela nuvem.
 
-    Frases Modeladas: Um passo importante pode ser incluir frases pré-definidas ou padrões de textos que podem ser combinados para criar explicações. Essas frases podem ser modeladas como dados RDF ou mantidas como uma coleção externa conectada à base.
-
-2. Usar uma Ferramenta de Geração de Textos com Base RDF
-
-Há ferramentas de Processamento de Linguagem Natural (PLN) que podem ser integradas com sua base de conhecimento para gerar textos:
-
+Ferramentas que podem ser integradas com sua base de conhecimento para gerar textos:
     Grammatical Framework (GF): Uma linguagem formal projetada para trabalhar com gramáticas naturais em diferentes línguas. Ele pode ser usado para gerar textos baseados em conceitos RDF. Você pode definir regras gramaticais que permitem gerar frases a partir de dados na base RDF.
 
 Natural Language Generation (NLG) Tools: Ferramentas como SimpleNLG ou OpenNLG podem ser conectadas a uma base RDF para gerar frases e parágrafos completos. Essas ferramentas analisam os dados RDF e geram sentenças coerentes com base nas relações descritas.
@@ -146,3 +148,10 @@ WHERE
     ?class wdt:P279 ?superclass.
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
 }
+
+https://www.w3.org/TR/sparql11-query/
+
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+@prefix :     <http://example.org/book/> .
+:book1  dc:title  "SPARQL Tutorial" .
+
