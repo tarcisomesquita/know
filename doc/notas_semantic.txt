@@ -5,68 +5,6 @@ It is based on the idea of making statements about resources in expressions of t
 https://en.wikipedia.org/wiki/N-Triples
 https://en.wikipedia.org/wiki/Resource_Description_Framework
 
-ontologia QUDT (Quantities, Units, Dimensions, and Data Types) é amplamente utilizada para representar quantidades físicas e unidades de medida.
-
-GraphDB Cloud: Oferece versões gratuitas para pequenos projetos, permitindo publicar e consultar dados RDF diretamente pela nuvem.
-
-Ferramentas que podem ser integradas com sua base de conhecimento para gerar textos:
-    Grammatical Framework (GF): Uma linguagem formal projetada para trabalhar com gramáticas naturais em diferentes línguas. Ele pode ser usado para gerar textos baseados em conceitos RDF. Você pode definir regras gramaticais que permitem gerar frases a partir de dados na base RDF.
-
-Natural Language Generation (NLG) Tools: Ferramentas como SimpleNLG ou OpenNLG podem ser conectadas a uma base RDF para gerar frases e parágrafos completos. Essas ferramentas analisam os dados RDF e geram sentenças coerentes com base nas relações descritas.
-
-SimpleNLG (Java/Python): Para transformar os dados RDF em textos gramaticalmente corretos.
-
-
-Prefiro que o sistema receba um texto produzido pelo aluno e marque os trechos correspondentes a relações presentes na base de conhecimento.
- Esse processo pode ser dividido em três etapas principais: análise do texto, consulta à base RDF e marcação das correspondências.
-processar linguisticamente o texto e extrair as entidades e relações importantes.
-SpaCy: Uma biblioteca poderosa para PLN em Python que oferece suporte para reconhecimento de entidades nomeadas (NER), análise sintática e extração de palavras-chave.
-
-import spacy
-
-# Carrega o modelo de linguagem do SpaCy (por exemplo, em português)
-nlp = spacy.load("pt_core_news_sm")
-
-# Texto produzido pelo aluno
-texto = "A Segunda Lei de Newton afirma que a força aplicada em um corpo é proporcional à sua aceleração."
-
-# Processa o texto
-doc = nlp(texto)
-
-# Exibe as entidades encontradas no texto
-for ent in doc.ents:
-    print(ent.text, ent.label_)
-
-verificar se os termos ou conceitos identificados no texto têm correspondências na sua base RDF. Isso é feito consultando a base com SPARQL para ver se o conceito existe, quais as relações associadas e como ele se conecta com outros conceitos.
-
-SELECT ?concept ?description WHERE {
-    ?concept rdfs:label "Segunda Lei de Newton"@pt ;
-             rdfs:comment ?description .
-}
-
-o próximo passo é destacar ou marcar os trechos relevantes do texto.
-
-# Texto original
-texto = "A Segunda Lei de Newton afirma que a força aplicada em um corpo é proporcional à sua aceleração."
-
-# Trecho que corresponde a um conceito na base de conhecimento
-conceito_identificado = "Segunda Lei de Newton"
-
-# Marcar o conceito no texto
-texto_marcado = texto.replace(conceito_identificado, f"<span class='highlight'>{conceito_identificado}</span>")
-
-print(texto_marcado)
-
-desenvolver uma interface web interativa
-Flask ou Django (Python) para criar o backend.
-HTML/CSS/JavaScript para criar uma interface onde o texto é marcado dinamicamente.
-JQuery ou React para interatividade na marcação dos trechos no front-end.
-
-o sistema poderia fornecer feedback educacional, como sugerir leituras adicionais ou apontar erros conceituais. Por exemplo, se o aluno mencionou um conceito de forma incorreta, o sistema poderia sugerir a correção baseada no conhecimento da base RDF.
-
-
-
-
  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 dbo:Q733 rdf:type dbo:Country .
@@ -93,13 +31,6 @@ Bard, extraia todas as triplas RDF do seguinte texto com o objeto "América do S
 
  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-medir, medição, medida
-proteger, proteção, protegida
-
- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
 ex:diametro rdf:type rdfs:Property .
 ex:diametro rdfs:domain ex:Circulo .
 
@@ -113,25 +44,6 @@ _:a <https://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Perso
  <https://www.wikidata.org/entity/Q1731> <https://schema.org/itemtype> <https://schema.org/Place> .
  <https://www.wikidata.org/entity/Q1731> <https://schema.org/name> "Dresden" .
  
-https://en.wikipedia.org/wiki/JSON-LD
-
-https://en.wikipedia.org/wiki/Turtle_(syntax)
-
-https://en.wikipedia.org/wiki/N-Triples
-https://en.wikipedia.org/wiki/Semantic_triple
-https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model#History
-
-https://en.wikipedia.org/wiki/DBpedia#DBpedia_Spotlight
-https://en.wikipedia.org/wiki/Entity_extraction
-https://en.wikipedia.org/wiki/Entity_detection
-https://en.wikipedia.org/wiki/Name_resolution_(semantics_and_text_extraction)
-
-It can also be used for named entity recognition, and other information extraction tasks. 
-https://en.wikipedia.org/wiki/Named_entity_recognition
-https://en.wikipedia.org/wiki/Information_extraction
-
-https://en.wikipedia.org/wiki/RDF_Schema
-https://en.wikipedia.org/wiki/Ontology_(information_science)
 
 https://demo.dbpedia-spotlight.org/
 https://babelnet.org/
@@ -154,4 +66,3 @@ https://www.w3.org/TR/sparql11-query/
 @prefix dc:   <http://purl.org/dc/elements/1.1/> .
 @prefix :     <http://example.org/book/> .
 :book1  dc:title  "SPARQL Tutorial" .
-

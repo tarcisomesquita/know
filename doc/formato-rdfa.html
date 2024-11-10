@@ -21,11 +21,23 @@ body {
 <p><a href="https://rdfa.info/play/">https://rdfa.info/play/</a></p>
 <p><a href="https://validator.schema.org/">https://validator.schema.org/</a></p>
 
+<hr>
+
 <pre>
 &lt;table prefix="foaf: http://xmlns.com/foaf/0.1/ schema: http://schema.org/"&gt;
 &lt;tr resource="https://t7m8.com.br/pessoas#manu" typeof="schema:Person"&gt;
 &lt;td property="foaf:name"&gt;Manu Sporny&lt;/td&gt;&lt;td property="schema:telephone"&gt;1-800-555-0199&lt;/td&gt;
 &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+
+<hr>
+
+<pre>
+&lt;table prefix="rdf: https://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: https://www.w3.org/2000/01/rdf-schema#" resource="https://www.w3.org/2000/01/rdf-schema#Class"&gt;
+&lt;tr&gt;&lt;td&gt;rdf:type&lt;/td&gt;&lt;td&gt;&lt;a property="rdf:type" href="https://www.w3.org/2000/01/rdf-schema#Class"&gt;rdfs:Class&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;rdfs:label&lt;/td&gt;&lt;td&gt;&lt;a property="rdfs:label"&gt;Class&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;rdfs:comment&lt;/td&gt;&lt;td&gt;&lt;a property="rdfs:comment"&gt;The class of classes.&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
 </pre>
 

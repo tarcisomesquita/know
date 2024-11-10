@@ -57,7 +57,7 @@ const data = document.querySelectorAll('[data-id]');
 for (let i = 0; i < data.length; i++) {
   data[i].onmouseover = () => {
     let span = document.createElement('span');
-    span.innerHTML = `<a href="https://www.wikidata.org/entity/${data[i].dataset.id}">${data[i].dataset.id}</a>`;
+    span.innerHTML = `<a href="https://www.wikidata.org/entity/${data[i].dataset.id}" target="blank">${data[i].dataset.id}</a>`;
     span.setAttribute('id', data[i].dataset.id);
     span.setAttribute('class', 'pp');
     span.onmouseover = () => {clearTimeout(timeoutId)};
