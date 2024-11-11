@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>sameAs</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="serialisation.js"></script>
+</head>
+
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+a:link    {color:#2160DE; text-decoration:none;}      /* unvisited link  */
+a:visited {color:#2160DE; text-decoration:none;}      /* visited link    */
+a:hover   {color:#2160DE; text-decoration:underline;} /* mouse over link */
+a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
+
+a:link.oo    {color: initial;}     /* unvisited link  */
+a:visited.oo {color:initial;}      /* visited link    */
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  border-spacing: 5px;
+}
+</style>
+<body>
+
+<main>
+<h2>sameAs</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tmo: https://tarcisomesquita.github.io/know/base-de-conhecimento/ owl: https://www.w3.org/2002/07/owl#" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/sameAs"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+
+<tr>
+  <td><a href="type">tmo:type</a></td>
+  <td><a href="property" property="tmo:type">tmo:property</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tmo:hasClass</a></td>
+  <td><a href="thing" property="tmo:hasClass">tmo:thing</a></td>
+</tr>
+<tr>
+  <td><a href="label">tmo:label</a></td>
+  <td><a property="tmo:label">sameAs</a></td>
+</tr>
+<tr>
+  <td><a href="https://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a></td>
+  <td><a href="https://www.w3.org/2002/07/owl#sameAs" property="owl:sameAs">owl:sameAs</a></td>
+</tr>
+</table>
+</main>
+
+<aside>
+<p>Download <button id="turtle">turtle</button> <button id="jsonld">jsonld</button></p>
+
+<script>
+document.getElementById("turtle").addEventListener("click", turtle);
+document.getElementById("jsonld").addEventListener("click", jsonld);
+</script>
+</aside>
+
+<footer style='font-family:"sans-serif"; font-size:10px;'>
+<p>Autor: <a href="https://tarcisomesquita.github.io" target="_blank">Tarciso Mesquita</a><br/>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a></p>
+<script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
+</footer>
+
+</body>
+</html>
