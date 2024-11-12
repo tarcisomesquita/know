@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>class</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="serialisation.js"></script>
 </head>
 
 <style>
@@ -14,13 +15,13 @@ body {
   font-family: 'Open Sans',sans-serif;
 }
 
-a:link    {color:#2160DE; text-decoration:none;}      /* unvisited link  */
-a:visited {color:#2160DE; text-decoration:none;}      /* visited link    */
-a:hover   {color:#2160DE; text-decoration:underline;} /* mouse over link */
-a:active  {color:#2160DE; text-decoration:underline;} /* selected link   */
+a:link    { color:#2160DE; text-decoration:none }
+a:visited { color:#2160DE; text-decoration:none }
+a:hover   { color:#2160DE; text-decoration:underline }
+a:active  { color:#2160DE; text-decoration:underline }
 
-a:link.oo    {color: initial;}     /* unvisited link  */
-a:visited.oo {color:initial;}      /* visited link    */
+a:link.oo    { color: initial }
+a:visited.oo { color:initial }
 
 table, th, td {
   border: 1px solid black;
@@ -34,11 +35,35 @@ table, th, td {
 
 <main>
 <h2>class</h2>
-<table prefix=": https://is.gd/tmokb/ owl: https://www.w3.org/2002/07/owl#" resource="https://is.gd/tmokb/class">
-<tr><td>:type</td><td><a property=":type" href="https://is.gd/tmokb/class">:class</a></td></tr>
-<tr><td>:label</td><td><a property=":label">sameAs</a></td></tr>
-<tr><td>:sameAs</td><td><a property="rdfs:comment">The class of classes.</a></td></tr>
-<tr><td>:sameAs</td><td><a property="owl:sameAs" href="https://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a></td></tr>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/class"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="resource" property="tm:type">tm:resource</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">classe</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:class é a classe de todas as classes.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">tm:sameAs</a></td>
+  <td><a href="http://www.w3.org/2000/01/rdf-schema#Class" property="tm:sameAs">rdfs:Class</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="hasProperty" property="tm:hasProperty">tm:hasProperty</a></td>
+</tr>
 </table>
 </main>
 
@@ -46,14 +71,14 @@ table, th, td {
 <p>Download <button id="turtle">turtle</button> <button id="jsonld">jsonld</button></p>
 
 <script>
-document.getElementById("turtle").addEventListener("click", () => {alert('turtle')});
-document.getElementById("jsonld").addEventListener("click", () => {alert('jsonld')});
+document.getElementById("turtle").addEventListener("click", turtle);
+document.getElementById("jsonld").addEventListener("click", jsonld);
 </script>
 </aside>
 
 <footer style='font-family:"sans-serif"; font-size:10px;'>
 <p>Autor: <a href="https://tarcisomesquita.github.io" target="_blank">Tarciso Mesquita</a><br/>
-<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.pt_BR" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.pt_BR" target="_blank">Creative Commons Atribuição 4.0 Internacional</a></p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a></p>
 <script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
 </footer>
 

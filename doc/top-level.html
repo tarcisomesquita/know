@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>top-level</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+a:link    { color:#2160DE; text-decoration:none }
+a:visited { color:#2160DE; text-decoration:none }
+a:hover   { color:#2160DE; text-decoration:underline }
+a:active  { color:#2160DE; text-decoration:underline }
+
+a:link.oo    { color: initial }
+a:visited.oo { color:initial }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  border-spacing: 5px;
+}
+</style>
+<body>
+
+<main>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+
+<h2>thing</h2>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/thing"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="class" property="tm:type">tm:class</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">coisa</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:thing é a classe de todas as coisas.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">tm:sameAs</a></td>
+  <td><a href="http://www.w3.org/2002/07/owl#Thing" property="tm:sameAs">owl:Thing</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="sameAs" property="tm:hasProperty">tm:sameAs</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>literal</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/literal"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="thing" property="tm:type">tm:thing</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">literal</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:literal é a classe dos valores literais, como números e strings.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">tm:sameAs</a></td>
+  <td><a href="http://www.w3.org/2000/01/rdf-schema#Literal" property="tm:sameAs">rdfs:Literal</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="format" property="tm:hasProperty">tm:format</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>resource</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/resource"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="thing" property="tm:type">tm:thing</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">resource</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:resource é a classe de todas as entidades, de tudo que pode ser representado por um endereço.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">tm:sameAs</a></td>
+  <td><a href="http://www.w3.org/2000/01/rdf-schema#Resource" property="tm:sameAs">rdfs:Resource</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="type" property="tm:hasProperty">tm:type</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="label" property="tm:hasProperty">tm:label</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="comment" property="tm:hasProperty">tm:comment</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>class</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/class"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="resource" property="tm:type">tm:resource</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">classe</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:class é a classe de todas as classes.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">tm:sameAs</a></td>
+  <td><a href="http://www.w3.org/2000/01/rdf-schema#Class" property="tm:sameAs">rdfs:Class</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="hasProperty" property="tm:hasProperty">tm:hasProperty</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>property</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/property"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="resource" property="tm:type">tm:resource</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">propiedade</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:property é a classe de todas as propriedades das classes.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">tm:sameAs</a></td>
+  <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property" property="tm:sameAs">rdf:Property</a></td>
+</tr>
+<tr>
+  <td><a href="hasProperty">tm:hasProperty</a></td>
+  <td><a href="hasClass" property="tm:hasProperty">tm:hasClass</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>sameAs</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="owl: http://www.w3.org/2002/07/owl# tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/sameAs"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">mesma coisa que</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:sameAs determina que duas coisas são iguais.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">owl:sameAs</a></td>
+  <td><a href="http://www.w3.org/2002/07/owl#sameAs" property="owl:sameAs">owl:sameAs</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="thing" property="tm:hasClass">tm:thing</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>format</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="owl: http://www.w3.org/2002/07/owl# tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/format"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">formato</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:format determina o formato de um literal. Veja https://www.w3.org/2001/XMLSchema.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">owl:sameAs</a></td>
+  <td><a href="http://www.w3.org/2002/07/owl#sameAs" property="owl:sameAs">owl:sameAs</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="literal" property="tm:hasClass">tm:literal</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>type</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="owl: http://www.w3.org/2002/07/owl# tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/type"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">tipo</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:type determina que um resource é uma instância de uma classe.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">owl:sameAs</a></td>
+  <td><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" property="owl:sameAs">rdf:type</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="resource" property="tm:hasClass">tm:resource</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>label</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="owl: http://www.w3.org/2002/07/owl# tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/label"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">rótulo</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">nome do resource para humanos.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">owl:sameAs</a></td>
+  <td><a href="http://www.w3.org/2000/01/rdf-schema#label" property="owl:sameAs">rdfs:label</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="resource" property="tm:hasClass">tm:resource</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>comment</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="owl: http://www.w3.org/2002/07/owl# tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/comment"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">comentário</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">comentário sobre o que o resource representa.</a></td>
+</tr>
+<tr>
+  <td><a href="sameAs">owl:sameAs</a></td>
+  <td><a href="http://www.w3.org/2000/01/rdf-schema#comment" property="owl:sameAs">rdfs:comment</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="resource" property="tm:hasClass">tm:resource</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>hasProperty</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/hasProperty"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">tem a propiedade</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:hasProperty determina uma propiedade que a classe possui.</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="class" property="tm:hasClass">tm:class</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>hasClass</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/hasClass"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>
+<tr>
+  <td><a href="type">tm:type</a></td>
+  <td><a href="property" property="tm:type">tm:property</a></td>
+</tr>
+<tr>
+  <td><a href="label">tm:label</a></td>
+  <td><a property="tm:label">da classe</a></td>
+</tr>
+<tr>
+  <td><a href="comment">tm:comment</a></td>
+  <td><a property="tm:comment">tm:hasClass determina que a propiedade é da classe.</a></td>
+</tr>
+<tr>
+  <td><a href="hasClass">tm:hasClass</a></td>
+  <td><a href="property" property="tm:hasClass">tm:property</a></td>
+</tr>
+</table>
+</main>
+
+<footer style='font-family:"sans-serif"; font-size:10px;'>
+<p>Autor: <a href="https://tarcisomesquita.github.io" target="_blank">Tarciso Mesquita</a><br/>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a></p>
+<script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer></script>
+</footer>
+
+</body>
+</html>

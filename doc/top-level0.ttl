@@ -1,0 +1,247 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+rdfs:Class rdf:type rdfs:Class .
+rdfs:Class rdfs:label "Class" .
+rdfs:Class rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:Class rdfs:comment "The class of classes." .
+
+rdf:type rdf:type rdf:Property .
+rdf:type rdfs:label "type" .
+rdf:type rdfs:isDefinedBy <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+rdf:type rdfs:domain rdfs:Resource .
+rdf:type rdfs:range rdfs:Class .
+rdf:type rdfs:comment "The subject is an instance of a class." .
+
+rdf:Property rdf:type rdfs:Class .
+rdf:Property rdfs:label "Property" .
+rdf:Property rdfs:isDefinedBy <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+rdf:Property rdfs:comment "The class of RDF properties." .
+
+rdfs:Resource rdf:type rdfs:Class .
+rdfs:Resource rdfs:label "Resource" .
+rdfs:Resource rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:Resource rdfs:comment "The class resource, everything." .
+
+rdfs:Literal rdf:type rdfs:Class .
+rdfs:Literal rdfs:label "Literal" .
+rdfs:Literal rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:Literal rdfs:comment "The class of literal values, eg. textual strings and integers." .
+
+owl:Thing rdf:type owl:Class .
+owl:Thing rdfs:label "Thing" .
+owl:Thing rdfs:isDefinedBy <http://www.w3.org/2002/07/owl#> .
+owl:Thing rdfs:comment "The class of OWL individuals." .
+
+owl:sameAs rdf:type rdf:Property .
+owl:sameAs rdfs:label "sameAs" .
+owl:sameAs rdfs:isDefinedBy <http://www.w3.org/2002/07/owl#> .
+owl:sameAs rdfs:domain owl:Thing .
+owl:sameAs rdfs:range owl:Thing .
+owl:sameAs rdfs:comment "The property that determines that two given individuals are equal." .
+
+owl:Class rdf:type rdfs:Class .
+owl:Class rdfs:label "Class" .
+owl:Class rdfs:isDefinedBy <http://www.w3.org/2002/07/owl#> .
+owl:Class rdfs:subClassOf rdfs:Class .
+owl:Class rdfs:comment "The class of OWL classes." .
+
+rdfs:subClassOf rdf:type rdf:Property .
+rdfs:subClassOf rdfs:label "subClassOf" .
+rdfs:subClassOf rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:subClassOf rdfs:domain rdfs:Class .
+rdfs:subClassOf rdfs:range rdfs:Class .
+rdfs:subClassOf rdfs:comment "The subject is a subclass of a class." .
+
+rdfs:subPropertyOf rdf:type rdf:Property .
+rdfs:subPropertyOf rdfs:label "subPropertyOf" .
+rdfs:subPropertyOf rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:subPropertyOf rdfs:domain rdf:Property .
+rdfs:subPropertyOf rdfs:range rdf:Property .
+rdfs:subPropertyOf rdfs:comment "The subject is a subproperty of a property." .
+
+rdfs:comment rdf:type rdf:Property .
+rdfs:comment rdfs:label "comment" .
+rdfs:comment rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:comment rdfs:domain rdfs:Resource .
+rdfs:comment rdfs:range rdfs:Literal .
+rdfs:comment rdfs:comment "A description of the subject resource." .
+
+rdfs:label rdf:type rdf:Property .
+rdfs:label rdfs:label "label" .
+rdfs:label rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:label rdfs:domain rdfs:Resource .
+rdfs:label rdfs:range rdfs:Literal .
+rdfs:label rdfs:comment "A human-readable name for the subject." .
+
+rdfs:domain rdf:type rdf:Property .
+rdfs:domain rdfs:label "domain" .
+rdfs:domain rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:domain rdfs:domain rdf:Property .
+rdfs:domain rdfs:range rdfs:Class .
+rdfs:domain rdfs:comment "A domain of the subject property." .
+
+rdfs:range rdf:type rdf:Property .
+rdfs:range rdfs:label "range" .
+rdfs:range rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:range rdfs:domain rdf:Property .
+rdfs:range rdfs:range rdfs:Class .
+rdfs:range rdfs:comment "A range of the subject property." .
+
+rdfs:isDefinedBy rdf:type rdf:Property .
+rdfs:isDefinedBy rdfs:label "isDefinedBy" .
+rdfs:isDefinedBy rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> .
+rdfs:isDefinedBy rdfs:domain rdfs:Resource .
+rdfs:isDefinedBy rdfs:range rdfs:Resource .
+rdfs:isDefinedBy rdfs:comment "The defininition of the subject resource." .
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/terms/>  # Added prefix for dc:Agent
+
+foaf:Agent
+  a rdfs:Class, owl:Class ;
+  rdfs:label "Agent" ;
+  rdfs:comment "An agent (eg. person, group, software or physical artifact)." ;
+  vs:term_status "stable" ;
+  owl:equivalentClass dc:Agent ;  # Declared as equivalent to dc:Agent
+ 
+foaf:Person a rdfs:Class, owl:Class ;
+  rdfs:label "Person" ;
+  rdfs:comment "A person." ;
+  vs:term_status "stable" ;
+  rdfs:subClassOf foaf:Agent, swap:Person, geo:SpatialThing ;
+  rdfs:isDefinedBy foaf: ;
+
+foaf:Document
+  a rdfs:Class, owl:Class ;
+  rdfs:label "Document" ;
+  rdfs:comment "A document." ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy foaf: ;
+  owl:disjointWith foaf:Organization, foaf:Project .
+
+foaf:Organization
+  a rdfs:Class, owl:Class ;
+  rdfs:label "Organization" ;
+  rdfs:comment "An organization." ;
+  vs:term_status "stable" ;
+  rdfs:subClassOf foaf:Agent ;
+  rdfs:isDefinedBy foaf: ;
+  owl:disjointWith foaf:Person, foaf:Document .
+
+foaf:Image
+  a rdfs:Class, owl:Class ;
+  rdfs:label "Image" ;
+  rdfs:comment "An image." ;
+  vs:term_status "testing" ;
+  rdfs:subClassOf foaf:Document ;  # Image is a subclass of Document
+  rdfs:isDefinedBy foaf: .
+
+# foaf:name property
+foaf:name
+  a rdfs:Property, owl:DatatypeProperty ;
+  rdfs:label "name" ;
+  rdfs:comment "A name for some thing." ;
+  vs:term_status "testing" ;
+  rdfs:domain owl:Thing ;  # Domain is generic Thing
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy foaf: .
+
+# foaf:phone property
+foaf:phone
+  a rdfs:Property, owl:ObjectProperty ;
+  rdfs:label "phone" ;
+  rdfs:comment "A phone, specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)." ;
+  vs:term_status "testing" ;
+  rdfs:isDefinedBy foaf: .
+
+# foaf:homepage property
+foaf:homepage
+  a rdfs:Property, owl:ObjectProperty ;
+  rdfs:label "homepage" ;
+  rdfs:comment "A homepage for some thing." ;
+  vs:term_status "stable" ;
+  rdfs:subPropertyOf foaf:page, foaf:isPrimaryTopicOf ;
+  rdfs:type owl:InverseFunctionalProperty ;  # Inverse functional property
+  rdfs:domain owl:Thing ;  # Domain changed from Agent to Thing
+  rdfs:range foaf:Document ;
+  rdfs:isDefinedBy foaf: .
+
+# foaf:img property
+foaf:img
+  a rdfs:Property, owl:ObjectProperty ;
+  rdfs:label "image" ;
+  rdfs:comment "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage)." ;
+  vs:term_status "testing" ;
+  rdfs:domain foaf:Person ;
+  rdfs:range foaf:Image ;
+  rdfs:subPropertyOf foaf:depiction ;
+  rdfs:isDefinedBy foaf: .
+
+# foaf:knows property
+foaf:knows
+  a rdfs:Property, owl:ObjectProperty ;
+  rdfs:label "knows" ;
+  rdfs:comment "A person known by this person (indicating some level of reciprocated interaction between the parties)." ;
+  vs:term_status "stable" ;
+  rdfs:domain foaf:Person ;
+  rdfs:range foaf:Person ;
+  rdfs:isDefinedBy foaf: .
+
+# foaf:topic_interest property
+foaf:topic_interest
+  a rdfs:Property, owl:ObjectProperty ;
+  rdfs:label "topic_interest" ;
+  rdfs:comment "A thing of interest to this person." ;
+  vs:term_status "testing" ;
+  rdfs:domain foaf:Agent ;
+  rdfs:range owl:Thing ;  # Range is generic Thing
+  rdfs:isDefinedBy foaf: .
+
+# foaf:publications property
+foaf:publications
+  a rdfs:Property, owl:ObjectProperty ;
+  rdfs:label "publications" ;
+  rdfs:comment "A link to the publications of this person." ;
+  vs:term_status "testing" ;
+  rdfs:domain foaf:Person ;
+  rdfs:range foaf:Document ;
+  rdfs:isDefinedBy foaf: .
+
+# foaf:primaryTopic property (with a mistake in the original RDF)
+foaf:primaryTopic
+  a rdfs:FunctionalProperty, owl:ObjectProperty ;  # Should only be one functional property
+  rdfs:label "primary topic" ;
+  rdfs:comment "The primary topic of some page or document." ;
+  rdfs:domain foaf:Document ;
+  rdfs:range owl:Thing ;  # Range is generic Thing
+  owl:inverseOf foaf:isPrimaryTopicOf ;
+  rdfs:isDefinedBy foaf: .
+
+foaf:isPrimaryTopicOf
+  a owl:InverseFunctionalProperty, rdfs:Property ;
+  rdfs:label "is primary topic of" ;
+  rdfs:comment "A document that this thing is the primary topic of." ;
+  vs:term_status "stable" ;
+  rdfs:subPropertyOf foaf:page ;
+  owl:inverseOf foaf:primaryTopic ;
+  rdfs:domain owl:Thing ;
+  rdfs:range foaf:Document ;
+  rdfs:isDefinedBy  
+
+ foaf: .
+
+# foaf:birthday property
+foaf:birthday
+  a owl:FunctionalProperty, owl:DatatypeProperty, rdfs:Property ;
+  rdfs:label "birthday" ;
+  rdfs:comment "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'." ;
+  vs:term_status "unstable" ;
+  rdfs:domain foaf:Agent ;
+  rdfs:range rdfs:Literal ;  # range of foaf:birthday is a literal value (e.g., "12-31")
+  rdfs:isDefinedBy foaf: .
+

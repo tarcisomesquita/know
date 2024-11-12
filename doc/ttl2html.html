@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>ttl2html</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+<p>Selecione o arquivo no formato Turtle: <input type="file" accept="text/turtle" id="fileTurtle"></p>
+
+<script>
+const input = document.getElementById('fileTurtle');
+input.addEventListener('change', () => {
+const file = input.files[0];
+const reader = new FileReader();
+
+reader.onload = ttl2html;
+
+reader.readAsText(file);
+});
+
+const ttl2html = (e) => {
+  const txtArray = e.target.result.split('\n');
+  let prefixos = {};
+  let prefixo = [];
+  let prefix = '';
+  let resourcePrefix = '';
+  let resourceId = '';
+  let triplas = {};
+  let tripla = [];
+  let triplaTab = '';
+  let htmlSource = '';
+  
+  for (let i = 0; i < txtArray.length; i++) {
+    if (txtArray[i].length === 0) continue;
+    
+    if (txtArray[i][txtArray[i].length - 1] !== '.' && txtArray[i][txtArray[i].length - 2] !== ' ') {
+      document.write(`ERRO: "${txtArray[i]}" não termina a linha com ' .'`);
+      return;
+    }
+    
+    if (/^@prefix/.test(txtArray[i])) {
+      prefixo = [];
+      prefixo = txtArray[i].split(' ');
+      if (prefixo.length !== 4) {
+        document.write(`ERRO: "${txtArray[i]}" não são 4 elementos separados por espaço.`);
+        return;
+      }
+      
+      if (prefixos[prefixo[1]] !== undefined) continue;
+      
+      prefixos[prefixo[1]] = prefixo[2].replace(/[<>]/g, '');
+      
+      continue;   
+    }
+    
+    triplaTab = '';
+    triplaTab = txtArray[i].replace(/^([^ ]{1,}) ([^ ]{1,}) (.*) \.$/, '$1\t$2\t$3\t.');
+    
+    tripla = [];
+    tripla = triplaTab.split('\t');
+    
+    if (tripla.length !== 4) {
+      document.write(`ERRO: "${txtArray[i]}" não são 4 elementos separados por espaço.`);
+      return;
+    }
+    
+    if (triplas[tripla[0]] === undefined) {
+      triplas[tripla[0]] = {};
+      triplas[tripla[0]][tripla[1]] = [tripla[2]];
+    }
+    else if (triplas[tripla[0]][tripla[1]] === undefined) {
+      triplas[tripla[0]][tripla[1]] = [tripla[2]];
+    }
+    else triplas[tripla[0]][tripla[1]].push(tripla[2]);
+  }
+  console.log(JSON.stringify(prefixos));
+  
+  for (let subject in triplas) {
+    prefixo = [];
+    htmlSource = '';
+    
+    if (/^[^:]{1,}:/.test(subject)) prefixo.push(subject.replace(/^([^:]{1,}:).*$/, '$1'));
+    
+    for (let property in triplas[subject]) {
+      if (/^[^:]{1,}:/.test(property)) {
+        if (! prefixo.includes(property.replace(/^([^:]{1,}:).*$/, '$1'))) prefixo.push(property.replace(/^([^:]{1,}:).*$/, '$1'));
+      }
+      
+      for (let object of triplas[subject][property]) {
+        if (! prefixo.includes(subject.replace(/^([^:]{1,}:).*$/, '$1'))) prefixo.push(subject.replace(/^([^:]{1,}:).*$/, '$1'));
+      }
+    }
+    prefixo.sort();
+    
+    prefix = '';
+    for (let p of prefixo) prefix += ` ${p} ${prefixos[p]}`;
+    console.log(JSON.stringify(prefix.replace(/^ /, '')));
+    
+    console.log(`"${subject}": ${JSON.stringify(triplas[subject])}`);
+    
+    resourcePrefix = subject.replace(/^([^:]*:).*$/, '$1');
+    resourceID = subject.replace(/^[^:]*:(.*)$/, '$1');
+    
+    htmlSource = `<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>${resourceID}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="serialisation.js"><\/script>
+</head>
+
+<style>
+body {
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans',sans-serif;
+}
+
+a:link    { color:#2160DE; text-decoration:none }
+a:visited { color:#2160DE; text-decoration:none }
+a:hover   { color:#2160DE; text-decoration:underline }
+a:active  { color:#2160DE; text-decoration:underline }
+
+a:link.oo    { color: initial }
+a:visited.oo { color:initial }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+  border-spacing: 5px;
+}
+</style>
+<body>
+
+<main>
+<h2>${resourceID}</h2>
+<base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
+<table 
+  prefix="${prefix.replace(/^ /, '')}" 
+  resource="${prefixos[resourcePrefix]}${resourceID}"
+>
+<tr>
+  <th>property</th>
+  <th>object</th>
+</tr>`;
+    for (let property in triplas[subject]) {
+      for (let object of triplas[subject][property]) {
+        resourceID = property.replace(/^[^:]*:(.*)$/, '$1');
+        htmlSource += `\n<tr>\n  <td><a href="${resourceID}">${property}</a></td>`;
+        
+        
+        if (/^</.test(object)) {
+          resourceID = object.replace(/[<>]/g, '');
+          htmlSource += `\n  <td><a href="${resourceID}" property="${property}">${resourceID}</a></td>\n</tr>`;
+        }
+        else if (/^"/.test(object)) htmlSource += `\n  <td><a property="${property}">${object.replace(/"/g, '')}</a></td>\n</tr>`;
+        else {
+          resourcePrefix = object.replace(/^([^:]*:).*$/, '$1');
+          resourceID = object.replace(/^[^:]*:(.*)$/, '$1');
+          if (resourcePrefix === 'tm:') htmlSource += `\n  <td><a href="${resourceID}" property="${property}">${object}</a></td>\n</tr>`;
+          else htmlSource += `\n  <td><a href="${prefixos[resourcePrefix]}${resourceID}" property="${property}">${object}</a></td>\n</tr>`;
+        }
+      }
+    }
+    
+    htmlSource += `
+</table>
+</main>
+
+<aside>
+<p>Download <button id="turtle">turtle</button> <button id="jsonld">jsonld</button></p>
+
+<script>
+document.getElementById("turtle").addEventListener("click", turtle);
+document.getElementById("jsonld").addEventListener("click", jsonld);
+<\/script>
+</aside>
+
+<footer style='font-family:"sans-serif"; font-size:10px;'>
+<p>Autor: <a href="https://tarcisomesquita.github.io" target="_blank">Tarciso Mesquita</a><br/>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img alt="Licença Creative Commons" style="border-width:0" src="https://tarcisomesquita.github.io/CC-BY.png" /></a><br />Esta obra está licenciada com uma Licença <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Atribuição 4.0 Internacional</a></p>
+<script src="https://tarcisomesquita.github.io/log.js" onload="logsend()" async defer><\/script>
+</footer>
+
+</body>
+</html>
+`;
+    
+    const link = document.createElement('a');
+    link.href = 'data:text/html;charset=UTF-8,' + htmlSource.replace(/\n/g, '%0A').replace(/#/g, '%23');
+    link.download = subject.replace(/^.*:/, '');
+    link.click();
+  }
+}
+
+// for F in thing.html literal.html resource.html class.html property.html sameAs.html format.html type.html label.html comment.html hasProperty.html hasClass.html; do cat $F  | sed -n '/<main>/,/<\/main>/p'; done > top-level.html
+// for F in thing.html literal.html resource.html class.html property.html sameAs.html format.html type.html label.html comment.html hasProperty.html hasClass.html; do cp $F know/base-de-conhecimento/${F%.html}; done
+</script>
+</body>
+</html>

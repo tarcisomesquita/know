@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>sameAs</title>
+  <title>hasProperty</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="serialisation.js"></script>
 </head>
@@ -34,11 +34,11 @@ table, th, td {
 <body>
 
 <main>
-<h2>sameAs</h2>
+<h2>hasProperty</h2>
 <base href="https://tarcisomesquita.github.io/know/base-de-conhecimento/" target="_blank"/>
 <table 
-  prefix="owl: http://www.w3.org/2002/07/owl# tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
-  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/sameAs"
+  prefix="tm: https://tarcisomesquita.github.io/know/base-de-conhecimento/" 
+  resource="https://tarcisomesquita.github.io/know/base-de-conhecimento/hasProperty"
 >
 <tr>
   <th>property</th>
@@ -50,19 +50,15 @@ table, th, td {
 </tr>
 <tr>
   <td><a href="label">tm:label</a></td>
-  <td><a property="tm:label">mesma coisa que</a></td>
+  <td><a property="tm:label">tem a propiedade</a></td>
 </tr>
 <tr>
   <td><a href="comment">tm:comment</a></td>
-  <td><a property="tm:comment">tm:sameAs determina que duas coisas são iguais.</a></td>
-</tr>
-<tr>
-  <td><a href="sameAs">owl:sameAs</a></td>
-  <td><a href="http://www.w3.org/2002/07/owl#sameAs" property="owl:sameAs">owl:sameAs</a></td>
+  <td><a property="tm:comment">tm:hasProperty determina uma propiedade que a classe possui.</a></td>
 </tr>
 <tr>
   <td><a href="hasClass">tm:hasClass</a></td>
-  <td><a href="thing" property="tm:hasClass">tm:thing</a></td>
+  <td><a href="class" property="tm:hasClass">tm:class</a></td>
 </tr>
 </table>
 </main>
