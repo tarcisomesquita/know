@@ -45,7 +45,7 @@ table, th, td {
   <th>object</th>
 </tr>
 <tr>
-  <td><a href="type">tm:type</a></td>
+  <td><a href="type" type="text/html">tm:type</a></td>
   <td><a href="class" property="tm:type">tm:class</a></td>
 </tr>
 <tr>
